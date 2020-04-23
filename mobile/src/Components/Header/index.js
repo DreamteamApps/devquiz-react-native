@@ -4,7 +4,7 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 
 import {Container} from './styles';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function Header({close, back}) {
   const navigation = useNavigation();

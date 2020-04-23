@@ -28,7 +28,7 @@ export default function Main({navigation}) {
         const user = {
           login,
           avatar: avatar_url,
-          name: name ? name : login,
+          name: name || login,
           repos: public_repos,
         };
         await saveUser(user);

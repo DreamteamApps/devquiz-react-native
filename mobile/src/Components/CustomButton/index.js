@@ -3,9 +3,9 @@ import {View, TouchableOpacity} from 'react-native';
 
 import {Container, Text} from './styles';
 
-export default function CustomButton({children, onPress}) {
+export default function CustomButton({children, onPress, containerStyle}) {
   return (
-    <Container>
+    <Container style={containerStyle}>
       <TouchableOpacity onPress={onPress}>
         <Text>{children}</Text>
       </TouchableOpacity>

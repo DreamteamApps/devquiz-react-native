@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 
-import {Container} from './styles';
+import {Container, ButtonsContainer} from './styles';
 import {getUser} from '~/Utils/UserHelpers';
 import Header from '../../Components/Header';
+import ProfileDisplay from '../../Components/ProfileDisplay';
+import CustomButton from '../../Components/CustomButton';
 export default function ModeSelect() {
+  const [data, setData] = useState({});
   const getUserData = async () => {
     const user = await getUser();
+    setData(user);
     console.warn(user);
   };
   useEffect(() => {
@@ -15,6 +19,13 @@ export default function ModeSelect() {
   return (
     <Container>
       <Header back />
+      <ProfileDisplay data={data} />
+      <ButtonsContainer>
+        <CustomButton containerStyle={{marginBottom: 30}}>
+          Create Room
+        </CustomButton>
+        <CustomButton>Join Room</CustomButton>
+      </ButtonsContainer>
     </Container>
   );
 }
