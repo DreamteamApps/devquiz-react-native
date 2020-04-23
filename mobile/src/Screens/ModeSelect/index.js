@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
-import {getUser} from '~/Utils/UserHelpers';
+import {getUser} from '~/Storage/UserStorage';
 import Header from '../../Components/Header';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
