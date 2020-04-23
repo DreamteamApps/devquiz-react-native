@@ -11,7 +11,7 @@ export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
   const getUserData = async () => {
     const user = await getUser();
-    console.warn(user);
+
     setData(user);
   };
   useEffect(() => {

@@ -24,12 +24,16 @@ import CustomButton from '../../Components/CustomButton';
 import LottieView from 'lottie-react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 
+import timer from '~/Assets/Animations/timer.json';
+import countdown from '~/Assets/Animations/countdown.json';
+
 export default function WaitingRoom({navigation}) {
   const [data, setData] = useState({});
   const [opponent, setOpponent] = useState();
   const [hubConnection, setHubConnection] = useState();
   const [ready, setReady] = useState(false);
   const [opponentReady, setOpponentReady] = useState(false);
+  const [centerAnimation, setCenterAnimation] = useState(timer);
   const getUserData = async () => {
     const user = await getUser();
     setData(user);
@@ -47,7 +51,10 @@ export default function WaitingRoom({navigation}) {
     if (newValue) {
       setTimeout(() => {
         setOpponentReady(true);
-        navigation.navigate('Game');
+
+        setTimeout(() => {
+          navigation.navigate('Game');
+        }, 5000);
       }, 2000);
     }
   };
@@ -61,12 +68,21 @@ export default function WaitingRoom({navigation}) {
           <VSLine></VSLine>
 
           <VSImageContainer>
-            <LottieView
-              source={require('../../Assets/Animations/timer.json')}
-              autoPlay
-              loop
-              style={{height: 150, marginRight: -5, marginTop: -5}}
-            />
+            {opponentReady ? (
+              <LottieView
+                source={countdown}
+                autoPlay
+                style={{height: 110, marginRight: 0, marginTop: 0}}
+              />
+            ) : (
+              <LottieView
+                source={timer}
+                autoPlay
+                loop
+                style={{height: 150, marginRight: -5, marginTop: -5}}
+              />
+            )}
+
             {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine>
