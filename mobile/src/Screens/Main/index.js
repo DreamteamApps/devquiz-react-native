@@ -4,15 +4,16 @@ import {Container, Title, ButtonsContainer} from './styles';
 import {getData} from '~/Service/githubApi';
 import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
+import {saveUser} from '~/Utils/UserHelpers';
 
-export default function Main() {
-  const [data, setData] = useState({});
+export default function Main({navigation}) {
   const [username, setUsername] = useState('');
   const getUserData = (username) => {
     if (username) {
       getData(username).then((dataReturn) => {
-        console.warn(dataReturn.data);
-        setData(dataReturn.data);
+        saveUser(dataReturn.data).then((_) => {
+          navigation.navigate('ModeSelect');
+        });
       });
     } else {
       console.warn('insert your githut username');
@@ -25,9 +26,9 @@ export default function Main() {
       <InputText
         placeholder="type your github username"
         onChangeText={(text) => setUsername(text)}
+        style={{width: 250}}
       />
 
-      <Text>{data.name?.teste}</Text>
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
       </ButtonsContainer>

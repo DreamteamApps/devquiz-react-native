@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import Main from '../Screens/Main';
+import ModeSelect from '../Screens/ModeSelect';
 
 const Stack = createStackNavigator();
 
@@ -11,6 +12,7 @@ export default function Navigation() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Main" headerMode="none">
         <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="ModeSelect" component={ModeSelect} />
       </Stack.Navigator>
     </NavigationContainer>
   );
