@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Main from '../Screens/Main';
 import ModeSelect from '../Screens/ModeSelect';
 import WaitingRoom from '../Screens/WaitingRoom';
+import JoinRoom from '../Screens/JoinRoom';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export default function Navigation() {
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="ModeSelect" component={ModeSelect} />
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
+        <Stack.Screen name="JoinRoom" component={JoinRoom} />
       </Stack.Navigator>
     </NavigationContainer>
   );
