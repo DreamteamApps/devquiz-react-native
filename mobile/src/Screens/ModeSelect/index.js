@@ -10,8 +10,8 @@ export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
   const getUserData = async () => {
     const user = await getUser();
-    setData(user);
     console.warn(user);
+    setData(user);
   };
   useEffect(() => {
     getUserData();
@@ -26,7 +26,9 @@ export default function ModeSelect({navigation}) {
           onPress={() => navigation.navigate('WaitingRoom')}>
           Create Room
         </CustomButton>
-        <CustomButton>Join Room</CustomButton>
+        <CustomButton onPress={() => navigation.navigate('JoinRoom')}>
+          Join Room
+        </CustomButton>
       </ButtonsContainer>
     </Container>
   );
