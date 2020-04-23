@@ -1,19 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import { Title, ButtonsContainer} from './styles';
+import {Title, ButtonsContainer} from './styles';
 import {PageContainer} from '../../Components/Layout';
 import {getData} from '~/Service/githubApi';
 import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
 import {saveUser, getUser} from '~/Storage/UserStorage';
 import Snackbar from 'react-native-snackbar';
+import {NavigationContainer, useLinking} from '@react-navigation/native';
 
-export default function Main({navigation}) {
+export default function Main({navigation, routes}) {
   const [username, setUsername] = useState('');
+  const ref = React.useRef();
+  const {getInitialState} = useLinking(ref, {
+    prefixes: ['http://devquiz', 'devquiz://'],
+  });
 
   const getLocalUserData = async () => {
     const user = await getUser();
+
     if (user?.login) {
-      navigation.navigate('ModeSelect');
+      const roomCode = await getDeepLink();
+      if (roomCode) {
+        navigation.navigate('JoinRoom', {roomCode: roomCode});
+      } else {
+        navigation.navigate('ModeSelect');
+      }
     }
   };
   useEffect(() => {
@@ -21,6 +32,12 @@ export default function Main({navigation}) {
     getLocalUserData();
   }, []);
 
+  const getDeepLink = async () => {
+    const deepLink = await getInitialState();
+    let roomCode =
+      deepLink?.routes[0]?.state?.routes[0]?.state?.routes[0]?.name;
+    return roomCode;
+  };
   const getUserData = async (username) => {
     if (username) {
       try {

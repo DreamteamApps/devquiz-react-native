@@ -9,9 +9,12 @@ import {saveUser, getUser} from '~/Storage/UserStorage';
 import Snackbar from 'react-native-snackbar';
 import Header from '../../Components/Header';
 
-export default function JoinRoom({navigation}) {
+export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
-
+  const {params} = route;
+  useEffect(() => {
+    setRoomCode(params.roomCode);
+  }, [params]);
   const getRoom = async (roomCode) => {
     if (roomCode) {
       try {
@@ -50,6 +53,7 @@ export default function JoinRoom({navigation}) {
           onChangeText={(text) => setRoomCode(text)}
           keyboardType={'numeric'}
           maxLength={6}
+          value={roomCode}
           style={{width: 250}}
         />
       </ContentContainer>
