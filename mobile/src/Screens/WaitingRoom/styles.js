@@ -1,11 +1,5 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  background: ${(props) => props.theme.primary};
-  flex: 1;
-  align-items: center;
-`;
-
 export const GameContainer = styled.View`
   width: 100%;
   align-items: center;
@@ -55,12 +49,12 @@ export const ShareContainer = styled.View`
 `;
 export const Code = styled.Text`
   color: #fff;
-  font-size: 50px;
+  font-size: ${(props) => props.theme.fonts.xxlarge};
   margin-bottom: 20px;
 `;
 export const CodeExplainText = styled.Text`
   color: #fff;
-  font-size: 20px;
+  font-size: ${(props) => props.theme.fonts.medium};
 `;
 
 export const ButtonsContainer = styled.View`
