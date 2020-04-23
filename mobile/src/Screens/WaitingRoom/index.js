@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import {
   Container,
@@ -24,7 +24,7 @@ import CustomButton from '../../Components/CustomButton';
 import LottieView from 'lottie-react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 
-export default function WaitingRoom() {
+export default function WaitingRoom({navigation}) {
   const [data, setData] = useState({});
   const [opponent, setOpponent] = useState();
   const getUserData = async () => {
@@ -33,6 +33,10 @@ export default function WaitingRoom() {
   };
   useEffect(() => {
     getUserData();
+  }, []);
+
+  const moveToGame = useCallback(() => {
+    navigation.navigate('Game');
   }, []);
 
   return (
@@ -75,7 +79,9 @@ export default function WaitingRoom() {
               <ProfileDisplay data={data} alternative />
             </OpponentContainer>
             <ButtonsContainer style={{width: '80%'}}>
-              <CustomButton containerStyle={{marginBottom: 20}}>
+              <CustomButton
+                containerStyle={{marginBottom: 20}}
+                onPress={moveToGame}>
                 Ready
               </CustomButton>
             </ButtonsContainer>
