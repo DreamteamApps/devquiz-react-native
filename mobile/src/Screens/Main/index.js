@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Title, ButtonsContainer} from './styles';
+import { Title, ButtonsContainer} from './styles';
+import {PageContainer} from '../../Components/Layout';
 import {getData} from '~/Service/githubApi';
 import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
@@ -48,7 +49,7 @@ export default function Main({navigation}) {
   };
 
   return (
-    <Container>
+    <PageContainer>
       <Title>Type your Github</Title>
       <InputText
         placeholder="type your github username"
@@ -58,6 +59,6 @@ export default function Main({navigation}) {
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
       </ButtonsContainer>
-    </Container>
+    </PageContainer>
   );
 }

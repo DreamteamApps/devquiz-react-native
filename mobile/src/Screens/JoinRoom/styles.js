@@ -1,15 +1,9 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  background: ${(props) => props.theme.primary};
-  flex: 1;
 
-  justify-content: space-between;
-  align-items: center;
-`;
 export const Title = styled.Text`
-  color: ${(props) => props.theme.secondary};
-  font-size: 40px;
+  color: ${(props) => props.theme.colors.secondary};
+  font-size: ${(props) => props.theme.fonts.xlarge};
 `;
 
 export const ContentContainer = styled.View``;

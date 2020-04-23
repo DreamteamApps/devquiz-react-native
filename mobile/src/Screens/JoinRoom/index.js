@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Title, ButtonsContainer, ContentContainer} from './styles';
+import {PageContainer} from '../../Components/Layout';
+
 import {getData} from '~/Service/githubApi';
 import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
@@ -38,7 +40,7 @@ export default function JoinRoom({navigation}) {
   };
 
   return (
-    <Container>
+    <PageContainer justifyContent="space-between">
       <Header back />
       <ContentContainer>
         <Title>Room Code</Title>
@@ -54,6 +56,6 @@ export default function JoinRoom({navigation}) {
       <ButtonsContainer>
         <CustomButton onPress={() => getRoom(roomCode)}>Enter</CustomButton>
       </ButtonsContainer>
-    </Container>
+    </PageContainer>
   );
 }
