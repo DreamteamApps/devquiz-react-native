@@ -3,6 +3,6 @@ import {View} from 'react-native';
 
 // import { Container } from './styles';
 
-export default function JoinRoom() {
+export default function ModeSelect() {
   return <View />;
 }
