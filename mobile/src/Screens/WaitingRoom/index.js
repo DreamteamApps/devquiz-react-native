@@ -27,6 +27,9 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 export default function WaitingRoom() {
   const [data, setData] = useState({});
   const [opponent, setOpponent] = useState();
+  const [hubConnection, setHubConnection] = useState();
+  const [ready, setReady] = useState(false);
+  const [opponentReady, setOpponentReady] = useState(false);
   const getUserData = async () => {
     const user = await getUser();
     setData(user);
@@ -34,6 +37,19 @@ export default function WaitingRoom() {
   useEffect(() => {
     getUserData();
   }, []);
+
+  const changeMyStatus = () => {
+    let newValue = !ready;
+
+    setReady(newValue);
+
+    //simulating opponent ready
+    if (newValue) {
+      setTimeout(() => {
+        setOpponentReady(true);
+      }, 2000);
+    }
+  };
 
   return (
     <PageContainer justifyContent="flex-start">
@@ -53,29 +69,35 @@ export default function WaitingRoom() {
             {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine>
-            <CheckFirstPlayer>
-              <IconIonicons
-                name="ios-checkmark-circle"
-                size={50}
-                color="#2ECC71"
-              />
-            </CheckFirstPlayer>
-            <CheckOpponent>
-              <IconIonicons
-                name="ios-checkmark-circle"
-                size={50}
-                color="#2ECC71"
-              />
-            </CheckOpponent>
+            {opponent && (
+              <>
+                <CheckFirstPlayer enabled={ready}>
+                  <IconIonicons
+                    name="ios-checkmark-circle"
+                    size={50}
+                    color="#2ECC71"
+                  />
+                </CheckFirstPlayer>
+                <CheckOpponent enabled={opponentReady}>
+                  <IconIonicons
+                    name="ios-checkmark-circle"
+                    size={50}
+                    color="#2ECC71"
+                  />
+                </CheckOpponent>
+              </>
+            )}
           </VSLine>
         </VSContainer>
         {opponent ? (
           <>
             <OpponentContainer>
-              <ProfileDisplay data={data} alternative />
+              <ProfileDisplay data={opponent} alternative />
             </OpponentContainer>
             <ButtonsContainer style={{width: '80%'}}>
-              <CustomButton containerStyle={{marginBottom: 20}}>
+              <CustomButton
+                containerStyle={{marginBottom: 20}}
+                onPress={() => changeMyStatus()}>
                 Ready
               </CustomButton>
             </ButtonsContainer>
@@ -84,7 +106,7 @@ export default function WaitingRoom() {
           <>
             <ShareContainer>
               <Code>QRJFU</Code>
-              <CodeExplainText style={{marginBottom: 55}}>
+              <CodeExplainText style={{marginBottom: 60}}>
                 Share this code with your friend
               </CodeExplainText>
               <CodeExplainText>Waiting for an opponent...</CodeExplainText>
@@ -92,7 +114,15 @@ export default function WaitingRoom() {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() => setOpponent({})}>
+                onPress={() =>
+                  setOpponent({
+                    name: 'Daniel Porto',
+                    login: 'dankobaia',
+                    repos: 10,
+                    avatar:
+                      'https://avatars1.githubusercontent.com/u/39194683?v=4',
+                  })
+                }>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
