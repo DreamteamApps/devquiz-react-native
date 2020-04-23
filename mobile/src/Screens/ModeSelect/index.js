@@ -6,7 +6,7 @@ import {getUser} from '~/Utils/UserHelpers';
 import Header from '../../Components/Header';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
-export default function ModeSelect() {
+export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
   const getUserData = async () => {
     const user = await getUser();
@@ -21,7 +21,9 @@ export default function ModeSelect() {
       <Header back />
       <ProfileDisplay data={data} />
       <ButtonsContainer>
-        <CustomButton containerStyle={{marginBottom: 30}}>
+        <CustomButton
+          containerStyle={{marginBottom: 30}}
+          onPress={() => navigation.navigate('WaitingRoom')}>
           Create Room
         </CustomButton>
         <CustomButton>Join Room</CustomButton>
