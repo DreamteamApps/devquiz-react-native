@@ -46,3 +46,21 @@ export const OponentContainer = styled.View`
   flex-direction: row;
   margin-bottom: 50px;
 `;
+
+export const ShareContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+export const Code = styled.Text`
+  color: #fff;
+  font-size: 50px;
+  margin-bottom: 20px;
+`;
+export const CodeExplainText = styled.Text`
+  color: #fff;
+  font-size: 20px;
+`;
+
+export const ButtonsContainer = styled.View`
+  width: 80%;
+`;
