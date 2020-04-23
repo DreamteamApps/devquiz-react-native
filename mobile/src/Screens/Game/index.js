@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {PageContainer} from '../../Components/Layout';
+import {PageContainer} from '~/Components/Layout';
 
 import {RoundTitle} from './styles';
 

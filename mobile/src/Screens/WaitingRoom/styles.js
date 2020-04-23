@@ -48,12 +48,12 @@ export const ShareContainer = styled.View`
   justify-content: center;
 `;
 export const Code = styled.Text`
-  color: #fff;
+  color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.xxlarge};
   margin-bottom: 20px;
 `;
 export const CodeExplainText = styled.Text`
-  color: #fff;
+  color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.medium};
 `;
 
