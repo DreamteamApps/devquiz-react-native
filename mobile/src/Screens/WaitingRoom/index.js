@@ -36,7 +36,7 @@ export default function WaitingRoom() {
           <VSLine></VSLine>
         </VSContainer>
         <OponentContainer>
-          <ProfileDisplay data={data} right />
+          <ProfileDisplay data={data} alternative />
         </OponentContainer>
       </GameContainer>
     </Container>

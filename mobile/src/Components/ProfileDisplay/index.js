@@ -12,16 +12,16 @@ import {
   Repos,
 } from './styles';
 
-export default function ProfileDisplay({data}) {
+export default function ProfileDisplay({data, alternative}) {
   const {name, login, avatar, repos} = data;
 
   return (
-    <Container>
+    <Container alternative={alternative}>
       {avatar && <Avatar source={{uri: avatar}} />}
-      <ProfileInfo>
-        <Name>{name}</Name>
-        <Username>@{login}</Username>
-        <ReposContainer>
+      <ProfileInfo alternative={alternative}>
+        <Name alternative={alternative}>{name}</Name>
+        <Username alternative={alternative}>@{login}</Username>
+        <ReposContainer alternative={alternative}>
           <Icon name="source-repository" size={25} color="#fff" />
           <Repos>{repos}</Repos>
         </ReposContainer>

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex-direction: row;
+  flex-direction: ${(props) => (props.alternative ? 'row-reverse' : 'row')};
   padding: 25px;
 `;
 
@@ -14,18 +14,21 @@ export const Avatar = styled.Image`
 `;
 export const ProfileInfo = styled.View`
   margin-left: 10px;
+  margin-right: ${(props) => (props.alternative ? '10px' : '0')};
 `;
 export const Name = styled.Text`
   color: #fff;
   font-size: 28px;
+  text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 export const Username = styled.Text`
   color: #fff;
   font-size: 18px;
   margin-bottom: 10px;
+  text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 export const ReposContainer = styled.View`
-  flex-direction: row;
+  flex-direction: ${(props) => (props.alternative ? 'row-reverse' : 'row')};
 `;
 export const RepoIcon = styled.View`
   width: 20px;
