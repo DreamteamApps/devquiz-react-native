@@ -38,9 +38,10 @@ export const VSLine = styled.View`
   width: 100%;
   height: 5px;
   position: relative;
+  flex: 1;
 `;
 
-export const OponentContainer = styled.View`
+export const OpponentContainer = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -65,7 +66,17 @@ export const CodeExplainText = styled.Text`
 export const ButtonsContainer = styled.View`
   width: 80%;
 `;
-export const CheckContainer = styled.View`
+
+export const CheckFirstPlayer = styled.View`
   position: absolute;
-  bottom: -20px;
+  bottom: 10px;
+  right: 10px;
+  opacity: ${(props) => (props.enabled ? '1' : '0.5')};
+`;
+
+export const CheckOpponent = styled.View`
+  position: absolute;
+  bottom: -55px;
+  right: 10px;
+  opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;

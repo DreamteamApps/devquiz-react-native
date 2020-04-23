@@ -6,13 +6,14 @@ import {
   VSLine,
   VSImage,
   VSImageContainer,
-  OponentContainer,
+  OpponentContainer,
   GameContainer,
   ShareContainer,
   CodeExplainText,
   Code,
   ButtonsContainer,
-  CheckContainer,
+  CheckOpponent,
+  CheckFirstPlayer,
 } from './styles';
 import {PageContainer} from '../../Components/Layout';
 
@@ -25,7 +26,7 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 
 export default function WaitingRoom() {
   const [data, setData] = useState({});
-  const [oponent, setOponent] = useState();
+  const [opponent, setOpponent] = useState();
   const getUserData = async () => {
     const user = await getUser();
     setData(user);
@@ -52,20 +53,27 @@ export default function WaitingRoom() {
             {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine>
-            <CheckContainer>
+            <CheckFirstPlayer>
               <IconIonicons
                 name="ios-checkmark-circle"
-                size={30}
+                size={50}
                 color="#2ECC71"
               />
-            </CheckContainer>
+            </CheckFirstPlayer>
+            <CheckOpponent>
+              <IconIonicons
+                name="ios-checkmark-circle"
+                size={50}
+                color="#2ECC71"
+              />
+            </CheckOpponent>
           </VSLine>
         </VSContainer>
-        {oponent ? (
+        {opponent ? (
           <>
-            <OponentContainer>
+            <OpponentContainer>
               <ProfileDisplay data={data} alternative />
-            </OponentContainer>
+            </OpponentContainer>
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton containerStyle={{marginBottom: 20}}>
                 Ready
@@ -84,7 +92,7 @@ export default function WaitingRoom() {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() => setOponent({})}>
+                onPress={() => setOpponent({})}>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
