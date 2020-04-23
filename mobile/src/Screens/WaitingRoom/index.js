@@ -12,12 +12,14 @@ import {
   CodeExplainText,
   Code,
   ButtonsContainer,
+  CheckContainer,
 } from './styles';
 import Header from '../../Components/Header';
 import {getUser} from '~/Storage/UserStorage';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
 import LottieView from 'lottie-react-native';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
 
 export default function WaitingRoom() {
   const [data, setData] = useState({});
@@ -37,6 +39,7 @@ export default function WaitingRoom() {
         <ProfileDisplay data={data} />
         <VSContainer>
           <VSLine></VSLine>
+
           <VSImageContainer>
             <LottieView
               source={require('../../Assets/Animations/timer.json')}
@@ -46,7 +49,15 @@ export default function WaitingRoom() {
             />
             {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
-          <VSLine></VSLine>
+          <VSLine>
+            <CheckContainer>
+              <IconIonicons
+                name="ios-checkmark-circle"
+                size={30}
+                color="#2ECC71"
+              />
+            </CheckContainer>
+          </VSLine>
         </VSContainer>
         {oponent ? (
           <>
@@ -63,13 +74,15 @@ export default function WaitingRoom() {
           <>
             <ShareContainer>
               <Code>QRJFU</Code>
-              <CodeExplainText style={{marginBottom: 30}}>
+              <CodeExplainText style={{marginBottom: 55}}>
                 Share this code with your friend
               </CodeExplainText>
               <CodeExplainText>Waiting for an opponent...</CodeExplainText>
             </ShareContainer>
             <ButtonsContainer style={{width: '80%'}}>
-              <CustomButton containerStyle={{marginBottom: 20}}>
+              <CustomButton
+                containerStyle={{marginBottom: 20}}
+                onPress={() => setOponent({})}>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
