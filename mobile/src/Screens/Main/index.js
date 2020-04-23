@@ -1,13 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Container, Title, ButtonsContainer} from './styles';
 import {getData} from '~/Service/githubApi';
 import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
-import {saveUser} from '~/Utils/UserHelpers';
+import {saveUser, getUser} from '~/Utils/UserHelpers';
 import Snackbar from 'react-native-snackbar';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
+
+  const getLocalUserData = async () => {
+    const user = await getUser();
+    if (user?.login) {
+      navigation.navigate('ModeSelect');
+    }
+  };
+  useEffect(() => {
+    //check if we have this Local User
+    getLocalUserData();
+  }, []);
 
   const getUserData = async (username) => {
     if (username) {
@@ -17,7 +28,7 @@ export default function Main({navigation}) {
         const user = {
           login,
           avatar: avatar_url,
-          name,
+          name: name ? name : login,
           repos: public_repos,
         };
         await saveUser(user);
