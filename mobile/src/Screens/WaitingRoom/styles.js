@@ -38,6 +38,7 @@ export const VSLine = styled.View`
   width: 100%;
   height: 5px;
   position: relative;
+  flex: 1;
 `;
 
 export const OponentContainer = styled.View`
@@ -67,5 +68,6 @@ export const ButtonsContainer = styled.View`
 `;
 export const CheckContainer = styled.View`
   position: absolute;
-  bottom: -20px;
+  bottom: 10px;
+  right: 10px;
 `;
