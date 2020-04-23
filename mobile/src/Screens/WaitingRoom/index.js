@@ -12,7 +12,8 @@ import {
   CodeExplainText,
   Code,
   ButtonsContainer,
-  CheckContainer,
+  CheckOpponent,
+  CheckFirstPlayer,
 } from './styles';
 import Header from '../../Components/Header';
 import {getUser} from '~/Storage/UserStorage';
