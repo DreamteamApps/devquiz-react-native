@@ -15,10 +15,10 @@ export default function Navigation() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Main" headerMode="none">
         <Stack.Screen name="Main" component={Main} />
-        {/* <Stack.Screen name="ModeSelect" component={ModeSelect} />
+        <Stack.Screen name="ModeSelect" component={ModeSelect} />
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
         <Stack.Screen name="JoinRoom" component={JoinRoom} />
-        <Stack.Screen name="Game" component={Game} /> */}
+        <Stack.Screen name="Game" component={Game} />
       </Stack.Navigator>
     </NavigationContainer>
   );

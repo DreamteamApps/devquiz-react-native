@@ -3,6 +3,7 @@ import {View} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
 import {getUser} from '~/Storage/UserStorage';
+import {PageContainer} from '../../Components/Layout';
 import Header from '../../Components/Header';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
@@ -17,7 +18,7 @@ export default function ModeSelect({navigation}) {
     getUserData();
   }, []);
   return (
-    <Container>
+    <PageContainer justifyContent="flex-start">
       <Header back />
       <ProfileDisplay data={data} />
       <ButtonsContainer>
@@ -30,6 +31,6 @@ export default function ModeSelect({navigation}) {
           Join Room
         </CustomButton>
       </ButtonsContainer>
-    </Container>
+    </PageContainer>
   );
 }

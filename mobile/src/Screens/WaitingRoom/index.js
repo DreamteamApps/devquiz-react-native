@@ -14,6 +14,8 @@ import {
   ButtonsContainer,
   CheckContainer,
 } from './styles';
+import {PageContainer} from '../../Components/Layout';
+
 import Header from '../../Components/Header';
 import {getUser} from '~/Storage/UserStorage';
 import ProfileDisplay from '../../Components/ProfileDisplay';
@@ -33,7 +35,7 @@ export default function WaitingRoom() {
   }, []);
 
   return (
-    <Container>
+    <PageContainer justifyContent="flex-start">
       <Header back />
       <GameContainer>
         <ProfileDisplay data={data} />
@@ -89,6 +91,6 @@ export default function WaitingRoom() {
           </>
         )}
       </GameContainer>
-    </Container>
+    </PageContainer>
   );
 }
