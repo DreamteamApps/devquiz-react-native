@@ -14,9 +14,10 @@ import {
   ButtonsContainer,
 } from './styles';
 import Header from '../../Components/Header';
-import {getUser} from '~/Utils/UserHelpers';
+import {getUser} from '~/Storage/UserStorage';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
+import LottieView from 'lottie-react-native';
 
 export default function WaitingRoom() {
   const [data, setData] = useState({});
@@ -37,7 +38,13 @@ export default function WaitingRoom() {
         <VSContainer>
           <VSLine></VSLine>
           <VSImageContainer>
-            <VSImage source={require('../../Assets/Images/sword.png')} />
+            <LottieView
+              source={require('../../Assets/Animations/timer.json')}
+              autoPlay
+              loop
+              style={{height: 150, marginRight: -5, marginTop: -5}}
+            />
+            {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine></VSLine>
         </VSContainer>
