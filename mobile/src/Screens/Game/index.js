@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Text} from 'react-native';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 
@@ -17,6 +18,8 @@ export default function Game({actualRound = 1, totalRounds = 10}) {
       {showRoundScreen && (
         <RoundCounter actualRound={actualRound} totalRounds={totalRounds} />
       )}
+
+      <Text>Sasadasdas asdasd</Text>
     </PageContainer>
   );
 }

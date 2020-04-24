@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Title, ButtonsContainer} from './styles';
-import {PageContainer} from '../../Components/Layout';
-import {getData} from '~/Service/githubApi';
-import InputText from '../../Components/InputText';
-import CustomButton from '../../Components/CustomButton';
-import {saveUser, getUser} from '~/Storage/UserStorage';
-import Snackbar from 'react-native-snackbar';
-import {NavigationContainer, useLinking} from '@react-navigation/native';
 
-export default function Main({navigation, routes}) {
+import {getData} from '~/Service/githubApi';
+import InputText from '~/Components/InputText';
+import CustomButton from '~/Components/CustomButton';
+import {saveUser, getUser} from '~/Storage/UserStorage';
+import {PageContainer} from '~/Components/Layout';
+import Snackbar from 'react-native-snackbar';
+import {useLinking} from '@react-navigation/native';
+
+export default function Main({navigation}) {
   const [username, setUsername] = useState('');
   const ref = React.useRef();
   const {getInitialState} = useLinking(ref, {
