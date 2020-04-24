@@ -21,7 +21,7 @@ export default function Main({navigation, routes}) {
     if (user?.login) {
       const roomCode = await getDeepLink();
       if (roomCode) {
-        navigation.navigate('JoinRoom', {roomCode: roomCode});
+        navigation.replace('JoinRoom', {roomCode: roomCode});
       } else {
         navigation.navigate('ModeSelect');
       }

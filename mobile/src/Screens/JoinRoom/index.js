@@ -13,20 +13,13 @@ export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
   useEffect(() => {
-    setRoomCode(params.roomCode);
+    setRoomCode(params?.roomCode);
+    roomCode && getRoom(params?.roomCode);
   }, [params]);
+
   const getRoom = async (roomCode) => {
     if (roomCode) {
       try {
-        // const dataReturn = await getData(username);
-        // const {login, avatar_url, name, public_repos} = dataReturn.data;
-        // const user = {
-        //   login,
-        //   avatar: avatar_url,
-        //   name: name || login,
-        //   repos: public_repos,
-        // };
-        // await saveUser(user);
         navigation.navigate('WaitingRoom');
       } catch (error) {
         Snackbar.show({
