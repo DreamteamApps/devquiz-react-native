@@ -3,7 +3,6 @@ import {View} from 'react-native';
 import {getUser} from '~/Storage/UserStorage';
 
 import {Container, ContainerScore} from './styles';
-import ProfileDisplay from '~/Components/ProfileDisplay';
 import ScoreProfile from './ScoreProfile';
 import Countdown from './Countdown';
 import {GameContext} from '~/Contexts/GameContext';
