@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {Text} from 'react-native';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
-import Question from './Question';
+import Question from '~/Components/Quiz';
 import GameTopInfo from '../../Components/GameTopInfo';
 import Header from '~/Components/Header';
 
