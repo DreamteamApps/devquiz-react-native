@@ -23,24 +23,16 @@ import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
 import LottieView from 'lottie-react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
-
+import {useAuth} from '~/Contexts/AuthContext';
 import timer from '~/Assets/Animations/timer.json';
 import countdown from '~/Assets/Animations/countdown.json';
 
 export default function WaitingRoom({navigation}) {
-  const [data, setData] = useState({});
   const [opponent, setOpponent] = useState();
-  const [hubConnection, setHubConnection] = useState();
   const [ready, setReady] = useState(false);
   const [opponentReady, setOpponentReady] = useState(false);
-  const [centerAnimation, setCenterAnimation] = useState(timer);
-  const getUserData = async () => {
-    const user = await getUser();
-    setData(user);
-  };
-  useEffect(() => {
-    getUserData();
-  }, []);
+
+  const {user} = useAuth();
 
   const changeMyStatus = () => {
     let newValue = !ready;
@@ -63,7 +55,7 @@ export default function WaitingRoom({navigation}) {
     <PageContainer justifyContent="flex-start">
       <Header back />
       <GameContainer>
-        <ProfileDisplay data={data} />
+        <ProfileDisplay data={user} />
         <VSContainer>
           <VSLine></VSLine>
 

@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Game" headerMode="none">
+      <Stack.Navigator initialRouteName="Main" headerMode="none">
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="ModeSelect" component={ModeSelect} />
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
