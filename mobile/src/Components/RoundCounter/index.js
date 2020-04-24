@@ -1,23 +1,26 @@
 import React, {useEffect, useRef} from 'react';
-import {Animated} from 'react-native';
-import {AnimatedContainer, RoundTitle} from './styles';
+import {Fade} from '../Animations';
+import {TouchableHighlight, Text} from 'react-native';
+import {RoundTitle} from './styles';
 
-export default function RoundCounter({actualRound = 1, totalRounds = 10}) {
-
-  const fadeAnim = useRef(new Animated.Value(1)).current
+export default function RoundCounter({
+  actualRound = 1,
+  totalRounds = 10,
+  hideScreen,
+}) {
+  const fadeRef = useRef(null);
 
   useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 5000,
-    }).start();
-  }, []);
+    console.log(fadeRef.current);
+    fadeRef.current.start();
+  }, [fadeRef.current]);
+
   return (
-    <AnimatedContainer opacity={fadeAnim}>
+    <Fade ref={fadeRef} onAnimationDone={hideScreen}>
       <RoundTitle>Round {actualRound}</RoundTitle>
       <RoundTitle small>
         {actualRound} of {totalRounds}
       </RoundTitle>
-    </AnimatedContainer>
+    </Fade>
   );
 }
