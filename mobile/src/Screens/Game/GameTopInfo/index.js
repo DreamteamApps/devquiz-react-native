@@ -20,6 +20,7 @@ export default function GameTopInfo() {
   return (
     <Container>
       <ScoreProfile data={data} />
+
       <ScoreProfile data={data} alternative />
     </Container>
   );
