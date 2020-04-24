@@ -4,6 +4,7 @@ import {getUser} from '~/Storage/UserStorage';
 
 import {Container} from './styles';
 import ProfileDisplay from '~/Components/ProfileDisplay';
+import ScoreProfile from './ScoreProfile';
 
 export default function GameTopInfo() {
   const [data, setData] = useState({});
@@ -18,8 +19,8 @@ export default function GameTopInfo() {
 
   return (
     <Container>
-      <ProfileDisplay data={data} />
-      <ProfileDisplay data={data} alternative />
+      <ScoreProfile data={data} />
+      <ScoreProfile data={data} alternative />
     </Container>
   );
 }
