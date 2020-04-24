@@ -13,8 +13,10 @@ export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
   useEffect(() => {
-    setRoomCode(params?.roomCode);
-    roomCode && getRoom(params?.roomCode);
+    if (params.roomCode) {
+      setRoomCode(params.roomCode);
+      getRoom(params.roomCode);
+    }
   }, [params]);
 
   const getRoom = async (roomCode) => {

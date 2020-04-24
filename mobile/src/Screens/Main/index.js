@@ -12,7 +12,7 @@ export default function Main({navigation, routes}) {
   const [username, setUsername] = useState('');
   const ref = React.useRef();
   const {getInitialState} = useLinking(ref, {
-    prefixes: ['http://devquiz', 'devquiz://'],
+    prefixes: ['http://devquiz.pt/invite', 'devquiz://invite'],
   });
 
   const getLocalUserData = async () => {
@@ -34,8 +34,7 @@ export default function Main({navigation, routes}) {
 
   const getDeepLink = async () => {
     const deepLink = await getInitialState();
-    let roomCode =
-      deepLink?.routes[0]?.state?.routes[0]?.state?.routes[0]?.name;
+    let roomCode = deepLink?.routes[0]?.name;
     return roomCode;
   };
   const getUserData = async (username) => {
