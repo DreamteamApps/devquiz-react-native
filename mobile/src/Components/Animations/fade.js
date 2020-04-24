@@ -19,6 +19,19 @@ const Fade = forwardRef((props, ref) => {
         useNativeDriver: true,
       }).start(() => props?.onAnimationDone && props.onAnimationDone());
     },
+    cycle() {
+      Animated.timing(fadeAnim, {
+        toValue: props?.end ?? 1,
+        duration: props?.duration ?? 2000,
+        useNativeDriver: true,
+      }).start(() =>
+        Animated.timing(fadeAnim, {
+          toValue: props?.start ?? 0,
+          duration: props?.duration ?? 2000,
+          useNativeDriver: true,
+        }).start(() => props?.onAnimationDone && props.onAnimationDone()),
+      );
+    },
   }));
 
   return (

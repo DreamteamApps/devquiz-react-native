@@ -12,7 +12,7 @@ export default function RoundCounter({
 
   useEffect(() => {
     console.log(fadeRef.current);
-    fadeRef.current.start();
+    fadeRef.current.cycle();
   }, [fadeRef.current]);
 
   return (
