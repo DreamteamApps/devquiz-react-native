@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from './Question';
-import GameTopInfo from './GameTopInfo';
+import GameTopInfo from '../../Components/GameTopInfo';
 import Header from '~/Components/Header';
 
 export default function Game({actualRound = 1, totalRounds = 10}) {
