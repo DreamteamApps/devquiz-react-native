@@ -8,7 +8,7 @@ import Awnsers from './Awnsers';
 export default function Quiz() {
   const theme = useTheme();
   const [question] = useState(
-    'orem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, ',
+    'Minha GOSTOSA',
   );
   const [image, setImage] = useState(
     'https://pokemongohub.net/wp-content/uploads/2018/11/Pokemon-Lets-Go.jpg',
@@ -26,16 +26,17 @@ export default function Quiz() {
   }, []);
 
   const context = useContext(GameContext);
+  const componentSmall = image ? true : false;
 
   return (
     <Container>
-      <QuestionContainer small={image ? true : false}>
+      <QuestionContainer small={componentSmall}>
         <Question adjustsFontSizeToFit minimumFontScale={0.1}>
           {question} {context.hubConnect}
         </Question>
       </QuestionContainer>
       <Image source={{uri: image}}></Image>
-      <Awnsers></Awnsers>
+      <Awnsers small={componentSmall}></Awnsers>
     </Container>
   );
 }

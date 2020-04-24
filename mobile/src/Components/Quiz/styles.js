@@ -15,13 +15,13 @@ export const QuestionContainer = styled.View`
 `;
 
 export const Question = styled.Text`
-  color: #fff;
+  color:  ${(props) => props.theme.colors.secondary};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.xxlarge};
 `;
 
 export const Image = styled.Image`
-  display: ${(props) => (props.size === 0 ? 'none' : 'flex')};
-  min-width: 90%;
+  display: ${(props) => (props.source? 'flex' : 'none')};
+  width: 90%;
   min-height: 200px;
 `;
