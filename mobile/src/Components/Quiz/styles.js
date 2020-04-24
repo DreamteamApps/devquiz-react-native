@@ -2,33 +2,26 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  align-items: flex-end;
-  justify-content:flex-end;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
 `;
 
 export const QuestionContainer = styled.View`
-  flex: 1;
   align-items: center;
-  width: 100%;
-  background-color: green;
-
+  justify-content: center;
+  height: ${(props) => (props.small ? '150px' : '300px')};
+  padding: 10px 20px;
 `;
 
 export const Question = styled.Text`
   color: #fff;
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 20px;
-  max-height: 30%;
-  background-color: red;
-  height: ${(props) => props.size}%;
+  font-size: ${(props) => props.theme.fonts.xxlarge};
 `;
 
 export const Image = styled.Image`
-  height: ${(props) => props.size}%;
   display: ${(props) => (props.size === 0 ? 'none' : 'flex')};
   min-width: 90%;
-  padding: 20px;
-  background-color: green;
+  min-height: 200px;
 `;

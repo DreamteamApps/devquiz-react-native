@@ -10,7 +10,6 @@ export default function RoundCounter({
   const fadeRef = useRef(null);
 
   useEffect(() => {
-    console.log(fadeRef.current);
     fadeRef.current.cycle(hideScreen);
   }, [fadeRef.current]);
 
