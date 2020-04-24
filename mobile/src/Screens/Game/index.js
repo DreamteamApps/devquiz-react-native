@@ -3,6 +3,8 @@ import {Text} from 'react-native';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from './Question';
+import GameTopInfo from './GameTopInfo';
+import Header from '~/Components/Header';
 
 export default function Game({actualRound = 1, totalRounds = 10}) {
   const [showRoundScreen, setShowRoundScreen] = useState(false);
@@ -21,7 +23,13 @@ export default function Game({actualRound = 1, totalRounds = 10}) {
         <RoundCounter actualRound={actualRound} totalRounds={totalRounds} />
       )}
 
-      {showQuestionScreen && <Question />}
+      {showQuestionScreen && (
+        <>
+          <Header />
+          <GameTopInfo />
+          <Question />
+        </>
+      )}
     </PageContainer>
   );
 }
