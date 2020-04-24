@@ -12,11 +12,11 @@ export default function RoundCounter({
 
   useEffect(() => {
     console.log(fadeRef.current);
-    fadeRef.current.cycle();
+    fadeRef.current.cycle(hideScreen);
   }, [fadeRef.current]);
 
   return (
-    <Fade ref={fadeRef} onAnimationDone={hideScreen}>
+    <Fade ref={fadeRef} >
       <RoundTitle>Round {actualRound}</RoundTitle>
       <RoundTitle small>
         {actualRound} of {totalRounds}
