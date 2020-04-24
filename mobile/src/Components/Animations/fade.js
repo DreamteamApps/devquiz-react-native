@@ -1,25 +1,31 @@
-import React, {forwardRef, useCallback} from 'react';
+import React, {forwardRef, useRef, useImperativeHandle} from 'react';
 import {Animated} from 'react-native';
 
 const Fade = forwardRef((props, ref) => {
-  
-  const startAnimation = useCallback(() => {
-    Animated.timing(fadeAnim, {
-      toValue: props.end,
-      duration: 5000,
-    }).start();
-  }, []);
+  const fadeAnim = useRef(new Animated.Value(props?.start ?? 0)).current;
 
-  return <Animated.View>{props.children}</Animated.View>;
+  useImperativeHandle(ref, () => ({
+    start() {
+      Animated.timing(fadeAnim, {
+        toValue: props?.end ?? 1,
+        duration: props?.duration ?? 2000,
+        useNativeDriver: true,
+      }).start(() => props?.onAnimationDone && props.onAnimationDone());
+    },
+    reverse() {
+      Animated.timing(fadeAnim, {
+        toValue: props?.start ?? 0,
+        duration: props?.duration ?? 2000,
+        useNativeDriver: true,
+      }).start(() => props?.onAnimationDone && props.onAnimationDone());
+    },
+  }));
+
+  return (
+    <Animated.View ref={ref} style={{opacity: fadeAnim}}>
+      {props.children}
+    </Animated.View>
+  );
 });
 
-//  const Fade = forwardRef({children, start = 0, end = 1, time = 3000},ref)=>() {
-//   useEffect(() => {
-//     Animated.timing(fadeAnim, {
-//       toValue: 0,
-//       duration: 5000,
-//     }).start();
-//   }, []);
-
-//   return <Animated.View>{children}</Animated.View>;
-// }
+export default Fade;
