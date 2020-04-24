@@ -54,8 +54,8 @@ export default function WaitingRoom({navigation}) {
 
         setTimeout(() => {
           navigation.navigate('Game');
-        }, 5000);
-      }, 2000);
+        }, 2000);
+      }, 1000);
     }
   };
 

@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import {Fade} from '../Animations';
-import {TouchableHighlight, Text} from 'react-native';
-import {RoundTitle} from './styles';
+import {RoundConteiner, RoundTitle} from './styles';
 
 export default function RoundCounter({
   actualRound = 1,
@@ -16,11 +15,13 @@ export default function RoundCounter({
   }, [fadeRef.current]);
 
   return (
-    <Fade ref={fadeRef} >
-      <RoundTitle>Round {actualRound}</RoundTitle>
-      <RoundTitle small>
-        {actualRound} of {totalRounds}
-      </RoundTitle>
+    <Fade ref={fadeRef}>
+      <RoundConteiner>
+        <RoundTitle>Round {actualRound}</RoundTitle>
+        <RoundTitle small>
+          {actualRound} of {totalRounds}
+        </RoundTitle>
+      </RoundConteiner>
     </Fade>
   );
 }
