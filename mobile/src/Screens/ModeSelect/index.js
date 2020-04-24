@@ -3,10 +3,10 @@ import {View} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
 import {getUser} from '~/Storage/UserStorage';
-import {PageContainer} from '../../Components/Layout';
-import Header from '../../Components/Header';
-import ProfileDisplay from '../../Components/ProfileDisplay';
-import CustomButton from '../../Components/CustomButton';
+import {PageContainer} from '~/Components/Layout';
+import Header from '~/Components/Header';
+import ProfileDisplay from '~/Components/ProfileDisplay';
+import CustomButton from '~/Components/CustomButton';
 export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
   const getUserData = async () => {

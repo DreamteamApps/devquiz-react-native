@@ -31,6 +31,7 @@
     "@babel/runtime": "^7.9.2",
     "@react-native-community/eslint-config": "^1.1.0",
     "babel-jest": "^25.4.0",
+    "babel-plugin-module-alias": "^1.6.0",
     "babel-plugin-root-import": "^6.5.0",
     "eslint": "^6.8.0",
     "eslint-plugin-import-helpers": "^1.0.2",

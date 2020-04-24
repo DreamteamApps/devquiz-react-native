@@ -3,7 +3,11 @@ import {Fade} from '../Animations';
 import {TouchableHighlight, Text} from 'react-native';
 import {RoundTitle} from './styles';
 
-export default function RoundCounter({actualRound = 1, totalRounds = 10}) {
+export default function RoundCounter({
+  actualRound = 1,
+  totalRounds = 10,
+  hideScreen,
+}) {
   const fadeRef = useRef(null);
 
   useEffect(() => {
@@ -12,7 +16,7 @@ export default function RoundCounter({actualRound = 1, totalRounds = 10}) {
   }, [fadeRef.current]);
 
   return (
-    <Fade ref={fadeRef} >
+    <Fade ref={fadeRef} onAnimationDone={hideScreen}>
       <RoundTitle>Round {actualRound}</RoundTitle>
       <RoundTitle small>
         {actualRound} of {totalRounds}
