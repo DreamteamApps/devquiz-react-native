@@ -24,6 +24,7 @@
     "react-native-screens": "^2.5.0",
     "react-native-snackbar": "^2.2.0",
     "react-native-vector-icons": "^6.6.0",
+    "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
