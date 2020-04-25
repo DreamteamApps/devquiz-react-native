@@ -25,7 +25,7 @@ Gets or create a new user
 {
 	"code": 2,
 	"message": "An error has occured!",
-  "error": {}
+	"error": {}
 }
 ```
 
@@ -93,7 +93,7 @@ Joins a room
 {
 	"code": 2,
 	"message": "An error has occured!",
-  "error": {}
+	"error": {}
 }
 ```
 
@@ -110,11 +110,20 @@ Joins a room
 ### (server) player-joined
 ```json
 {
-	"id": 1,
-	"login": "githubuser",
-	"name": "Primeiro segundo nome",
-	"avatar": "http://imagem.png",
-	"repos": 0
+	"owner": {
+		"id": 1,
+		"login": "githubuser",
+		"name": "Primeiro segundo nome",
+		"avatar": "http://imagem.png",
+	"	repos": 0
+},
+	opponent: {
+		"id": 1,
+		"login": "githubuser",
+		"name": "Primeiro segundo nome",
+		"avatar": "http://imagem.png",
+		"repos": 0
+	}
 }
 ```
 
