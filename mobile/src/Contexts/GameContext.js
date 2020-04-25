@@ -10,7 +10,7 @@ const GameProvider = ({children}) => {
     currentRound: 1,
     totalRounds: 5,
     roomCode: '',
-    opponentScore: 100,
+
     opponent: {
       avatar:
         'https://avatars3.githubusercontent.com/u/39194683?s=460&u=2eae246d434894f5674ca1afc033ba93ed20b86f&v=4',
@@ -19,7 +19,7 @@ const GameProvider = ({children}) => {
       repos: 10,
       login: 'dankobaia',
     },
-    player: {
+    owner: {
       avatar:
         'https://avatars1.githubusercontent.com/u/6720362?s=460&u=ffe4109e0c18c230c8f90fb25ba1bdddfec3a61c&v=4',
       name: 'Erick Alves',
