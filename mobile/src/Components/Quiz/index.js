@@ -19,12 +19,6 @@ export default function Quiz() {
     imageSize: 20,
   };
 
-  useEffect(() => {
-    const socket = io('http://localhost', {
-      path: '/myownpath',
-    });
-  }, []);
-
   const context = useContext(GameContext);
   const componentSmall = image ? true : false;
 
@@ -32,7 +26,7 @@ export default function Quiz() {
     <Container>
       <QuestionContainer small={componentSmall}>
         <Question adjustsFontSizeToFit minimumFontScale={0.1}>
-          {question} {context.hubConnect}
+          {question}
         </Question>
       </QuestionContainer>
       <Image source={{uri: image}}></Image>

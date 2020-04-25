@@ -24,18 +24,18 @@ export default function Game() {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (game.currentRound <= game.totalRounds) {
-        setGame({...game, currentRound: game.currentRound++});
-        changeRound();
-      } else {
-        clearInterval(interval);
-        console.warn('terminou');
-      }
-    }, 6000);
-    return () => {
-      clearInterval(interval);
-    };
+    // const interval = setInterval(() => {
+    //   if (game.currentRound <= game.totalRounds) {
+    //     setGame({...game, currentRound: game.currentRound++});
+    //     changeRound();
+    //   } else {
+    //     clearInterval(interval);
+    //     console.warn('terminou');
+    //   }
+    // }, 6000);
+    // return () => {
+    //   clearInterval(interval);
+    // };
   }, []);
   return (
     <PageContainer>
