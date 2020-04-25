@@ -1,10 +1,10 @@
 # Match sequence diagram
-![](https://raw.githubusercontent.com/erickcouto/devquiz/master/backend/SequenceDiagram.png)
+![Match sequence diagram](https://raw.githubusercontent.com/erickcouto/devquiz/master/backend/SequenceDiagram.png)
 
 # Endpoints
-###GET - /users/:githubuser
+### GET - /users/:githubuser
 Gets or create a new user
-######Response - 200
+###### Response - 200
 ```json
 {
 	"id": 1,
@@ -14,61 +14,92 @@ Gets or create a new user
 	"repos": 0
 }
 ```
-######Response - 400
+###### Response - 400
 ```json
 {
 	"code": 1,
-	"message": "This room code doesn't exists!"
+	"message": "This user doesn't exists!"
 }
 ```
-###GET - /match/:userId
-Creates a new room and join it
-######Response - 200
 ```json
 {
-	"matchId": 1
+	"code": 2,
+	"message": "An error has occured!",
+  "error": {}
 }
 ```
 
-###POST - /match/join
+### GET - /match/:userId
+Creates a new room
+###### Response - 200
+```json
+{
+	"matchId": 1,
+  "matchCode": "874676"
+}
+```
+
+###### Response - 400
+```json
+{
+	"code": 1,
+	"message": "This user doesn't exists!"
+}
+```
+
+### POST - /match/join
 Joins a room
-######Request
+###### Request
 ```json
 {
 	"matchCode": 123456,
 	"userId": 1
 }
 ```
-######Response - 200
+###### Response - 200
 ```json
 {
 	"matchId": 1
 }
 ```
 
-######Response - 400
+###### Response - 400
 ```json
 {
-	"code": 2,
-	"message": "This room code doesn't exists!"
+	"code": 1,
+	"message": "This user doesn't exists!"
 }
 ```
 ```json
 {
 	"code": 3,
+	"message": "This room code doesn't exists!"
+}
+```
+```json
+{
+	"code": 4,
 	"message": "This room is full!"
 }
 ```
 
 ```json
 {
-	"code": 4,
+	"code": 5,
 	"message": "This room is already over!"
 }
 ```
+```json
+{
+	"code": 2,
+	"message": "An error has occured!",
+  "error": {}
+}
+```
+
 # Socket events
 
-###(client) join-match
+### (client) join-match
 ```json
 {
 	"userId" : 1,
@@ -76,7 +107,7 @@ Joins a room
 }
 ```
 
-###(server) player-joined
+### (server) player-joined
 ```json
 {
 	"id": 1,
@@ -87,7 +118,7 @@ Joins a room
 }
 ```
 
-###(client) set-ready
+### (client) set-ready
 ```json
 {
 	"userId" : 1,
@@ -95,14 +126,14 @@ Joins a room
 }
 ```
 
-###(server) player-ready
+### (server) player-ready
 ```json
 {
 	"userId": 1
 }
 ```
 
-###(server) match-start
+### (server) match-start
 ```json
 {
 	"userId": 1,
@@ -110,7 +141,7 @@ Joins a room
 }
 ```
 
-###(server) match-start-round
+### (server) match-start-round
 ```json
 {
 	"currentRound": 1,
@@ -118,7 +149,7 @@ Joins a room
 }
 ```
 
-###(server) match-start-question
+### (server) match-start-question
 ```json
 {
 	"id": 0,
@@ -131,14 +162,14 @@ Joins a room
 }
 ```
 
-###(server) match-countdown
+### (server) match-countdown
 ```json
 {
 	"seconds": 10
 }
 ```
 
-###(client) answer-question
+### (client) answer-question
 ```json
 {
 	"userId" : 1,
@@ -148,7 +179,7 @@ Joins a room
 }
 ```
 
-###(server) match-round-end
+### (server) match-round-end
 ```json
 {
 	"owner" : {
@@ -165,7 +196,7 @@ Joins a room
 }
 ```
 
-###(server) match-end
+### (server) match-end
 ```json
 {
 	"totalScore": 50,
