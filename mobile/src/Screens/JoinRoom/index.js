@@ -11,13 +11,14 @@ import Header from '../../Components/Header';
 import {useGame} from '~/Contexts/GameContext';
 import {useAuth} from '~/Contexts/AuthContext';
 import {joinMatch} from '~/Service/MatchApi';
+import {useApp} from '~/Contexts/AppContext';
 
 export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
   const {user, setUser} = useAuth();
   const {game, setGame} = useGame();
-
+  const {setLoading} = useApp();
   useEffect(() => {
     if (params?.roomCode) {
       console.log(user);
@@ -28,6 +29,7 @@ export default function JoinRoom({navigation, route}) {
 
   const getRoom = async (roomCode) => {
     if (roomCode) {
+      setLoading(true);
       try {
         const dataReturn = await joinMatch(user.id, roomCode);
         const {matchId} = dataReturn.data;
@@ -42,6 +44,7 @@ export default function JoinRoom({navigation, route}) {
           duration: Snackbar.LENGTH_SHORT,
         });
       }
+      setLoading(false);
     } else {
       Snackbar.show({
         text: 'Type the Room Code',
