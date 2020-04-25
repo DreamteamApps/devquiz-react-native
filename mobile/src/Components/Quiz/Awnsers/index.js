@@ -1,16 +1,16 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {Container, AwnserContainer} from './styles';
-import QuestionButton from '../QuestionButton';
+import AwnserButton from '../AwnserButton';
 
-export default function Awnser({small, awnsers = [1, 2, 3, 4]}) {
+export default function Awnser({small, awnsers}) {
   return (
     <Container>
       <AwnserContainer small={small}>
         {awnsers.map((i) => (
-          <QuestionButton key={i} small={small}>
-            {i}
-          </QuestionButton>
+          <AwnserButton key={i.text} selected={i.selected} small={small}>
+            {i.text}
+          </AwnserButton>
         ))}
       </AwnserContainer>
     </Container>
