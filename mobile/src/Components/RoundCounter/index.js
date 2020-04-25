@@ -2,11 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {Fade} from '../Animations';
 import {RoundConteiner, RoundTitle} from './styles';
 
-export default function RoundCounter({
-  actualRound = 1,
-  totalRounds = 10,
-  hideScreen,
-}) {
+export default function RoundCounter({actualRound, totalRounds, hideScreen}) {
   const fadeRef = useRef(null);
 
   useEffect(() => {

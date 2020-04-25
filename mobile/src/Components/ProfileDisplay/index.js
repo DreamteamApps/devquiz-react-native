@@ -8,12 +8,13 @@ import {
   Name,
   Username,
   ReposContainer,
-  RepoIcon,
   Repos,
 } from './styles';
+import {useAuth} from '~/Contexts/AuthContext';
 
 export default function ProfileDisplay({data, alternative}) {
-  const {name, login, avatar, repos} = data;
+  const {user} = useAuth();
+  const {name, login, avatar, repos} = data || user;
 
   return (
     <Container alternative={alternative}>

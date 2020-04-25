@@ -5,10 +5,10 @@ import {getUser} from '~/Storage/UserStorage';
 import {Container, ContainerScore} from './styles';
 import ScoreProfile from './ScoreProfile';
 import Countdown from './Countdown';
-import {GameContext} from '~/Contexts/GameContext';
+import {useGame} from '~/Contexts/GameContext';
 
 export default function GameTopInfo() {
-  const context = useContext(GameContext);
+  const {game} = useGame();
 
   const [data, setData] = useState({});
   const [valueTimer, setValueTimer] = useState(10); //
@@ -39,8 +39,8 @@ export default function GameTopInfo() {
     <Container>
       <Countdown value={valueTimer} />
       <ContainerScore>
-        <ScoreProfile data={data} />
-        <ScoreProfile data={data} alternative />
+        <ScoreProfile data={game.owner} />
+        <ScoreProfile data={game.opponent} alternative />
       </ContainerScore>
     </Container>
   );

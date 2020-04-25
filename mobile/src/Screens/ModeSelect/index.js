@@ -6,16 +6,14 @@ import {PageContainer} from '~/Components/Layout';
 import Header from '~/Components/Header';
 import ProfileDisplay from '~/Components/ProfileDisplay';
 import CustomButton from '~/Components/CustomButton';
-import {useAuth} from '~/Contexts/AuthContext';
 
 export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
-  const {user} = useAuth();
 
   return (
     <PageContainer justifyContent="flex-start">
       <Header back />
-      <ProfileDisplay data={user} />
+      <ProfileDisplay />
       <ButtonsContainer>
         <CustomButton
           containerStyle={{marginBottom: 30}}
