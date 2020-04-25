@@ -6,10 +6,20 @@ import {PageContainer} from '~/Components/Layout';
 import Header from '~/Components/Header';
 import ProfileDisplay from '~/Components/ProfileDisplay';
 import CustomButton from '~/Components/CustomButton';
+import {createRoom} from '~/Service/MatchApi';
+import {useAuth} from '~/Contexts/AuthContext';
+import {useGame} from '~/Contexts/GameContext';
 
 export default function ModeSelect({navigation}) {
-  const [data, setData] = useState({});
+  const {user} = useAuth();
+  const {game, setGame} = useGame();
 
+  const handleCreateRoom = async () => {
+    const dataReturn = await createRoom(user.id);
+    const {matchId, matchCode} = dataReturn.data;
+    setGame({...game, matchId: matchId, roomCode: matchCode});
+    navigation.navigate('WaitingRoom');
+  };
   return (
     <PageContainer justifyContent="flex-start">
       <Header back />
@@ -17,7 +27,7 @@ export default function ModeSelect({navigation}) {
       <ButtonsContainer>
         <CustomButton
           containerStyle={{marginBottom: 30}}
-          onPress={() => navigation.navigate('WaitingRoom')}>
+          onPress={() => handleCreateRoom()}>
           Create Room
         </CustomButton>
         <CustomButton onPress={() => navigation.navigate('JoinRoom')}>
