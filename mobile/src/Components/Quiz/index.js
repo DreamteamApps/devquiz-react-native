@@ -8,7 +8,7 @@ import Awnsers from './Awnsers';
 export default function Quiz() {
   const theme = useTheme();
   const [question] = useState(
-    'Minha GOSTOSA',
+    'ASdmk asdka skdas kasdkaskdk askdak sdka skd askd kas  ask a kas ka aks kak as',
   );
   const [image, setImage] = useState(
     'https://pokemongohub.net/wp-content/uploads/2018/11/Pokemon-Lets-Go.jpg',
