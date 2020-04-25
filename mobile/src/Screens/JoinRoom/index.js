@@ -8,12 +8,19 @@ import CustomButton from '../../Components/CustomButton';
 import {saveUser, getUser} from '~/Storage/UserStorage';
 import Snackbar from 'react-native-snackbar';
 import Header from '../../Components/Header';
+import {useGame} from '~/Contexts/GameContext';
+import {useAuth} from '~/Contexts/AuthContext';
+import {joinMatch} from '~/Service/MatchApi';
 
 export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
+  const {user, setUser} = useAuth();
+  const {game, setGame} = useGame();
+
   useEffect(() => {
-    if (params.roomCode) {
+    if (params?.roomCode) {
+      console.log(user);
       setRoomCode(params.roomCode);
       getRoom(params.roomCode);
     }
@@ -22,10 +29,16 @@ export default function JoinRoom({navigation, route}) {
   const getRoom = async (roomCode) => {
     if (roomCode) {
       try {
+        const dataReturn = await joinMatch(user.id, roomCode);
+        const {matchId} = dataReturn.data;
+        setGame({...game, matchId: matchId});
+        setUser({...user, isOpponent: true});
+
         navigation.navigate('WaitingRoom');
       } catch (error) {
+        console.log(error);
         Snackbar.show({
-          text: 'Username not found. Check your username and try again',
+          text: 'Room Code not found. Check the number and try again',
           duration: Snackbar.LENGTH_SHORT,
         });
       }

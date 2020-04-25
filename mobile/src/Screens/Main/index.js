@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Title, ButtonsContainer} from './styles';
 
-import {getData} from '~/Service/githubApi';
+import {getData} from '~/Service/AuthApi';
 import InputText from '~/Components/InputText';
 import CustomButton from '~/Components/CustomButton';
 import {saveUser, getUser} from '~/Storage/UserStorage';
@@ -21,7 +21,7 @@ export default function Main({navigation}) {
 
   const getLocalUserData = async () => {
     const user = await getUser();
-
+    console.warn(user);
     if (user?.login) {
       const roomCode = await getDeepLink();
       if (roomCode) {
@@ -46,17 +46,13 @@ export default function Main({navigation}) {
     if (username) {
       try {
         const dataReturn = await getData(username);
-        const {login, avatar_url, name, public_repos} = dataReturn.data;
-        const user = {
-          login,
-          avatar: avatar_url,
-          name: name || login,
-          repos: public_repos,
-        };
-        await saveUser(user);
-        setUser(user);
+
+        await saveUser(dataReturn.data);
+        setUser(dataReturn.data);
+
         navigation.navigate('ModeSelect');
       } catch (error) {
+        console.log(error);
         Snackbar.show({
           text: 'Username not found. Check your username and try again',
           duration: Snackbar.LENGTH_SHORT,

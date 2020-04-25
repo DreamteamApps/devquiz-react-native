@@ -34,22 +34,66 @@ export default function WaitingRoom({navigation}) {
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
-  const {game} = useGame();
-  const changeMyStatus = () => {
-    let newValue = !ready;
+  const {hubConnect, game, emit} = useGame();
 
-    setReady(newValue);
-
-    //simulating opponent ready
-    if (newValue) {
-      setTimeout(() => {
-        setOpponentReady(true);
-
-        setTimeout(() => {
-          navigation.navigate('Game');
-        }, 4000);
-      }, 1000);
+  useEffect(() => {
+    if (game.matchId) {
+      emit('join-match', {
+        userId: user.id,
+        matchId: game.matchId,
+      });
     }
+
+    hubConnect.on('player-joined', (data) => {
+      console.log('player-joined', data);
+      console.log('isOpponent', user.isOpponent);
+      if (!user.isOpponent) {
+        if (data.opponent) {
+          setOpponent(data.opponent);
+        }
+      } else {
+        setOpponent(data.owner);
+      }
+    });
+
+    hubConnect.on('player-ready', (data) => {
+      console.log('player-ready', data);
+      if (!user.isOpponent) {
+        if (data.opponent) {
+          setOpponentReady(true);
+        }
+      } else {
+        setReady(true);
+      }
+    });
+
+    hubConnect.on('match-start', (data) => {
+      setOpponentReady(true);
+      setTimeout(() => {
+        navigation.navigate('Game');
+      }, 4000);
+    });
+  }, []);
+  const changeMyStatus = () => {
+    emit('set-ready', {
+      userId: user.id,
+      matchId: game.matchId,
+    });
+
+    // let newValue = !ready;
+
+    // setReady(newValue);
+
+    // //simulating opponent ready
+    // if (newValue) {
+    //   setTimeout(() => {
+    //     setOpponentReady(true);
+
+    //     setTimeout(() => {
+    //       navigation.navigate('Game');
+    //     }, 4000);
+    //   }, 1000);
+    // }
   };
 
   return (
@@ -115,7 +159,7 @@ export default function WaitingRoom({navigation}) {
         ) : (
           <>
             <ShareContainer>
-              <Code>QRJFU</Code>
+              <Code>{game.roomCode}</Code>
               <CodeExplainText style={{marginBottom: 60}}>
                 Share this code with your friend
               </CodeExplainText>

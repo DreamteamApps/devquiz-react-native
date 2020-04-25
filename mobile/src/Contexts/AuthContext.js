@@ -1,8 +1,21 @@
-import React, {createContext, useState, useContext} from 'react';
-
+import React, {createContext, useState, useContext, useEffect} from 'react';
+import {saveUser, getUser} from '~/Storage/UserStorage';
 export const AuthContext = createContext();
+
 const AuthProvider = ({children}) => {
   const [user, setUser] = useState({});
+
+  useEffect(() => {
+    getLocalUserData();
+  }, []);
+
+  const getLocalUserData = async () => {
+    const user = await getUser();
+    console.warn(user);
+    if (user?.login) {
+      setUser(user);
+    }
+  };
 
   return (
     <AuthContext.Provider value={{user, setUser}}>
