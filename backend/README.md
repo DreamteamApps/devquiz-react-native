@@ -21,6 +21,14 @@ Gets or create a new user
 	"message": "This room code doesn't exists!"
 }
 ```
+```json
+{
+	"code": 2,
+	"message": "An error has occured!",
+  "error": {}
+}
+```
+
 ### GET - /match/:userId
 Creates a new room and join it
 ###### Response - 200
@@ -49,23 +57,31 @@ Joins a room
 ###### Response - 400
 ```json
 {
-	"code": 2,
+	"code": 3,
 	"message": "This room code doesn't exists!"
 }
 ```
 ```json
 {
-	"code": 3,
+	"code": 4,
 	"message": "This room is full!"
 }
 ```
 
 ```json
 {
-	"code": 4,
+	"code": 5,
 	"message": "This room is already over!"
 }
 ```
+```json
+{
+	"code": 2,
+	"message": "An error has occured!",
+  "error": {}
+}
+```
+
 # Socket events
 
 ### (client) join-match
