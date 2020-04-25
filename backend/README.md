@@ -18,7 +18,7 @@ Gets or create a new user
 ```json
 {
 	"code": 1,
-	"message": "This room code doesn't exists!"
+	"message": "This user doesn't exists!"
 }
 ```
 ```json
@@ -30,11 +30,20 @@ Gets or create a new user
 ```
 
 ### GET - /match/:userId
-Creates a new room and join it
+Creates a new room
 ###### Response - 200
 ```json
 {
-	"matchId": 1
+	"matchId": 1,
+  "matchCode": "874676"
+}
+```
+
+###### Response - 400
+```json
+{
+	"code": 1,
+	"message": "This user doesn't exists!"
 }
 ```
 
@@ -55,6 +64,12 @@ Joins a room
 ```
 
 ###### Response - 400
+```json
+{
+	"code": 1,
+	"message": "This user doesn't exists!"
+}
+```
 ```json
 {
 	"code": 3,
