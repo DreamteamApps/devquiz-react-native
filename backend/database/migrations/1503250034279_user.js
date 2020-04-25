@@ -13,6 +13,9 @@ class UserSchema extends Schema {
       table.string('image_url', 254)
       table.string('email', 254).unique()
       table.string('password', 60)
+      table.integer('wins')
+      table.integer('losses')
+      table.integer('score')
       table.timestamps()
     })
   }
