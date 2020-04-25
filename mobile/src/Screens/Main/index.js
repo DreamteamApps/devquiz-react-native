@@ -9,12 +9,13 @@ import {PageContainer} from '~/Components/Layout';
 import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
+import {useApp} from '~/Contexts/AppContext';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
   const ref = React.useRef();
   const {setUser} = useAuth();
-
+  const {setLoading} = useApp();
   const {getInitialState} = useLinking(ref, {
     prefixes: ['http://devquiz.pt/invite', 'devquiz://invite'],
   });
@@ -31,9 +32,11 @@ export default function Main({navigation}) {
         navigation.navigate('ModeSelect');
       }
     }
+    setLoading(false);
   };
   useEffect(() => {
     //check if we have this Local User
+    setLoading(true);
     getLocalUserData();
   }, []);
 
@@ -43,6 +46,7 @@ export default function Main({navigation}) {
     return roomCode;
   };
   const getUserData = async (username) => {
+    setLoading(true);
     if (username) {
       try {
         const dataReturn = await getData(username);
@@ -64,6 +68,7 @@ export default function Main({navigation}) {
         duration: Snackbar.LENGTH_SHORT,
       });
     }
+    setLoading(false);
   };
 
   return (
