@@ -21,7 +21,6 @@ class UserController {
       }
 
       let existingUser = await User.findBy('username', login);
-
       if (!existingUser) {
         await User.create({
           username: login,
