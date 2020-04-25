@@ -1,59 +1,58 @@
 const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
-var matchId = "123456";
+const User = use("App/Models/User")
+const Match = use("App/Models/Match")
+const MatchDomain = use('App/Domain/MatchDomain')
+const waitMS = use("App/Helpers/WaitMS")
 
 io.on('connection', function (socket) {
-    console.log(socket.id);
+    socket.on('join-match', async (params) => {
+        const { matchId } = params;
 
-    socket.on('join-match', function (matchInfo) {
-        socket.join(matchInfo.match_id);
+        await socket.join(matchId);
+
+        return Match.findBy('id', matchId).then((existingMatch) => {
+            const getRolesPromises = [];
+            var matchPlayers = {};
+
+            const getOwnerPromise = User.findBy('id', existingMatch.owner_id).then((owner) => matchPlayers.owner = {
+                id: owner.id,
+                login: owner.username,
+                name: owner.name,
+                avatar: owner.image_url,
+                repos: owner.repos_quantity
+            });
+
+            getRolesPromises.push(getOwnerPromise);
+
+            if (existingMatch.opponent_id) {
+                const getOpponentPromise = User.findBy('id', existingMatch.opponent_id).then((opponent) => matchPlayers.opponent = {
+                    id: opponent.id,
+                    login: opponent.username,
+                    name: opponent.name,
+                    avatar: opponent.image_url,
+                    repos: opponent.repos_quantity
+                });
+
+                getRolesPromises.push(getOpponentPromise);
+            }
+
+            Promise.all(getRolesPromises).then(() => {
+                io.in(matchId).emit('player-joined', matchPlayers);
+            });
+        });
     });
 
-    socket.on('player-ready', function (playerInfo) {
-        console.log(playerInfo.user_id);
-        console.log(playerInfo.match_id);
+    socket.on('set-ready', async (params) => {
+        const { userId, matchId } = params;
+        MatchDomain.setReady(userId, matchId).then((matchShouldStart) => {
+            io.in(matchId).emit('player-ready', { userId: userId });
+            if (matchShouldStart) {
+                waitMS(500).then(() => {
+                    io.in(matchId).emit('match-start');
+                });
+            }
+        });
     });
-
-    setTimeout(async () => {
-        io.in(matchId).emit('match-start');
-
-        await waitMS(5000);
-
-        io.in(matchId).emit('match-start-round', { round: 1, totalRounds: 10 });
-
-        await waitMS(2000);
-
-        io.in(matchId).emit('match-start-question', { title: "Pergunta01" });
-
-        await waitMS(500);
-
-        await countdownTo(10, (count) => io.in(matchId).emit('match-question-countdown', count));
-
-        await waitMS(500);
-
-        io.in(matchId).emit('match-end-round', { correctAnswer: 2 });
-
-    }, 1000);
-
 });
-
-const countdownTo = (to, onCount, onCountdownEnd) => {
-    return new Promise(async (resolve) => {
-        var counted = to;
-        while (counted > 0) {
-            onCount(counted);
-            await waitMS(1000);
-            counted--;
-        }
-        resolve();
-    });
-}
-
-const waitMS = async (ms) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, ms);
-    });
-}

@@ -1,7 +1,7 @@
 'use strict'
 
 const User = use("App/Models/User")
-const getUserInformation = require("../../Infrastructure/Github")
+const GitHub = use("App/Infrastructure/Github")
 
 class UserController {
   /**
@@ -11,7 +11,7 @@ class UserController {
   */
   async getOrCreateUser({ params, response }) {
     try {
-      const { login, name, public_repos, avatar_url } = await getUserInformation(params.githubuser);
+      const { login, name, public_repos, avatar_url } = await GitHub.getUserInformation(params.githubuser);
 
       if (!login) {
         return response.status(400).send({

@@ -2,7 +2,7 @@
 
 const User = use("App/Models/User")
 const Match = use("App/Models/Match")
-const generateCode = require("../../Helpers/CodeGenerator")
+const CodeGenerator = use("App/Helpers/CodeGenerator")
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -30,7 +30,7 @@ class MatchController {
         });
       }
 
-      const code = generateCode();
+      const code = CodeGenerator.generateCode();
 
       const createdMatch = await Match.create({
         code: code,
