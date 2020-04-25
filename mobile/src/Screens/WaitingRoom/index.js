@@ -58,10 +58,8 @@ export default function WaitingRoom({navigation}) {
 
     hubConnect.on('player-ready', (data) => {
       console.log('player-ready', data);
-      if (!user.isOpponent) {
-        if (data.opponent) {
-          setOpponentReady(true);
-        }
+      if (data.id != user.id) {
+        setOpponentReady(true);
       } else {
         setReady(true);
       }

@@ -14,7 +14,7 @@ import {useAuth} from '~/Contexts/AuthContext';
 
 export default function ProfileDisplay({data, alternative}) {
   const {user} = useAuth();
-  console.log(user);
+
   const {name, login, avatar, repos} = data || user;
 
   return (

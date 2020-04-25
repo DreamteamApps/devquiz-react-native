@@ -21,7 +21,7 @@ export default function Main({navigation}) {
 
   const getLocalUserData = async () => {
     const user = await getUser();
-    console.warn(user);
+
     if (user?.login) {
       const roomCode = await getDeepLink();
       if (roomCode) {

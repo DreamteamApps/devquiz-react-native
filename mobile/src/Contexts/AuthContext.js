@@ -11,7 +11,7 @@ const AuthProvider = ({children}) => {
 
   const getLocalUserData = async () => {
     const user = await getUser();
-    console.warn(user);
+
     if (user?.login) {
       setUser(user);
     }

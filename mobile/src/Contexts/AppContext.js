@@ -4,6 +4,7 @@ import styles from '~/Utils/styles';
 import {ThemeProvider} from 'styled-components';
 import GameProvider from './GameContext';
 import AuthProvider from './AuthContext';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export const AppContext = createContext();
 
@@ -12,9 +13,11 @@ export default function AppProvider({children}) {
   return (
     <AppContext.Provider value={{loading, setLoading}}>
       <ThemeProvider theme={styles}>
-        <AuthProvider>
-          <GameProvider>{children}</GameProvider>
-        </AuthProvider>
+        <SafeAreaProvider>
+          <AuthProvider>
+            <GameProvider>{children}</GameProvider>
+          </AuthProvider>
+        </SafeAreaProvider>
       </ThemeProvider>
     </AppContext.Provider>
   );
