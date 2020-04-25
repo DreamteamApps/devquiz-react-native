@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useRef, useContext} from 'react';
-import {View} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
 import {getUser} from '~/Storage/UserStorage';
 
 import {Container, ContainerScore} from './styles';
@@ -10,7 +9,6 @@ import {useGame} from '~/Contexts/GameContext';
 export default function GameTopInfo() {
   const {game} = useGame();
 
-  const [data, setData] = useState({});
   const [valueTimer, setValueTimer] = useState(10); //
 
   const timer = useRef(10);
@@ -25,13 +23,6 @@ export default function GameTopInfo() {
     return () => {
       clearInterval(interval);
     };
-  }, []);
-  const getUserData = async () => {
-    const user = await getUser();
-    setData(user);
-  };
-  useEffect(() => {
-    getUserData();
   }, []);
 
   return (
