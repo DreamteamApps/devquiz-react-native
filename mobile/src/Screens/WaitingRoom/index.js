@@ -26,6 +26,7 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 import {useAuth} from '~/Contexts/AuthContext';
 import timer from '~/Assets/Animations/timer.json';
 import countdown from '~/Assets/Animations/countdown.json';
+import {useGame} from '~/Contexts/GameContext';
 
 export default function WaitingRoom({navigation}) {
   const [opponent, setOpponent] = useState();
@@ -33,7 +34,7 @@ export default function WaitingRoom({navigation}) {
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
-
+  const {game} = useGame();
   const changeMyStatus = () => {
     let newValue = !ready;
 
@@ -123,15 +124,7 @@ export default function WaitingRoom({navigation}) {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() =>
-                  setOpponent({
-                    name: 'Daniel Porto',
-                    login: 'dankobaia',
-                    repos: 10,
-                    avatar:
-                      'https://avatars1.githubusercontent.com/u/39194683?v=4',
-                  })
-                }>
+                onPress={() => setOpponent(game.opponent)}>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
