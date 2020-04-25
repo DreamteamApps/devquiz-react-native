@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Title, ButtonsContainer} from './styles';
 
 import {getData} from '~/Service/githubApi';
@@ -8,10 +8,13 @@ import {saveUser, getUser} from '~/Storage/UserStorage';
 import {PageContainer} from '~/Components/Layout';
 import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
+import {useAuth} from '~/Contexts/AuthContext';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
   const ref = React.useRef();
+  const {setUser} = useAuth();
+
   const {getInitialState} = useLinking(ref, {
     prefixes: ['http://devquiz.pt/invite', 'devquiz://invite'],
   });
@@ -24,6 +27,7 @@ export default function Main({navigation}) {
       if (roomCode) {
         navigation.navigate('JoinRoom', {roomCode: roomCode});
       } else {
+        setUser(user);
         navigation.navigate('ModeSelect');
       }
     }
@@ -50,6 +54,7 @@ export default function Main({navigation}) {
           repos: public_repos,
         };
         await saveUser(user);
+        setUser(user);
         navigation.navigate('ModeSelect');
       } catch (error) {
         Snackbar.show({

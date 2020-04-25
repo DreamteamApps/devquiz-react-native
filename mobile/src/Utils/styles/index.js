@@ -15,10 +15,15 @@ const fonts = {
   xlarge: '34px',
   xxlarge: '50px',
 };
+let fontsInt = {};
+Object.keys(fonts).forEach(
+  (key) => (fontsInt[key] = parseInt(fonts[key].replace('px', ''))),
+);
 
 const style = {
   colors,
   fonts,
+  fontsInt
 };
 
 export default style;

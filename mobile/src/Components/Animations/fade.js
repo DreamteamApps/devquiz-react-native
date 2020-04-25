@@ -6,7 +6,6 @@ const Fade = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, (onAnimationDone) => ({
     start(onAnimationDone) {
-      console.log("start")
       Animated.timing(fadeAnim, {
         toValue: props?.end ?? 1,
         duration: props?.duration ?? 2000,
@@ -14,7 +13,6 @@ const Fade = forwardRef((props, ref) => {
       }).start(() => onAnimationDone && onAnimationDone());
     },
     reverse(onAnimationDone) {
-      console.log("reverse")
       Animated.timing(fadeAnim, {
         toValue: props?.start ?? 0,
         duration: props?.duration ?? 2000,

@@ -2,25 +2,20 @@ import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
-import {getUser} from '~/Storage/UserStorage';
 import {PageContainer} from '~/Components/Layout';
 import Header from '~/Components/Header';
 import ProfileDisplay from '~/Components/ProfileDisplay';
 import CustomButton from '~/Components/CustomButton';
+import {useAuth} from '~/Contexts/AuthContext';
+
 export default function ModeSelect({navigation}) {
   const [data, setData] = useState({});
-  const getUserData = async () => {
-    const user = await getUser();
+  const {user} = useAuth();
 
-    setData(user);
-  };
-  useEffect(() => {
-    getUserData();
-  }, []);
   return (
     <PageContainer justifyContent="flex-start">
       <Header back />
-      <ProfileDisplay data={data} />
+      <ProfileDisplay data={user} />
       <ButtonsContainer>
         <CustomButton
           containerStyle={{marginBottom: 30}}
