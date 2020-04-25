@@ -15,7 +15,7 @@ class UserController {
 
       if (!login) {
         return response.status(400).send({
-          "code": 1,
+          "errorCode": 1,
           "message": "This user doesn't exists!"
         });
       }
@@ -46,7 +46,7 @@ class UserController {
       };
     } catch (error) {
       return response.status(400).send({
-        "code": 2,
+        "errorCode": 2,
         "message": "An error has occured!",
         "error": error
       });

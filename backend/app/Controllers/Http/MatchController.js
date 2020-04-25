@@ -2,7 +2,8 @@
 
 const User = use("App/Models/User")
 const Match = use("App/Models/Match")
-const CodeGenerator = use("App/Helpers/CodeGenerator")
+
+const MatchDomain = use('App/Domain/MatchDomain')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -20,31 +21,18 @@ class MatchController {
    */
   async store({ params, response }) {
     try {
-      const userId = params.userid;
-
-      let existingUser = await User.findBy('id', userId);
-      if(!existingUser) {
-        return response.status(400).send({
-          "code": 1,
-          "message": "This user doesn't exists!"
-        });
+      const {userid} = params;
+   
+      const response = await MatchDomain.createMatch(userid);
+      
+      if(!response.errorCode) {
+        return response;
       }
 
-      const code = CodeGenerator.generateCode();
-
-      const createdMatch = await Match.create({
-        code: code,
-        owner_id: userId,
-        status: "pristine"
-      });
-      
-      return {
-        matchId: createdMatch.id,
-        matchCode: createdMatch.code 
-      };
+      return response.status(400).send(response);
     } catch (error) {
       return response.status(400).send({
-        "code": 2,
+        "errorCode": 2,
         "message": "An error has occured!",
         "error": error
       });
@@ -66,7 +54,7 @@ class MatchController {
       let existingUser = await User.findBy('id', userId);
       if(!existingUser) {
         return response.status(400).send({
-          "code": 1,
+          "errorCode": 1,
           "message": "This user doesn't exists!"
         });
       }
@@ -74,35 +62,35 @@ class MatchController {
       let existingMatch = await Match.findBy('code', matchCode);
       if(!existingMatch) {
         return response.status(400).send({
-          "code": 3,
+          "errorCode": 3,
           "message": "This room doesn't exists!"
         });
       } 
 
       if(existingMatch.owner_id == userId) {
         return response.status(400).send({
-          "code": 7,
+          "errorCode": 7,
           "message": "You cannot join your own room!"
         });
       }
 
       if(existingMatch.opponent_id) {
         return response.status(400).send({
-          "code": 4,
+          "errorCode": 4,
           "message": "This room is full!"
         });
       }
 
       if(['pristine', 'ended'].indexOf(existingMatch.status) == -1) {
         return response.status(400).send({
-          "code": 5,
+          "errorCode": 5,
           "message": "This room is already started!"
         });
       }
 
       if(existingMatch.status == 'ended') {
         return response.status(400).send({
-          "code": 6,
+          "errorCode": 6,
           "message": "This room is already over!"
         });
       }
@@ -119,7 +107,7 @@ class MatchController {
       };
     } catch (error) {
       return response.status(400).send({
-        "code": 2,
+        "errorCode": 2,
         "message": "An error has occured!",
         "error": error
       });

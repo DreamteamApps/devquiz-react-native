@@ -17,13 +17,13 @@ Gets or create a new user
 ###### Response - 400
 ```json
 {
-	"code": 1,
+	"errorCode": 1,
 	"message": "This user doesn't exists!"
 }
 ```
 ```json
 {
-	"code": 2,
+	"errorCode": 2,
 	"message": "An error has occured!",
 	"error": {}
 }
@@ -42,7 +42,7 @@ Creates a new room
 ###### Response - 400
 ```json
 {
-	"code": 1,
+	"errorCode": 1,
 	"message": "This user doesn't exists!"
 }
 ```
@@ -66,32 +66,32 @@ Joins a room
 ###### Response - 400
 ```json
 {
-	"code": 1,
+	"errorCode": 1,
 	"message": "This user doesn't exists!"
 }
 ```
 ```json
 {
-	"code": 3,
+	"errorCode": 3,
 	"message": "This room code doesn't exists!"
 }
 ```
 ```json
 {
-	"code": 4,
+	"errorCode": 4,
 	"message": "This room is full!"
 }
 ```
 
 ```json
 {
-	"code": 5,
+	"errorCode": 5,
 	"message": "This room is already over!"
 }
 ```
 ```json
 {
-	"code": 2,
+	"errorCode": 2,
 	"message": "An error has occured!",
 	"error": {}
 }
