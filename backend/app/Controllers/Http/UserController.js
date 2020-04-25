@@ -1,7 +1,7 @@
 'use strict'
 
 const User = use("App/Models/User")
-const getUserInformation = require("../../Infrastructure/Github")
+const GitHub = use("App/Infrastructure/Github")
 
 class UserController {
   /**
@@ -11,11 +11,11 @@ class UserController {
   */
   async getOrCreateUser({ params, response }) {
     try {
-      const { login, name, public_repos, avatar_url } = await getUserInformation(params.githubuser);
+      const { login, name, public_repos, avatar_url } = await GitHub.getUserInformation(params.githubuser);
 
       if (!login) {
         return response.status(400).send({
-          "code": 1,
+          "errorCode": 1,
           "message": "This user doesn't exists!"
         });
       }
@@ -46,7 +46,7 @@ class UserController {
       };
     } catch (error) {
       return response.status(400).send({
-        "code": 2,
+        "errorCode": 2,
         "message": "An error has occured!",
         "error": error
       });
