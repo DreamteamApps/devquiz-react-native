@@ -112,13 +112,11 @@ export default function WaitingRoom({navigation}) {
                 source={countdown}
                 autoPlay
                 resizeMode="cover"
-                style={{height: 45}}
+                style={{height: 80}}
               />
             ) : (
               <LottieView source={swords} autoPlay loop style={{height: 80}} />
             )}
-
-            {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine>
             {opponent && (
