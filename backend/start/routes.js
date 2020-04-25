@@ -16,13 +16,10 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/users/:username', 'UserController.getOrCreateUser');
+Route.get('/users/:githubuser', 'UserController.getOrCreateUser');
 
-Route.post('/matchs', 'MatchController.store');
-Route.post('/matchs/join', 'MatchController.join');
+Route.get('/match/create/:userid', 'MatchController.store');
+Route.post('/match/join', 'MatchController.joinMatchWithCode');
 
 Route.resource('questions', 'QuestionController').apiOnly();
-Route.get('/questions/random/:theme', 'QuestionController.getRandomQuestion');
-Route.post('/questions/answer', 'QuestionController.answerQuestion');
-
 Route.resource('themes', 'ThemeController').apiOnly();
