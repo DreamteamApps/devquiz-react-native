@@ -10,7 +10,7 @@ export const Container = styled.View`
 export const QuestionContainer = styled.View`
   align-items: center;
   justify-content: center;
-  height: ${(props) => (props.small ? '150px' : '300px')};
+  height: ${(props) => (props.small ? '150px' : '250px')};
   padding: 10px 20px;
 `;
 
