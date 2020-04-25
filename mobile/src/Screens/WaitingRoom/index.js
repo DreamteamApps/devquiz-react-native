@@ -25,12 +25,14 @@ import LottieView from 'lottie-react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import {useAuth} from '~/Contexts/AuthContext';
 import timer from '~/Assets/Animations/timer.json';
+import swords from '~/Assets/Animations/swords.json';
 import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
 
 export default function WaitingRoom({navigation}) {
   const [opponent, setOpponent] = useState();
   const [ready, setReady] = useState(false);
+  const [startMatch, setStartMatch] = useState(false);
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
@@ -58,7 +60,7 @@ export default function WaitingRoom({navigation}) {
 
     hubConnect.on('player-ready', (data) => {
       console.log('player-ready', data);
-      if (data.id != user.id) {
+      if (data.userId != user.id) {
         setOpponentReady(true);
       } else {
         setReady(true);
@@ -66,7 +68,7 @@ export default function WaitingRoom({navigation}) {
     });
 
     hubConnect.on('match-start', (data) => {
-      setOpponentReady(true);
+      setStartMatch(true);
       setTimeout(() => {
         navigation.navigate('Game');
       }, 4000);
@@ -103,19 +105,17 @@ export default function WaitingRoom({navigation}) {
           <VSLine></VSLine>
 
           <VSImageContainer>
-            {opponentReady ? (
+            {!opponent ? (
+              <LottieView source={timer} autoPlay style={{height: 150}} />
+            ) : startMatch ? (
               <LottieView
                 source={countdown}
                 autoPlay
-                style={{height: 110, marginRight: 0, marginTop: 0}}
+                resizeMode="cover"
+                style={{height: 45}}
               />
             ) : (
-              <LottieView
-                source={timer}
-                autoPlay
-                loop
-                style={{height: 150, marginRight: -5, marginTop: -5}}
-              />
+              <LottieView source={swords} autoPlay loop style={{height: 80}} />
             )}
 
             {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}

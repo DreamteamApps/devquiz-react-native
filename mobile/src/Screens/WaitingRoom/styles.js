@@ -19,7 +19,7 @@ export const VSImageContainer = styled.View`
   width: 100px;
   height: 100px;
   border-radius: 50px;
-  align-self: center;
+
   align-items: center;
   justify-content: center;
   elevation: 5;
