@@ -19,7 +19,6 @@ export default function GameTopInfo() {
       if (timer.current >= 0) {
         setValueTimer(timer.current--);
       } else {
-        context.setHubConnect('changed!!');
         clearInterval(interval);
       }
     }, 1000);
