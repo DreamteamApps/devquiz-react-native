@@ -62,7 +62,7 @@ module.exports.getMatchPlayers = async (matchId) => {
             getRolesPromises.push(getOpponentPromise);
         }
 
-        return Promise.all(getRolesPromises);
+        return Promise.all(getRolesPromises).then(()=> matchPlayers);
     });
 }
 
@@ -72,7 +72,6 @@ module.exports.getMatchPlayers = async (matchId) => {
  * @param {integer} userId
 */
 module.exports.createMatch = async (userId) => {
-
     let existingUser = await User.findBy('id', userId);
     if(!existingUser) {
       return {
@@ -90,5 +89,68 @@ module.exports.createMatch = async (userId) => {
     return {
       matchId: createdMatch.id,
       matchCode: createdMatch.code 
+    };
+};
+
+/**
+ * Join player in a match with userId and matchCode
+ *
+ * @param {integer} matchCode
+ * @param {integer} userId
+*/
+module.exports.joinMatchWithCode = async (matchCode, userId) => {
+    let existingUser = await User.findBy('id', userId);
+    if(!existingUser) {
+      return {
+        "errorCode": 1,
+        "message": "This user doesn't exists!"
+      }
+    }
+
+    let existingMatch = await Match.findBy('code', matchCode);
+    if(!existingMatch) {
+      return {
+        "errorCode": 3,
+        "message": "This room doesn't exists!"
+      };
+    } 
+
+    if(existingMatch.owner_id == userId) {
+      return {
+        "errorCode": 7,
+        "message": "You cannot join your own room!"
+      };
+    }
+
+    if(existingMatch.opponent_id) {
+      return {
+        "errorCode": 4,
+        "message": "This room is full!"
+      };
+    }
+
+    if(['pristine', 'ended'].indexOf(existingMatch.status) == -1) {
+      return {
+        "errorCode": 5,
+        "message": "This room is already started!"
+      };
+    }
+
+    if(existingMatch.status == 'ended') {
+      return {
+        "errorCode": 6,
+        "message": "This room is already over!"
+      };
+    }
+
+    existingMatch.merge({
+      opponent_id : userId,
+      status: 'opponent_joined'
+    });
+
+    await existingMatch.save();
+    
+    return {
+      matchId: existingMatch.id
     };
 };

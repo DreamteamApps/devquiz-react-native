@@ -1,6 +1,6 @@
 'use strict'
 
-const Question = use("App/Models/Question");
+const Question = use("App/Models/Question")
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -85,28 +85,6 @@ class QuestionController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
-  }
-
-  /**
-   * Get a random question within passed theme id.
-   * Get questions/random/:themeid
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async getRandomQuestion({ params, request, response }) {
-  }
-
-  /**
-   * Answer a question.
-   * POST questions/answer
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async answerQuestion({ params, request, response }) {
   }
 }
 
