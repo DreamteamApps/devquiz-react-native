@@ -143,12 +143,6 @@ Joins a room
 ```
 
 ### (server) match-start
-```json
-{
-	"userId": 1,
-	"matchId" : 1
-}
-```
 
 ### (server) match-start-round
 ```json
@@ -213,3 +207,11 @@ Joins a room
 	"losses": 1
 }
 ```
+
+# Test client 
+
+cd test_client
+
+npm install
+
+node client.js
