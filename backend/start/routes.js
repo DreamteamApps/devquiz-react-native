@@ -18,7 +18,7 @@ const Route = use('Route')
 
 Route.get('/users/:githubuser', 'UserController.getOrCreateUser');
 
-Route.get('/match/create/:userid', 'MatchController.store');
+Route.get('/match/create/:userId', 'MatchController.store');
 Route.post('/match/join', 'MatchController.joinMatchWithCode');
 
 Route.resource('questions', 'QuestionController').apiOnly();

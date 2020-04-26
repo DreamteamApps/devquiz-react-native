@@ -1,4 +1,17 @@
-const waitMS = use("App/Helpers/WaitMS");
+/**
+ * 
+ * Returns a promise that takes at least X ms to resolve
+ *
+*/
+module.exports.waitMS = (ms) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, ms);
+    });
+};
+
+
 
 /**
  * 
@@ -10,7 +23,7 @@ module.exports.countdownTo = (from, onCount) => {
         var counted = from;
         while (counted > 0) {
             onCount(counted);
-            await waitMS(1000);
+            await this.waitMS(1000);
             counted--;
         }
         resolve();

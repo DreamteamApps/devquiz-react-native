@@ -1,7 +1,6 @@
 'use strict'
 
-const User = use("App/Models/User")
-const GitHub = use("App/Infrastructure/Github")
+const UserDomain = use('App/Domain/UserDomain')
 
 class UserController {
   /**
@@ -10,47 +9,15 @@ class UserController {
    *
   */
   async getOrCreateUser({ params, response }) {
-    try {
-      const { login, name, public_repos, avatar_url } = await GitHub.getUserInformation(params.githubuser);
+    const {githubuser} = params;
 
-      if (!login) {
-        return response.status(400).send({
-          "errorCode": 1,
-          "message": "This user doesn't exists!"
-        });
-      }
+    const result = await UserDomain.getOrCreateUser(githubuser);
 
-      let existingUser = await User.findBy('username', login);
-      if (!existingUser) {
-        await User.create({
-          username: login,
-          name: name || login,
-          repos_quantity: public_repos,
-          image_url: avatar_url
-        });
-        existingUser = await User.findBy('username', login);
-      } else {
-        existingUser.merge({
-          repos_quantity: public_repos,
-          image_url: avatar_url
-        })
-        await existingUser.save();
-      }
-
-      return {
-        id: existingUser.id,
-        login: existingUser.username,
-        name: existingUser.name,
-        avatar: existingUser.image_url,
-        repos: existingUser.repos_quantity
-      };
-    } catch (error) {
-      return response.status(400).send({
-        "errorCode": 2,
-        "message": "An error has occured!",
-        "error": error
-      });
+    if (!result.errorCode) {
+      return result;
     }
+
+    return response.status(400).send(result);
   }
 }
 

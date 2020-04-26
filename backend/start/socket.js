@@ -2,7 +2,7 @@ const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
 const MatchDomain = use('App/Domain/MatchDomain')
-const waitMS = use("App/Helpers/WaitMS")
+const Time = use("App/Helpers/Time")
 
 io.on('connection', function (socket) {
     socket.on('join-match', async (params) => {
@@ -20,9 +20,9 @@ io.on('connection', function (socket) {
 
         MatchDomain.setReady(userId, matchId).then((matchShouldStart) => {
             io.in(matchId).emit('player-ready', { userId: userId });
-            
+
             if (matchShouldStart) {
-                waitMS(500).then(() => {
+                Time.waitMS(500).then(() => {
                     io.in(matchId).emit('match-start');
                 });
             }
