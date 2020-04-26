@@ -31,6 +31,7 @@ export default function AwnserButton({
         correct={correct}
         selected={playerSelected}
         adjustsFontSizeToFit
+        disableda={disabled}
         minimumFontScale={0.1}>
         {children}
       </AwnserText>
