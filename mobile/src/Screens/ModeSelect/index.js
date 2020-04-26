@@ -9,16 +9,28 @@ import CustomButton from '~/Components/CustomButton';
 import {createRoom} from '~/Service/MatchApi';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useGame} from '~/Contexts/GameContext';
+import {useApp} from '~/Contexts/AppContext';
 
 export default function ModeSelect({navigation}) {
   const {user} = useAuth();
   const {game, setGame} = useGame();
-
+  const {setLoading} = useApp();
   const handleCreateRoom = async () => {
-    const dataReturn = await createRoom(user.id);
-    const {matchId, matchCode} = dataReturn.data;
-    setGame({...game, matchId: matchId, roomCode: matchCode});
-    navigation.navigate('WaitingRoom');
+    setLoading(true);
+    try {
+      const dataReturn = await createRoom(user.id);
+      const {matchId, matchCode} = dataReturn.data;
+      setGame({...game, matchId: matchId, roomCode: matchCode});
+      navigation.navigate('WaitingRoom');
+    } catch (error) {
+      console.log(error);
+      Snackbar.show({
+        text: 'Server error, try again later.',
+        duration: Snackbar.LENGTH_SHORT,
+      });
+    }
+
+    setLoading(false);
   };
   return (
     <PageContainer justifyContent="flex-start">

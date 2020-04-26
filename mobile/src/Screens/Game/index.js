@@ -1,5 +1,4 @@
-import React, {useCallback, useState, useEffect} from 'react';
-import {Text} from 'react-native';
+import React, {useCallback, useState} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
@@ -23,20 +22,7 @@ export default function Game() {
     setShowQuestionScreen(false);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (game.currentRound <= game.totalRounds) {
-        setGame({...game, currentRound: game.currentRound++});
-        changeRound();
-      } else {
-        clearInterval(interval);
-        console.warn('terminou');
-      }
-    }, 6000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  
   return (
     <PageContainer>
       {showRoundScreen && (

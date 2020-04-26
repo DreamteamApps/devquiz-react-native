@@ -25,12 +25,15 @@ import LottieView from 'lottie-react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import {useAuth} from '~/Contexts/AuthContext';
 import timer from '~/Assets/Animations/timer.json';
+import swords from '~/Assets/Animations/swords.json';
 import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
+import Share from 'react-native-share';
 
 export default function WaitingRoom({navigation}) {
   const [opponent, setOpponent] = useState();
   const [ready, setReady] = useState(false);
+  const [startMatch, setStartMatch] = useState(false);
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
@@ -58,17 +61,15 @@ export default function WaitingRoom({navigation}) {
 
     hubConnect.on('player-ready', (data) => {
       console.log('player-ready', data);
-      if (!user.isOpponent) {
-        if (data.opponent) {
-          setOpponentReady(true);
-        }
+      if (data.userId != user.id) {
+        setOpponentReady(true);
       } else {
         setReady(true);
       }
     });
 
     hubConnect.on('match-start', (data) => {
-      setOpponentReady(true);
+      setStartMatch(true);
       setTimeout(() => {
         navigation.navigate('Game');
       }, 4000);
@@ -96,6 +97,15 @@ export default function WaitingRoom({navigation}) {
     // }
   };
 
+  const handleFriendInvite = () => {
+    const shareOptions = {
+      title: 'DevQuiz',
+      message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
+      url: `http://devquiz.pt/invite/${game.roomCode}`,
+    };
+    Share.open(shareOptions);
+  };
+
   return (
     <PageContainer justifyContent="flex-start">
       <Header back />
@@ -105,22 +115,18 @@ export default function WaitingRoom({navigation}) {
           <VSLine></VSLine>
 
           <VSImageContainer>
-            {opponentReady ? (
+            {!opponent ? (
+              <LottieView source={timer} autoPlay style={{height: 150}} />
+            ) : startMatch ? (
               <LottieView
                 source={countdown}
                 autoPlay
-                style={{height: 110, marginRight: 0, marginTop: 0}}
+                resizeMode="cover"
+                style={{height: 80}}
               />
             ) : (
-              <LottieView
-                source={timer}
-                autoPlay
-                loop
-                style={{height: 150, marginRight: -5, marginTop: -5}}
-              />
+              <LottieView source={swords} autoPlay loop style={{height: 80}} />
             )}
-
-            {/* <VSImage source={require('../../Assets/Images/sword.png')} /> */}
           </VSImageContainer>
           <VSLine>
             {opponent && (
@@ -168,7 +174,8 @@ export default function WaitingRoom({navigation}) {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() => setOpponent(game.opponent)}>
+                onPress={() => handleFriendInvite()}
+                onLongPress={() => setOpponent(game.opponent)}>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
