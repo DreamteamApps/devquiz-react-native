@@ -1,3 +1,4 @@
+const env = use('Env')
 const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
@@ -5,10 +6,14 @@ const MatchDomain = use('App/Domain/MatchDomain')
 const Time = use("App/Helpers/Time")
 
 io.on('connection', function (socket) {
+    devLog(`New client connected ${socket.id}`);
+
     socket.on('join-match', async (params) => {
         const { matchId } = params;
 
         await socket.join(matchId);
+
+        devLog(`Client ${socket.id} joined match ${matchId}`);
 
         MatchDomain.getMatchPlayers(matchId).then((matchPlayers) => {
             io.in(matchId).emit('player-joined', matchPlayers);
@@ -17,8 +22,11 @@ io.on('connection', function (socket) {
 
     socket.on('set-ready', async (params) => {
         const { userId, matchId } = params;
+        
+        devLog(`Set player ${userId} in match ${matchId} as ready!`);
 
         MatchDomain.setReady(userId, matchId).then((matchShouldStart) => {
+            
             io.in(matchId).emit('player-ready', { userId: userId });
 
             if (matchShouldStart) {
@@ -29,3 +37,9 @@ io.on('connection', function (socket) {
         });
     });
 });
+
+const devLog = (...args) => {
+    if(process.env.NODE_ENV == "development") {
+        console.log(...args);
+    }
+}
