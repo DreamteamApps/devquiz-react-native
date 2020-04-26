@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {SafeAreaView, Text, StyleSheet} from 'react-native';
 import {Container, Title, ButtonsContainer, ContentContainer} from './styles';
 import {PageContainer} from '../../Components/Layout';
 
@@ -12,10 +13,24 @@ import {useGame} from '~/Contexts/GameContext';
 import {useAuth} from '~/Contexts/AuthContext';
 import {joinMatch} from '~/Service/MatchApi';
 import {useApp} from '~/Contexts/AppContext';
+import {
+  CodeField,
+  Cursor,
+  useBlurOnFulfill,
+  useClearByFocusCell,
+} from 'react-native-confirmation-code-field';
 
 export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
+  const CELL_COUNT = 6;
+  const [value, setValue] = useState('');
+  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
+  const [props, getCellOnLayoutHandler] = useClearByFocusCell({
+    value,
+    setValue,
+  });
+
   const {user, setUser} = useAuth();
   const {game, setGame} = useGame();
   const {setLoading} = useApp();
@@ -58,15 +73,19 @@ export default function JoinRoom({navigation, route}) {
       <Header back />
       <ContentContainer>
         <Title>Room Code</Title>
-        <InputText
-          styles={{fontSize: 40, textAlign: 'center'}}
-          placeholder="type the room code"
+        <CodeField
+          cellCount={6}
+          keyboardType="number-pad"
           onChangeText={(text) => setRoomCode(text)}
-          keyboardType={'numeric'}
-          maxLength={6}
           value={roomCode}
-          style={{width: 250}}
-        />
+          renderCell={({index, symbol, isFocused}) => (
+            <Text
+              key={index}
+              style={[styles.cell, isFocused && styles.focusCell]}
+              onLayout={getCellOnLayoutHandler(index)}>
+              {symbol || (isFocused ? <Cursor /> : null)}
+            </Text>
+          )}></CodeField>
       </ContentContainer>
       <ButtonsContainer>
         <CustomButton onPress={() => getRoom(roomCode)}>Enter</CustomButton>
@@ -74,3 +93,22 @@ export default function JoinRoom({navigation, route}) {
     </PageContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {flex: 1, padding: 20},
+  title: {textAlign: 'center', fontSize: 30},
+  codeFiledRoot: {marginTop: 20},
+  cell: {
+    width: 50,
+    height: 50,
+    lineHeight: 50,
+    fontSize: 40,
+    marginRight: 10,
+    color: '#fff',
+    backgroundColor: '#A790F4',
+    textAlign: 'center',
+  },
+  focusCell: {
+    borderColor: '#fff',
+  },
+});
