@@ -40,7 +40,8 @@
     "eslint-plugin-import-helpers": "^1.0.2",
     "jest": "^25.4.0",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "16.11.0",
+    "rn-async-storage-flipper": "^0.0.6"
   },
   "jest": {
     "preset": "react-native"
