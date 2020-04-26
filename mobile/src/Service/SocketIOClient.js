@@ -5,7 +5,7 @@ import {SERVER_URL} from '~/Utils/constants';
 
 export const connect = () => {
   try {
-    const con = io(SERVER_URL);
+    const con = io.connect(SERVER_URL, {forceNode: true});
     return con;
   } catch (error) {
     console.log('SOCKETCON', error);

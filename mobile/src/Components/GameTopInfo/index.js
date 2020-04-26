@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {getUser} from '~/Storage/UserStorage';
 
 import {Container, ContainerScore} from './styles';
 import ScoreProfile from './ScoreProfile';
@@ -29,7 +28,7 @@ export default function GameTopInfo() {
     <Container>
       <Countdown value={valueTimer} />
       <ContainerScore>
-        <ScoreProfile data={game.owner} />
+        <ScoreProfile data={game.player} />
         <ScoreProfile data={game.opponent} alternative />
       </ContainerScore>
     </Container>

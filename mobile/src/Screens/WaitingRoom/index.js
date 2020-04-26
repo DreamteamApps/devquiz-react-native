@@ -37,7 +37,7 @@ export default function WaitingRoom({navigation}) {
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
-  const {hubConnect, game, emit} = useGame();
+  const {hubConnect, game, setGame, emit} = useGame();
 
   useEffect(() => {
     if (game.matchId) {
@@ -51,11 +51,15 @@ export default function WaitingRoom({navigation}) {
       console.log('player-joined', data);
       console.log('isOpponent', user.isOpponent);
       if (!user.isOpponent) {
+        //if im the owner
         if (data.opponent) {
           setOpponent(data.opponent);
         }
+        setGame({...game, opponent: data.opponent, player: data.owner});
       } else {
+        //if im the opponent
         setOpponent(data.owner);
+        setGame({...game, player: data.opponent, opponent: data.owner});
       }
     });
 
@@ -80,21 +84,6 @@ export default function WaitingRoom({navigation}) {
       userId: user.id,
       matchId: game.matchId,
     });
-
-    // let newValue = !ready;
-
-    // setReady(newValue);
-
-    // //simulating opponent ready
-    // if (newValue) {
-    //   setTimeout(() => {
-    //     setOpponentReady(true);
-
-    //     setTimeout(() => {
-    //       navigation.navigate('Game');
-    //     }, 4000);
-    //   }, 1000);
-    // }
   };
 
   const handleFriendInvite = () => {
@@ -118,12 +107,7 @@ export default function WaitingRoom({navigation}) {
             {!opponent ? (
               <LottieView source={timer} autoPlay style={{height: 150}} />
             ) : startMatch ? (
-              <LottieView
-                source={countdown}
-                autoPlay
-                resizeMode="cover"
-                style={{height: 80}}
-              />
+              <LottieView source={countdown} autoPlay style={{height: 80}} />
             ) : (
               <LottieView source={swords} autoPlay loop style={{height: 80}} />
             )}

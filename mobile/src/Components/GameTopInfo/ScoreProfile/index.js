@@ -11,7 +11,7 @@ export default function ScoreProfile({data, alternative}) {
       {data?.avatar && <Avatar source={{uri: data?.avatar}} />}
       <ProfileInfo alternative={alternative}>
         <Name alternative={alternative}>{data?.name}</Name>
-        <Score alternative={alternative}>{data?.score}</Score>
+        <Score alternative={alternative}>{data?.score || 0}</Score>
       </ProfileInfo>
     </Container>
   );
