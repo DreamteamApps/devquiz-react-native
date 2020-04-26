@@ -1,6 +1,5 @@
 import React, {createContext, useState, useContext, useEffect} from 'react';
 import {connect, hubEmit} from '~/Service/SocketIOClient';
-import io from 'socket.io-client';
 
 export const GameContext = createContext();
 const GameProvider = ({children}) => {
