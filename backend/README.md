@@ -29,7 +29,7 @@ Gets or create a new user
 }
 ```
 
-### GET - /match/:userId
+### GET - /match/create/:userId
 Creates a new room
 ###### Response - 200
 ```json
