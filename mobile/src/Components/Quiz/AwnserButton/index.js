@@ -29,6 +29,7 @@ export default function AwnserButton({
       <AwnserText
         showCorrectAwnser={showCorrectAwnser}
         correct={correct}
+        selected={playerSelected}
         adjustsFontSizeToFit
         minimumFontScale={0.1}>
         {children}
