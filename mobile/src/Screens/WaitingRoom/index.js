@@ -28,6 +28,7 @@ import timer from '~/Assets/Animations/timer.json';
 import swords from '~/Assets/Animations/swords.json';
 import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
+import Share from 'react-native-share';
 
 export default function WaitingRoom({navigation}) {
   const [opponent, setOpponent] = useState();
@@ -94,6 +95,15 @@ export default function WaitingRoom({navigation}) {
     //     }, 4000);
     //   }, 1000);
     // }
+  };
+
+  const handleFriendInvite = () => {
+    const shareOptions = {
+      title: 'DevQuiz',
+      message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
+      url: `http://devquiz.pt/invite/${game.roomCode}`,
+    };
+    Share.open(shareOptions);
   };
 
   return (
@@ -164,7 +174,8 @@ export default function WaitingRoom({navigation}) {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() => setOpponent(game.opponent)}>
+                onPress={() => handleFriendInvite()}
+                onLongPress={() => setOpponent(game.opponent)}>
                 Invite a friend
               </CustomButton>
             </ButtonsContainer>
