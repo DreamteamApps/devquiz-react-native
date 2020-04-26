@@ -5783,6 +5783,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-confirmation-code-field@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-confirmation-code-field/-/react-native-confirmation-code-field-6.0.0.tgz#bc5e84cbe9bb9be85b5df2ab2d4e73a8084bc013"
+  integrity sha512-VydbDBernUpKTNw/ee6oGRgRYuYyRauodRCn8JrsTRGyi7+aG0O6Tx7fOiu+vCXjahTzqk0nC8qgodI/1fIWhw==
+
 react-native-flipper@^0.37.0:
   version "0.37.0"
   resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.37.0.tgz#15187696e7361553952a83c77dcf53e508261662"
