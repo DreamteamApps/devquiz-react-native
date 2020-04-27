@@ -21,7 +21,7 @@ module.exports.countdownFrom = (from, onCount) => {
         var counted = from;
         var keepCounting = true;
 
-        while (counted > 0 && keepCounting) {
+        while (counted >= 0 && keepCounting) {
             onCount(counted, () => keepCounting = false);
 
             if(keepCounting) {

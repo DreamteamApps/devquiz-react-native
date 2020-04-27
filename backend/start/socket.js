@@ -1,29 +1,27 @@
 const env = use('Env')
 const Server = use('Server')
-const io = use('socket.io')(Server.getInstance())
+const socketConnection = use('socket.io')(Server.getInstance())
 
 const MatchDomain = use('App/Domain/MatchDomain')
 
-io.on('connection', function (socket) {
-    devLog(`New client connected ${socket.id}`);
+socketConnection.on('connection', function (connection) {
+    const socket = createSocket(connection);
 
     let room;
 
     socket.on('join-match', async (params) => {
         const { matchId } = params;
 
-        await socket.join(matchId);
-        room = io.in(matchId);
-        
-        devLog(`Client ${socket.id} joined match ${matchId}`);
-        
+        await connection.join(matchId);
+        devLog(`Client ${connection.id} joined match ${matchId}`);
+
+        room = createRoom(matchId);
+
         MatchDomain.getMatchPlayers(room, matchId);
     });
 
     socket.on('set-ready', async (params) => {
         const { userId, matchId } = params;
-
-        devLog(`Set player ${userId} in match ${matchId} as ready!`);
 
         MatchDomain.setReady(room, userId, matchId);
     });
@@ -31,11 +29,30 @@ io.on('connection', function (socket) {
     socket.on('answer-question', async (params) => {
         const { userId, matchId, questionId, answer, time } = params;
 
-        devLog(`Player ${userId} answer ${answer} to the question ${questionId} in ${time} seconds in the match ${matchId}!`);
-
         MatchDomain.answerQuestion(userId, matchId, questionId, answer, time);
     });
 });
+
+const createRoom = (matchId) => {
+    return {
+        emit: (eventName, body) => {
+            devLog(`Emited ${eventName} to room ${matchId}`);
+            socketConnection.to(matchId).emit(eventName, body)
+        }
+    }
+}
+
+const createSocket = (socket) => {
+    devLog(`New client connected ${socket.id}`);
+    return {
+        on: (eventName, callback) => {
+            socket.on(eventName, (data)=> {
+                devLog(`Received ${eventName}`);
+                callback(data);
+            });
+        }
+    }
+}
 
 const devLog = (...args) => {
     if (process.env.NODE_ENV == "development") {
