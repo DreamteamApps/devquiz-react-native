@@ -9,6 +9,7 @@ const Fade = forwardRef((props, ref) => {
       Animated.timing(fadeAnim, {
         toValue: props?.end ?? 1,
         duration: props?.duration ?? 2000,
+        delay: props?.delay || 0,
         useNativeDriver: true,
       }).start(() => onAnimationDone && onAnimationDone());
     },
@@ -16,6 +17,7 @@ const Fade = forwardRef((props, ref) => {
       Animated.timing(fadeAnim, {
         toValue: props?.start ?? 0,
         duration: props?.duration ?? 2000,
+        delay: props?.delay || 0,
         useNativeDriver: true,
       }).start(() => onAnimationDone && onAnimationDone());
     },
@@ -27,7 +29,7 @@ const Fade = forwardRef((props, ref) => {
   }));
 
   return (
-    <Animated.View ref={ref} style={{opacity: fadeAnim}}>
+    <Animated.View ref={ref} style={{flex: 1, opacity: fadeAnim}}>
       {props.children}
     </Animated.View>
   );

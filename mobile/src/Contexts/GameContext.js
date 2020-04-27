@@ -6,6 +6,48 @@ const GameProvider = ({children}) => {
   const [hubConnect, setHubConnect] = useState();
   const [players, setPlayers] = useState({});
   const [roundTime, setRoundTime] = useState(10);
+  const [result, setResult] = useState({
+    opponent: {id: 8, losses: 7, score: 0, ties: 0, wins: 5},
+    owner: {id: 1, losses: 21, score: 0, ties: 8, wins: 33},
+  });
+
+  const [quiz, setQuiz] = useState({
+    question:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
+    // questionImage:
+    //   'https://petgusto.com/wp-content/uploads/2014/10/mini-porco-tudo-sobre-o-animal-que-virou-mania-no-brasil-3.jpg',
+    awnsers: [
+      {
+        index: 1,
+        text: 'A1',
+        playerSelected: false,
+        opponentSelected: false,
+        correct: false,
+      },
+      {
+        index: 2,
+        text: 'Awnser 2',
+        playerSelected: false,
+        opponentSelected: false,
+        correct: false,
+      },
+      {
+        index: 3,
+        text: 'Awnser asdasdasdas weasd r',
+        playerSelected: false,
+        opponentSelected: false,
+        correct: false,
+      },
+      {
+        index: 4,
+        text: 'resp.Certa',
+        playerSelected: false,
+        opponentSelected: false,
+        correct: false,
+      },
+    ],
+    showCorrectAwnser: false,
+  });
 
   const [game, setGame] = useState({
     currentRound: 1,
@@ -14,44 +56,6 @@ const GameProvider = ({children}) => {
     showQuestionScreen: false,
     matchId: 10,
     roomCode: '',
-
-    quiz: {
-      question:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
-      questionImage:
-        'https://petgusto.com/wp-content/uploads/2014/10/mini-porco-tudo-sobre-o-animal-que-virou-mania-no-brasil-3.jpg',
-      awnsers: [
-        {
-          index: 1,
-          text: 'A1',
-          playerSelected: false,
-          opponentSelected: false,
-          correct: false,
-        },
-        {
-          index: 2,
-          text: 'Awnser 2',
-          playerSelected: false,
-          opponentSelected: false,
-          correct: false,
-        },
-        {
-          index: 3,
-          text: 'Awnser asdasdasdas weasd r',
-          playerSelected: false,
-          opponentSelected: false,
-          correct: false,
-        },
-        {
-          index: 4,
-          text: 'resp.Certa',
-          playerSelected: false,
-          opponentSelected: false,
-          correct: false,
-        },
-      ],
-      showCorrectAwnser: false,
-    },
   });
 
   const emit = (path, body) => {
@@ -80,11 +84,15 @@ const GameProvider = ({children}) => {
         setHubConnect,
         game,
         setGame,
+        quiz,
+        setQuiz,
         emit,
         players,
         setPlayers,
         roundTime,
         setRoundTime,
+        result,
+        setResult,
       }}>
       {children}
     </GameContext.Provider>

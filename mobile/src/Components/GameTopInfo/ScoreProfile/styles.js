@@ -17,9 +17,13 @@ export const ProfileInfo = styled.View`
   margin-left: 10px;
   margin-right: ${(props) => (props.alternative ? '10px' : '0')};
 `;
-export const Name = styled.Text`
+export const Name = styled.Text.attrs((props) => ({
+  ellipsizeMode: 'tail',
+  numberOfLines: 1,
+}))`
   color: #fff;
-  font-size: 15px;
+  font-size: 13px;
+  width: 90px;
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 
