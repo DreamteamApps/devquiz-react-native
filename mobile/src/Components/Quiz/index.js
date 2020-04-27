@@ -5,10 +5,9 @@ import Awnsers from './Awnsers';
 
 export default function Quiz() {
   const {
-    game: {
-      quiz: {question, questionImage},
-    },
+    quiz: {question, questionImage},
   } = useGame();
+
   const componentSmall = !!questionImage;
 
   return (
