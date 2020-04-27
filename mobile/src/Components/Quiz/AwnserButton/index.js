@@ -14,8 +14,7 @@ export default function AwnserButton({
   children,
 }) {
   const {
-    game: {player},
-    game: {opponent},
+    players: {player, opponent},
   } = useGame();
 
   return (

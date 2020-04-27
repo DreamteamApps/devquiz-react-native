@@ -6,30 +6,14 @@ import Countdown from './Countdown';
 import {useGame} from '~/Contexts/GameContext';
 
 export default function GameTopInfo() {
-  const {game} = useGame();
-
-  const [valueTimer, setValueTimer] = useState(10); //
-
-  const timer = useRef(10);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (timer.current >= 0) {
-        setValueTimer(timer.current--);
-      } else {
-        clearInterval(interval);
-      }
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
+  const {players} = useGame();
 
   return (
     <Container>
-      <Countdown value={valueTimer} />
+      <Countdown />
       <ContainerScore>
-        <ScoreProfile data={game.player} />
-        <ScoreProfile data={game.opponent} alternative />
+        <ScoreProfile data={players.player} />
+        <ScoreProfile data={players.opponent} alternative />
       </ContainerScore>
     </Container>
   );

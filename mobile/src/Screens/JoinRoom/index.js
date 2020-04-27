@@ -3,10 +3,7 @@ import {SafeAreaView, Text, StyleSheet} from 'react-native';
 import {Container, Title, ButtonsContainer, ContentContainer} from './styles';
 import {PageContainer} from '../../Components/Layout';
 
-import {getData} from '~/Service/githubApi';
-import InputText from '../../Components/InputText';
 import CustomButton from '../../Components/CustomButton';
-import {saveUser, getUser} from '~/Storage/UserStorage';
 import Snackbar from 'react-native-snackbar';
 import Header from '../../Components/Header';
 import {useGame} from '~/Contexts/GameContext';
