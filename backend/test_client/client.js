@@ -4,7 +4,7 @@ var ui = new inquirer.ui.BottomBar();
 var axios = require("axios");
 var socket = require("socket.io-client");
 
-var baseUrl = "http://e5644696.ngrok.io";
+var baseUrl = "http://127.0.0.1:3333";
 var socketClient;
 var user;
 var room;
@@ -43,7 +43,7 @@ const startGameOrChangeUrlScreen = () => {
   ]).then((response) => {
     switch (response.answer) {
       case "Change url": {
-        changeUrl();
+        changeUrlScreen();
         break;
       }
       case `Start game (${baseUrl})`: {

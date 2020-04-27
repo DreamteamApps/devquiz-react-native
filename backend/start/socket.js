@@ -12,10 +12,7 @@ socketConnection.on('connection', function (connection) {
     socket.on('join-match', async (params) => {
         const { matchId } = params;
 
-        await connection.join(matchId);
-        devLog(`Client ${connection.id} joined match ${matchId}`);
-
-        room = createRoom(matchId);
+        room = createRoom(matchId, connection);
 
         MatchDomain.getMatchPlayers(room, matchId);
     });
@@ -33,11 +30,16 @@ socketConnection.on('connection', function (connection) {
     });
 });
 
-const createRoom = (matchId) => {
+const createRoom = (matchId, connection) => {
+    connection.join(matchId);
+    
     return {
-        emit: (eventName, body) => {
-            devLog(`Emited ${eventName} to room ${matchId}`);
-            socketConnection.to(matchId).emit(eventName, body)
+        emit: (eventName, data) => {
+            devLog(`Emited ${eventName} to room ${matchId}`, JSON.stringify(data));
+            socketConnection.to(matchId).emit(eventName, data)
+        },
+        leave: () => {
+            connection.leave();
         }
     }
 }
@@ -47,7 +49,7 @@ const createSocket = (socket) => {
     return {
         on: (eventName, callback) => {
             socket.on(eventName, (data)=> {
-                devLog(`Received ${eventName}`);
+                devLog(`Received ${eventName}`, JSON.stringify(data));
                 callback(data);
             });
         }

@@ -409,4 +409,6 @@ const endMatch = async (room, matchId) => {
       ties: opponent.ties
     }
   });
+
+  room.leave();
 }
