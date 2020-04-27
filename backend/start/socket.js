@@ -35,7 +35,7 @@ const createRoom = (matchId, connection) => {
     
     return {
         emit: (eventName, data) => {
-            devLog(`Emited ${eventName} to room ${matchId}`, JSON.stringify(data));
+            devLog(`Emited ${eventName} to room ${matchId}`, JSON.stringify(data, null, 2));
             socketConnection.to(matchId).emit(eventName, data)
         },
         leave: () => {
@@ -49,7 +49,7 @@ const createSocket = (socket) => {
     return {
         on: (eventName, callback) => {
             socket.on(eventName, (data)=> {
-                devLog(`Received ${eventName}`, JSON.stringify(data));
+                devLog(`Received ${eventName}`, JSON.stringify(data, null, 2));
                 callback(data);
             });
         }
