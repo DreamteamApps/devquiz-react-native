@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {Fade} from '~/Components/Animations';
 
 export const Container = styled.View`
   flex: 1;
@@ -7,7 +8,7 @@ export const Container = styled.View`
   height: 100%;
 `;
 
-export const AwnserContainer = styled.View`
+export const AwnserContainer = styled(Fade)`
   flex-direction: row;
   flex-wrap: wrap;
   height: ${(props) => (props.small ? '200px' : '340px')};

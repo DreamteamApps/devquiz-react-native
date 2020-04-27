@@ -29,7 +29,7 @@ const Fade = forwardRef((props, ref) => {
   }));
 
   return (
-    <Animated.View ref={ref} style={{opacity: fadeAnim}}>
+    <Animated.View ref={ref} style={{flex: 1, opacity: fadeAnim}}>
       {props.children}
     </Animated.View>
   );
