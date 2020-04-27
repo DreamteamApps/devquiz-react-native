@@ -122,6 +122,7 @@ const createRoomScreen = async () => {
   socketClient = socket(baseUrl);
   socketClient.emit("join-match", {
     matchId: room.matchId,
+    userId: user.id
   });
 
   matchLobbyScreen(true);
@@ -130,7 +131,8 @@ const createRoomScreen = async () => {
 const matchLobbyScreen = (created) => {
   socketClient = socket(baseUrl);
   socketClient.emit('join-match', {
-    matchId: room.matchId
+    matchId: room.matchId,
+    userId: user.id
   });
 
   socketClient.on('player-joined', (players) => {
