@@ -1,12 +1,17 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect, useRef} from 'react';
 import {Container, AwnserContainer} from './styles';
 import AwnserButton from '../AwnserButton';
 import {useGame} from '~/Contexts/GameContext';
 
 export default function Awnser() {
   const {quiz, setQuiz} = useGame();
+  const fadeRef = useRef(null);
 
   const [disableAllButtons, setDisableAllButtons] = useState(false);
+
+  useEffect(() => {
+    fadeRef.current.start();
+  }, []);
 
   const selectAwnser = useCallback(
     (index) => {
@@ -30,7 +35,11 @@ export default function Awnser() {
 
   return (
     <Container>
-      <AwnserContainer small={!!quiz.questionImage}>
+      <AwnserContainer
+        ref={fadeRef}
+        duration={1000}
+        delay={900}
+        small={!!quiz.questionImage}>
         {quiz.awnsers.map((i) => (
           <AwnserButton
             disabled={disableAllButtons}

@@ -12,12 +12,10 @@ export default function Quiz() {
   const componentSmall = !!questionImage;
 
   const fadeRef = useRef(null);
-  const fadeRef2 = useRef(null);
 
   useEffect(() => {
     fadeRef.current.start();
-    fadeRef2.current.start();
-  }, [fadeRef.current, fadeRef2.current]);
+  }, [fadeRef.current]);
 
   return (
     <Container>
@@ -30,9 +28,7 @@ export default function Quiz() {
 
         <Image source={{uri: questionImage}} />
       </Fade>
-      <Fade ref={fadeRef2} duration={1000} style={{flex: 1}}>
         <Awnsers />
-      </Fade>
     </Container>
   );
 }
