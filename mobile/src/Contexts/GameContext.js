@@ -5,13 +5,16 @@ export const GameContext = createContext();
 const GameProvider = ({children}) => {
   const [hubConnect, setHubConnect] = useState();
   const [players, setPlayers] = useState({});
+  const [roundTime, setRoundTime] = useState(10);
 
   const [game, setGame] = useState({
     currentRound: 1,
-    totalRounds: 5,
-    roundTime: 10,
+    totalRound: 5,
+    showRoundScreen: false,
+    showQuestionScreen: false,
     matchId: 10,
     roomCode: '',
+
     quiz: {
       question:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
@@ -80,6 +83,8 @@ const GameProvider = ({children}) => {
         emit,
         players,
         setPlayers,
+        roundTime,
+        setRoundTime,
       }}>
       {children}
     </GameContext.Provider>

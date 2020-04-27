@@ -12,22 +12,26 @@ function Game() {
 
   const {game} = useGame();
 
-  const setQuestionScreen = useCallback(() => {
-    setShowRoundScreen(false);
-    setShowQuestionScreen(true);
-  }, []);
+  // const setQuestionScreen = useCallback(() => {
+  //   setShowRoundScreen(false);
+  //   setShowQuestionScreen(true);
+  // }, []);
+
+  // const setQuestionScreen = useCallback(() => {
+  //   setShowRoundScreen(false);
+  //   setShowQuestionScreen(true);
+  // }, []);
 
   return (
     <PageContainer>
-      {showRoundScreen && (
+      {game.showRoundScreen && (
         <RoundCounter
           actualRound={game.currentRound}
-          totalRounds={game.totalRounds}
-          hideScreen={setQuestionScreen}
+          totalRound={game.totalRound}
         />
       )}
 
-      {showQuestionScreen && (
+      {game.showQuestionScreen && (
         <>
           <Header close />
           <GameTopInfo />

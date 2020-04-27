@@ -3,12 +3,12 @@ import React, {memo} from 'react';
 import {Container, Text} from './styles';
 import {useGame} from '~/Contexts/GameContext';
 
-function Countdown({value}) {
-  const {game} = useGame();
+function Countdown() {
+  const {roundTime} = useGame();
 
   return (
     <Container>
-      <Text>{game.currentTime}</Text>
+      <Text>{roundTime}</Text>
     </Container>
   );
 }

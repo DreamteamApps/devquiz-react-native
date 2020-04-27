@@ -36,7 +36,15 @@ export default function WaitingRoom({navigation}) {
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
-  const {hubConnect, game, setGame, emit, players, setPlayers} = useGame();
+  const {
+    hubConnect,
+    game,
+    setGame,
+    emit,
+    players,
+    setPlayers,
+    setRoundTime,
+  } = useGame();
 
   useEffect(() => {
     if (game.matchId) {
@@ -72,27 +80,39 @@ export default function WaitingRoom({navigation}) {
 
     hubConnect.on('match-start', (data) => {
       console.log('match-start');
-      console.log('Game quando recebi match-start ', game);
       setStartMatch(true);
-      setTimeout(() => {
-        navigation.navigate('Game');
-      }, 3000);
+      // setTimeout(() => {
+
+      // }, 5000);
     });
 
     hubConnect.on('match-countdown', ({seconds}) => {
-      console.log('match-countdown', seconds);
-      console.log('Going to update CountDown', game);
+      console.log('Going to update CountDown', seconds);
 
-      setGame({...game, currentTime: seconds});
+      setRoundTime(seconds);
     });
 
-    hubConnect.on('match-start-question', (data) => {
-      console.log('match-start-question', data);
-      console.log('Game quando recebi match-start-question ', game);
+    hubConnect.on('match-start-round', ({currentRound, totalRound}) => {
+      console.log('match-start-round');
+      setGame({
+        ...game,
+        showRoundScreen: true,
+        currentRound: currentRound,
+        totalRound: totalRound,
+      });
+      navigation.navigate('Game');
+    });
+
+    hubConnect.on('match-start-question', () => {
+      console.log('match-start-question', game);
+      setGame({
+        ...game,
+        showQuestionScreen: true,
+      });
     });
 
     hubConnect.on('match-round-end', (data) => {
-      console.log('match-round-end', data);
+      console.log('match-round-end');
     });
     hubConnect.on('match-end', (data) => {
       console.log('match-end', data);
