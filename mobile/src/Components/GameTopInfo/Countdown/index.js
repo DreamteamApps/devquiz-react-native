@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import {Container, Text} from './styles';
+import {useGame} from '~/Contexts/GameContext';
 
-export default function Countdown({value}) {
+function Countdown({value}) {
+  const {game} = useGame();
+
   return (
     <Container>
-      <Text>{value}</Text>
+      <Text>{game.currentTime}</Text>
     </Container>
   );
 }
+export default memo(Countdown);

@@ -4,10 +4,13 @@ import {connect, hubEmit} from '~/Service/SocketIOClient';
 export const GameContext = createContext();
 const GameProvider = ({children}) => {
   const [hubConnect, setHubConnect] = useState();
+  const [players, setPlayers] = useState({});
 
   const [game, setGame] = useState({
     currentRound: 1,
     totalRounds: 5,
+    roundTime: 10,
+    matchId: 10,
     roomCode: '',
     quiz: {
       question:
@@ -44,13 +47,7 @@ const GameProvider = ({children}) => {
           correct: false,
         },
       ],
-      showCorrectAwnser:false
-    },
-    opponent: {
-      avatar:"https://media.fstatic.com/QU_NLlfrFI3qONS_5XKnEU5xDJU=/full-fit-in/629x300/media/articles/main/2019/12/20/fox-407168579.jpg"
-    },
-    player: {
-      avatar:"https://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2017/03/Avatar-1280x720.jpg"
+      showCorrectAwnser: false,
     },
   });
 
@@ -70,9 +67,20 @@ const GameProvider = ({children}) => {
     console.log('GameUpdated', game);
   }, [game]);
 
+  useEffect(() => {
+    console.log('Initializing GameContext', game);
+  }, []);
   return (
     <GameContext.Provider
-      value={{hubConnect, setHubConnect, game, setGame, emit}}>
+      value={{
+        hubConnect,
+        setHubConnect,
+        game,
+        setGame,
+        emit,
+        players,
+        setPlayers,
+      }}>
       {children}
     </GameContext.Provider>
   );

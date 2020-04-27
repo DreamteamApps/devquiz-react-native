@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, memo} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
@@ -6,23 +6,17 @@ import GameTopInfo from '../../Components/GameTopInfo';
 import Header from '~/Components/Header';
 import {useGame} from '~/Contexts/GameContext';
 
-export default function Game() {
+function Game() {
   const [showRoundScreen, setShowRoundScreen] = useState(true);
   const [showQuestionScreen, setShowQuestionScreen] = useState(false);
 
-  const {game, setGame} = useGame();
+  const {game} = useGame();
 
   const setQuestionScreen = useCallback(() => {
     setShowRoundScreen(false);
     setShowQuestionScreen(true);
   }, []);
 
-  const changeRound = useCallback(() => {
-    setShowRoundScreen(true);
-    setShowQuestionScreen(false);
-  }, []);
-
-  
   return (
     <PageContainer>
       {showRoundScreen && (
@@ -35,7 +29,7 @@ export default function Game() {
 
       {showQuestionScreen && (
         <>
-          <Header />
+          <Header close />
           <GameTopInfo />
           <Question />
         </>
@@ -43,3 +37,5 @@ export default function Game() {
     </PageContainer>
   );
 }
+
+export default memo(Game);

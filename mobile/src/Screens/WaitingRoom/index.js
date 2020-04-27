@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useContext} from 'react';
 
 import {
   Container,
@@ -18,7 +18,6 @@ import {
 import {PageContainer} from '../../Components/Layout';
 
 import Header from '../../Components/Header';
-import {getUser} from '~/Storage/UserStorage';
 import ProfileDisplay from '../../Components/ProfileDisplay';
 import CustomButton from '../../Components/CustomButton';
 import LottieView from 'lottie-react-native';
@@ -37,7 +36,7 @@ export default function WaitingRoom({navigation}) {
   const [opponentReady, setOpponentReady] = useState(false);
 
   const {user} = useAuth();
-  const {hubConnect, game, setGame, emit} = useGame();
+  const {hubConnect, game, setGame, emit, players, setPlayers} = useGame();
 
   useEffect(() => {
     if (game.matchId) {
@@ -50,16 +49,15 @@ export default function WaitingRoom({navigation}) {
     hubConnect.on('player-joined', (data) => {
       console.log('player-joined', data);
       console.log('isOpponent', user.isOpponent);
-      if (!user.isOpponent) {
-        //if im the owner
+      if (user.isOpponent) {
+        setOpponent(data.owner);
+        setPlayers({...players, player: data.opponent, opponent: data.owner});
+      } else {
         if (data.opponent) {
           setOpponent(data.opponent);
         }
-        setGame({...game, opponent: data.opponent, player: data.owner});
-      } else {
-        //if im the opponent
-        setOpponent(data.owner);
-        setGame({...game, player: data.opponent, opponent: data.owner});
+
+        setPlayers({...players, player: data.owner, opponent: data.opponent});
       }
     });
 
@@ -73,10 +71,31 @@ export default function WaitingRoom({navigation}) {
     });
 
     hubConnect.on('match-start', (data) => {
+      console.log('match-start');
+      console.log('Game quando recebi match-start ', game);
       setStartMatch(true);
       setTimeout(() => {
-        navigation.replace('Game');
+        navigation.navigate('Game');
       }, 3000);
+    });
+
+    hubConnect.on('match-countdown', ({seconds}) => {
+      console.log('match-countdown', seconds);
+      console.log('Going to update CountDown', game);
+
+      setGame({...game, currentTime: seconds});
+    });
+
+    hubConnect.on('match-start-question', (data) => {
+      console.log('match-start-question', data);
+      console.log('Game quando recebi match-start-question ', game);
+    });
+
+    hubConnect.on('match-round-end', (data) => {
+      console.log('match-round-end', data);
+    });
+    hubConnect.on('match-end', (data) => {
+      console.log('match-end', data);
     });
   }, []);
   const changeMyStatus = () => {
@@ -139,7 +158,7 @@ export default function WaitingRoom({navigation}) {
         {opponent ? (
           <>
             <OpponentContainer>
-              <ProfileDisplay data={opponent} alternative />
+              <ProfileDisplay data={players.opponent} alternative />
             </OpponentContainer>
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
