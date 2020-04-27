@@ -9,7 +9,27 @@ var socketClient;
 var user;
 var room;
 
-const startGameOrChangeUrl = () => {
+const promptRetry = async (title, tryAgain, back) => {
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'rawlist',
+      message: title,
+      choices: [
+        'Try again!',
+        'Back'
+      ]
+    },
+  ]).then(async (response) => {
+    if (response.answer == "Try again!") {
+      tryAgain();
+    } else {
+      back();
+    }
+  });
+}
+
+const startGameOrChangeUrlScreen = () => {
   inquirer.prompt([
     {
       type: 'rawlist',
@@ -27,14 +47,14 @@ const startGameOrChangeUrl = () => {
         break;
       }
       case `Start game (${baseUrl})`: {
-        getGithubUsername();
+        getGithubUsernameScreen();
         break;
       }
     }
   });
 }
 
-const getGithubUsername = () => {
+const getGithubUsernameScreen = () => {
   inquirer.prompt([
     {
       type: 'input',
@@ -45,15 +65,15 @@ const getGithubUsername = () => {
     user = await getUser(response.answer);
 
     if (!user) {
-      getGithubUsername();
+      getGithubUsernameScreen();
       return;
     }
 
-    startGame();
+    startGameScreen();
   });
 }
 
-const startGame = () => {
+const startGameScreen = () => {
   inquirer.prompt([
     {
       type: 'rawlist',
@@ -67,18 +87,18 @@ const startGame = () => {
   ]).then((response) => {
     switch (response.answer) {
       case "Create room": {
-        createRoomMenu();
+        createRoomScreen();
         break;
       }
       case "Join": {
-        joinRoomMenu();
+        joinRoomScreen();
         break;
       }
     }
   });
 }
 
-const createRoomMenu = async () => {
+const createRoomScreen = async () => {
   room = await createRoom();
 
   if (!room) {
@@ -93,7 +113,7 @@ const createRoomMenu = async () => {
       },
     ]).then(async (response) => {
       if (response.answer) {
-        startGame();
+        startGameScreen();
       }
     });
     return;
@@ -104,10 +124,15 @@ const createRoomMenu = async () => {
     matchId: room.matchId
   });
 
-  matchLobbyMenu(true);
+  matchLobbyScreen(true);
 }
 
-const matchLobbyMenu = (created) => {
+const matchLobbyScreen = (created) => {
+  socketClient = socket(baseUrl);
+  socketClient.emit('join-match', {
+    matchId: room.matchId
+  });
+
   socketClient.on('player-joined', (players) => {
     if (players.opponent && players.opponent.id != user.id) {
       ui.updateBottomBar(`Opponent ${players.opponent.name} joined room!`);
@@ -125,7 +150,6 @@ const matchLobbyMenu = (created) => {
       ]
     },
   ]).then(async (response) => {
-
     switch (response.answer) {
       case "I'm Ready": {
         socketClient.on('player-ready', (params) => {
@@ -150,7 +174,7 @@ const matchLobbyMenu = (created) => {
   });
 }
 
-const joinRoomMenu = () => {
+const joinRoomScreen = () => {
   inquirer.prompt([
     {
       type: 'input',
@@ -160,45 +184,51 @@ const joinRoomMenu = () => {
   ]).then(async (response) => {
 
     if (!response.answer) {
-      changeUrl();
+      joinRoomScreen();
       return;
     }
 
     room = await joinRoom(response.answer);
 
     if (!room) {
-      inquirer.prompt([
-        {
-          type: 'list',
-          name: 'rawlist',
-          message: `Join room failed!`,
-          choices: [
-            `Try again!`
-          ]
-        },
-      ]).then(async (response) => {
-        if (response.answer) {
-          startGame()
-        }
+
+      await promptRetry('Join room failed!', ()=> {
+        startGameScreen();
       });
+
       return;
     }
 
-    socketClient = socket(baseUrl);
-    socketClient.emit('join-match', {
-      matchId: room.matchId
-    });
-
-    matchLobbyMenu();
+    matchLobbyScreen();
 
   });
 }
 
 const startMatchMenu = () => {
   ui.updateBottomBar(`Starting match!`);
+
+  socketClient.on('match-start-round', (data) => {
+    console.log('start round', data);
+  });
+
+  socketClient.on('match-start-question', (data) => {
+    console.log('start question', data);
+  });
+
+  socketClient.on('match-countdown', (data) => {
+    console.log('countdown', data);
+  });
+
+  socketClient.on('match-round-end', (data) => {
+    console.log('end round', data);
+  });
+
+  socketClient.on('match-end', (data) => {
+    console.log('match end', data);
+  });
 }
 
-const changeUrl = () => {
+const changeUrlScreen = () => {
   inquirer.prompt([
     {
       type: 'input',
@@ -208,16 +238,17 @@ const changeUrl = () => {
   ]).then((response) => {
 
     if (!response.answer) {
-      changeUrl();
+      changeUrlScreen();
       return;
     }
 
     baseUrl = response.answer;
 
-    startGameOrChangeUrl();
+    startGameOrChangeUrlScreen();
   });
 }
 
+//Http methods
 const getUser = async (username) => {
   try {
     const result = await axios.get(`${baseUrl}/users/${username}`);
@@ -254,41 +285,7 @@ const joinRoom = async (matchCode) => {
     return null;
   }
 }
+
 (() => {
-  startGameOrChangeUrl();
+  startGameOrChangeUrlScreen();
 })();
-
-
-// var socket = require("socket.io-client")("http://127.0.0.1:3333");
-
-// var matchId = "123456";
-// var userId = 123;
-
-// socket.on("connect", function () {
-//   console.log("connect");
-
-//   socket.emit("join-match", {
-//     match_id: matchId,
-//     user_id: userId,
-//   });
-// });
-
-// socket.on("match-start", function (data) {
-//   console.log("match-start");
-// });
-
-// socket.on("match-start-round", function (data) {
-//   console.log(data);
-// });
-
-// socket.on("match-start-question", function (data) {
-//   console.log(data);
-// });
-
-// socket.on("match-question-countdown", function (data) {
-//   console.log(data);
-// });
-
-// socket.on("match-end-round", function (data) {
-//   console.log(data);
-// });

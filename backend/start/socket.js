@@ -3,43 +3,42 @@ const Server = use('Server')
 const io = use('socket.io')(Server.getInstance())
 
 const MatchDomain = use('App/Domain/MatchDomain')
-const Time = use("App/Helpers/Time")
 
 io.on('connection', function (socket) {
     devLog(`New client connected ${socket.id}`);
+
+    let room;
 
     socket.on('join-match', async (params) => {
         const { matchId } = params;
 
         await socket.join(matchId);
-
+        room = io.in(matchId);
+        
         devLog(`Client ${socket.id} joined match ${matchId}`);
-
-        MatchDomain.getMatchPlayers(matchId).then((matchPlayers) => {
-            io.in(matchId).emit('player-joined', matchPlayers);
-        });
+        
+        MatchDomain.getMatchPlayers(room, matchId);
     });
 
     socket.on('set-ready', async (params) => {
         const { userId, matchId } = params;
-        
+
         devLog(`Set player ${userId} in match ${matchId} as ready!`);
 
-        MatchDomain.setReady(userId, matchId).then((matchShouldStart) => {
-            
-            io.in(matchId).emit('player-ready', { userId: userId });
+        MatchDomain.setReady(room, userId, matchId);
+    });
 
-            if (matchShouldStart) {
-                Time.waitMS(500).then(() => {
-                    io.in(matchId).emit('match-start');
-                });
-            }
-        });
+    socket.on('answer-question', async (params) => {
+        const { userId, matchId, questionId, answer, time } = params;
+
+        devLog(`Player ${userId} answer ${answer} to the question ${questionId} in ${time} seconds in the match ${matchId}!`);
+
+        MatchDomain.answerQuestion(userId, matchId, questionId, answer, time);
     });
 });
 
 const devLog = (...args) => {
-    if(process.env.NODE_ENV == "development") {
+    if (process.env.NODE_ENV == "development") {
         console.log(...args);
     }
 }
