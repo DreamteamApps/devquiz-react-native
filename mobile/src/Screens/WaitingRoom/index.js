@@ -88,7 +88,6 @@ export default function WaitingRoom({navigation}) {
 
     hubConnect.on('match-countdown', ({seconds}) => {
       console.log('Going to update CountDown', seconds);
-
       setRoundTime(seconds);
     });
 

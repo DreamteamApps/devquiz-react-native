@@ -10,9 +10,9 @@ export const ButtonContainer = styled.TouchableOpacity`
   margin: 10px;
   border-radius: 10px;
   background-color: ${(props) =>
-    props.showCorrectAwnser && props.correct
+    props.showCorrectAnwser && props.correct
       ? props.theme.colors.green
-      : props.showCorrectAwnser && !props.correct && props.selected
+      : props.showCorrectAnwser && !props.correct && props.selected
       ? props.theme.colors.red
       : props.theme.colors.secondary};
 `;
@@ -20,7 +20,7 @@ export const ButtonContainer = styled.TouchableOpacity`
 export const AwnserText = styled.Text`
   opacity: ${(props) => (props.opacity ? 0.5 : 1)};
   color: ${(props) =>
-    props.showCorrectAwnser && (props.correct || props.selected)
+    props.showCorrectAnwser && (props.correct || props.selected)
       ? props.theme.colors.secondary
       : props.theme.colors.btnText};
   text-align: center;
