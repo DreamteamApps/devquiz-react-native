@@ -178,7 +178,8 @@ Joins a room
 	"userId" : 1,
 	"matchId" : 1,
 	"questionId": 1,
-	"answer":  1
+	"answer":  1,
+  "time":  5
 }
 ```
 
