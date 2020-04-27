@@ -19,14 +19,9 @@ export default function Awnser() {
       actualgame.quiz.awnsers[index - 1].playerSelected = true;
       setGame(actualgame);
       setTimeout(() => {
-        console.log('opponent');
-        actualgame.quiz.awnsers[index - 1].opponentSelected = true;
-        setGame({...actualgame});
-      }, 1000);
-      setTimeout(() => {
-        console.log('response');
-        actualgame.quiz.awnsers[2].correct = true;
+        actualgame.quiz.awnsers[0].opponentSelected = true;
         actualgame.quiz.showCorrectAwnser = true;
+        actualgame.quiz.awnsers[2].correct = true;
         setGame({...actualgame});
       }, 2000);
     },

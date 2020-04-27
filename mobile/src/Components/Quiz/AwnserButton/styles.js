@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 export const ButtonContainer = styled.TouchableOpacity`
   flex-grow: 1;
   flex-shrink: 2;
-
   flex-basis: ${(props) => (props.small ? '40%' : '100%')};
   justify-content: center;
   align-items: center;
@@ -14,13 +13,12 @@ export const ButtonContainer = styled.TouchableOpacity`
     props.showCorrectAwnser && props.correct
       ? props.theme.colors.green
       : props.showCorrectAwnser && !props.correct && props.selected
-      ? 'rgba(255, 0, 0, 0.5)'
+      ? props.theme.colors.red
       : props.theme.colors.secondary};
 `;
 
 export const AwnserText = styled.Text`
-  opacity: ${(props) =>
-    props.disableda && !props.selected && !props.correct ? 0.3 : 1};
+  opacity: ${(props) => (props.opacity ? 0.5 : 1)};
   color: ${(props) =>
     props.showCorrectAwnser && (props.correct || props.selected)
       ? props.theme.colors.secondary

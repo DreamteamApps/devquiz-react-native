@@ -1,45 +1,63 @@
 const env = use('Env')
 const Server = use('Server')
-const io = use('socket.io')(Server.getInstance())
+const socketConnection = use('socket.io')(Server.getInstance())
 
 const MatchDomain = use('App/Domain/MatchDomain')
-const Time = use("App/Helpers/Time")
 
-io.on('connection', function (socket) {
-    devLog(`New client connected ${socket.id}`);
+socketConnection.on('connection', function (connection) {
+    const socket = createSocket(connection);
+
+    let room;
 
     socket.on('join-match', async (params) => {
         const { matchId } = params;
 
-        await socket.join(matchId);
+        room = createRoom(matchId, connection);
 
-        devLog(`Client ${socket.id} joined match ${matchId}`);
-
-        MatchDomain.getMatchPlayers(matchId).then((matchPlayers) => {
-            io.in(matchId).emit('player-joined', matchPlayers);
-        });
+        MatchDomain.getMatchPlayers(room, matchId);
     });
 
     socket.on('set-ready', async (params) => {
         const { userId, matchId } = params;
-        
-        devLog(`Set player ${userId} in match ${matchId} as ready!`);
 
-        MatchDomain.setReady(userId, matchId).then((matchShouldStart) => {
-            
-            io.in(matchId).emit('player-ready', { userId: userId });
+        MatchDomain.setReady(room, userId, matchId);
+    });
 
-            if (matchShouldStart) {
-                Time.waitMS(500).then(() => {
-                    io.in(matchId).emit('match-start');
-                });
-            }
-        });
+    socket.on('answer-question', async (params) => {
+        const { userId, matchId, questionId, answer, time } = params;
+
+        MatchDomain.answerQuestion(userId, matchId, questionId, answer, time);
     });
 });
 
+const createRoom = (matchId, connection) => {
+    connection.join(matchId);
+    
+    return {
+        emit: (eventName, data) => {
+            devLog(`Emited ${eventName} to room ${matchId}`, JSON.stringify(data));
+            socketConnection.to(matchId).emit(eventName, data)
+        },
+        leave: () => {
+            connection.leave();
+        }
+    }
+}
+
+const createSocket = (socket) => {
+    devLog(`New client connected ${socket.id}`);
+    return {
+        on: (eventName, callback) => {
+            socket.on(eventName, (data)=> {
+                devLog(`Received ${eventName}`, JSON.stringify(data));
+                callback(data);
+            });
+        }
+    }
+}
+
 const devLog = (...args) => {
-    if(process.env.NODE_ENV == "development") {
+    if (process.env.NODE_ENV == "development") {
         console.log(...args);
     }
 }

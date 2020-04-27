@@ -8,7 +8,7 @@ class QuestionSchema extends Schema {
     this.create('questions', (table) => {
       table.increments()
       table.string('title', 254).notNullable()
-      table.string('image', 254)
+      table.string('image', 254).defaultTo('')
       table.string('answer1', 254).notNullable()
       table.string('answer2', 254).notNullable()
       table.string('answer3', 254).notNullable()

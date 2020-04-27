@@ -11,22 +11,27 @@ module.exports.waitMS = (ms) => {
     });
 };
 
-
-
 /**
  * 
  * Count Down from X to 0, second by second, and every time it count it calls onCount
  *
 */
-module.exports.countdownTo = (from, onCount) => {
+module.exports.countdownFrom = (from, onCount) => {
     return new Promise(async (resolve) => {
         var counted = from;
-        while (counted > 0) {
-            onCount(counted);
-            await this.waitMS(1000);
-            counted--;
+        var keepCounting = true;
+
+        while (counted >= 0 && keepCounting) {
+            onCount(counted, () => keepCounting = false);
+
+            if(keepCounting) {
+                await module.exports.waitMS(1000);
+                counted--;
+            }
         }
+
         resolve();
     });
-};
+}
+
 
