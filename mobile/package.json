@@ -9,6 +9,11 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "rnpm": {
+    "assets": [
+      "./src/Assets/fonts/"
+    ]
+  },
   "dependencies": {
     "@react-native-community/async-storage": "^1.9.0",
     "@react-native-community/masked-view": "^0.1.10",
