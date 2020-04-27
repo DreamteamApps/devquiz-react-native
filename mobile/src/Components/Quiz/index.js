@@ -6,10 +6,9 @@ import {Fade} from '../Animations';
 
 export default function Quiz() {
   const {
-    game: {
-      quiz: {question, questionImage},
-    },
+    quiz: {question, questionImage},
   } = useGame();
+
   const componentSmall = !!questionImage;
 
   const fadeRef = useRef(null);
