@@ -100,22 +100,25 @@ export default function WaitingRoom({navigation}) {
         currentRound: currentRound,
         totalRound: totalRound,
       });
+
       navigation.navigate('Game');
     });
 
     hubConnect.on('match-start-question', () => {
       console.log('match-start-question', game);
+      setRoundTime(10);
       setGame({
         ...game,
         showQuestionScreen: true,
       });
     });
 
-    hubConnect.on('match-round-end', (data) => {
-      console.log('match-round-end');
-    });
+    // hubConnect.on('match-round-end', (data) => {
+    //   console.log('match-round-end');
+    // });
     hubConnect.on('match-end', (data) => {
       console.log('match-end', data);
+      navigation.replace('Result');
     });
   }, []);
   const changeMyStatus = () => {

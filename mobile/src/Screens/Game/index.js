@@ -1,4 +1,4 @@
-import React, {useCallback, useState, memo} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
@@ -10,18 +10,16 @@ function Game() {
   const [showRoundScreen, setShowRoundScreen] = useState(true);
   const [showQuestionScreen, setShowQuestionScreen] = useState(false);
 
-  const {game} = useGame();
+  const {hubConnect, game} = useGame();
 
-  // const setQuestionScreen = useCallback(() => {
-  //   setShowRoundScreen(false);
-  //   setShowQuestionScreen(true);
-  // }, []);
-
-  // const setQuestionScreen = useCallback(() => {
-  //   setShowRoundScreen(false);
-  //   setShowQuestionScreen(true);
-  // }, []);
-
+  useEffect(() => {
+    const listener = hubConnect.on('match-round-end', (data) => {
+      console.log('match-round-end');
+    });
+    // return () => {
+    //   socket.off('match-round-end', listener);
+    // };
+  }, []);
   return (
     <PageContainer>
       {game.showRoundScreen && (
