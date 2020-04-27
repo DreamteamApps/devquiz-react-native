@@ -1,10 +1,10 @@
-var inquirer = require('inquirer')
-var ui = new inquirer.ui.BottomBar()
+var inquirer = require("inquirer");
+var ui = new inquirer.ui.BottomBar();
 
-var axios = require('axios')
-var socket = require("socket.io-client")
+var axios = require("axios");
+var socket = require("socket.io-client");
 
-var baseUrl = "http://127.0.0.1:3333";
+var baseUrl = "http://e5644696.ngrok.io";
 var socketClient;
 var user;
 var room;
@@ -52,7 +52,7 @@ const startGameOrChangeUrlScreen = () => {
       }
     }
   });
-}
+};
 
 const getGithubUsernameScreen = () => {
   inquirer.prompt([
@@ -96,7 +96,7 @@ const startGameScreen = () => {
       }
     }
   });
-}
+};
 
 const createRoomScreen = async () => {
   room = await createRoom();
@@ -120,8 +120,8 @@ const createRoomScreen = async () => {
   }
 
   socketClient = socket(baseUrl);
-  socketClient.emit('join-match', {
-    matchId: room.matchId
+  socketClient.emit("join-match", {
+    matchId: room.matchId,
   });
 
   matchLobbyScreen(true);
@@ -172,7 +172,7 @@ const matchLobbyScreen = (created) => {
       }
     }
   });
-}
+};
 
 const joinRoomScreen = () => {
   inquirer.prompt([
@@ -188,7 +188,25 @@ const joinRoomScreen = () => {
       return;
     }
 
-    room = await joinRoom(response.answer);
+      room = await joinRoom(response.answer);
+
+      if (!room) {
+        inquirer
+          .prompt([
+            {
+              type: "list",
+              name: "rawlist",
+              message: `Join room failed!`,
+              choices: [`Try again!`],
+            },
+          ])
+          .then(async (response) => {
+            if (response.answer) {
+              startGame();
+            }
+          });
+        return;
+      }
 
     if (!room) {
 
@@ -242,7 +260,7 @@ const changeUrlScreen = () => {
       return;
     }
 
-    baseUrl = response.answer;
+      baseUrl = response.answer;
 
     startGameOrChangeUrlScreen();
   });
@@ -253,34 +271,31 @@ const getUser = async (username) => {
   try {
     const result = await axios.get(`${baseUrl}/users/${username}`);
     return result.data;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(JSON.stringify(error.response.data, null, 2));
     return null;
   }
-}
+};
 
 const createRoom = async () => {
   try {
     const result = await axios.get(`${baseUrl}/match/create/${user.id}`);
     return result.data;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(JSON.stringify(error.response.data, null, 2));
     return null;
   }
-}
+};
 
 const joinRoom = async (matchCode) => {
   try {
     const joinRequest = {
       matchCode: matchCode,
-      userId: user.id
+      userId: user.id,
     };
     const result = await axios.post(`${baseUrl}/match/join`, joinRequest);
     return result.data;
-  }
-  catch (error) {
+  } catch (error) {
     console.log(JSON.stringify(error.response.data, null, 2));
     return null;
   }

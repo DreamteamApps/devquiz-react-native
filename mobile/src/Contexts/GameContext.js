@@ -1,6 +1,5 @@
 import React, {createContext, useState, useContext, useEffect} from 'react';
 import {connect, hubEmit} from '~/Service/SocketIOClient';
-import io from 'socket.io-client';
 
 export const GameContext = createContext();
 const GameProvider = ({children}) => {
@@ -16,18 +15,43 @@ const GameProvider = ({children}) => {
       questionImage:
         'https://petgusto.com/wp-content/uploads/2014/10/mini-porco-tudo-sobre-o-animal-que-virou-mania-no-brasil-3.jpg',
       awnsers: [
-        {text: 'A1', selected: true, oponentSelectd: false},
-        {text: 'Awnser 2', selected: false, oponentSelectd: false},
         {
-          text: 'Terceira resposta da pergunta',
-          selected: false,
-          oponentSelectd: false,
+          index: 1,
+          text: 'A1',
+          playerSelected: false,
+          opponentSelected: false,
+          correct: false,
         },
-        {text: 'resp.Certa', selected: false, oponentSelectd: false},
+        {
+          index: 2,
+          text: 'Awnser 2',
+          playerSelected: false,
+          opponentSelected: false,
+          correct: false,
+        },
+        {
+          index: 3,
+          text: 'Awnser asdasdasdas weasd r',
+          playerSelected: false,
+          opponentSelected: false,
+          correct: false,
+        },
+        {
+          index: 4,
+          text: 'resp.Certa',
+          playerSelected: false,
+          opponentSelected: false,
+          correct: false,
+        },
       ],
+      showCorrectAwnser:false
     },
-    opponent: {},
-    player: {},
+    opponent: {
+      avatar:"https://media.fstatic.com/QU_NLlfrFI3qONS_5XKnEU5xDJU=/full-fit-in/629x300/media/articles/main/2019/12/20/fox-407168579.jpg"
+    },
+    player: {
+      avatar:"https://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2017/03/Avatar-1280x720.jpg"
+    },
   });
 
   const emit = (path, body) => {

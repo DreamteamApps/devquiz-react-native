@@ -1,27 +1,14 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {useTheme} from 'styled-components';
+import React, {useState, useCallback} from 'react';
 import {useGame} from '~/Contexts/GameContext';
 import {Container, QuestionContainer, Question, Image} from './styles';
 import Awnsers from './Awnsers';
 
 export default function Quiz() {
-  const theme = useTheme();
-
-  const [image, setImage] = useState(
-    'https://pokemongohub.net/wp-content/uploads/2018/11/Pokemon-Lets-Go.jpg',
-  );
-  const [answer, setAnswer] = useState([]);
-  const sizes = {
-    questionSize: 80,
-    imageSize: 20,
-  };
-
   const {
     game: {
-      quiz: {question, awnsers, questionImage},
-    }
+      quiz: {question, questionImage},
+    },
   } = useGame();
-  console.log(question)
   const componentSmall = !!questionImage;
 
   return (
@@ -32,7 +19,7 @@ export default function Quiz() {
         </Question>
       </QuestionContainer>
       <Image source={{uri: questionImage}} />
-      <Awnsers small={componentSmall} awnsers={awnsers} />
+      <Awnsers />
     </Container>
   );
 }

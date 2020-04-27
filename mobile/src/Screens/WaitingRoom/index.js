@@ -75,8 +75,8 @@ export default function WaitingRoom({navigation}) {
     hubConnect.on('match-start', (data) => {
       setStartMatch(true);
       setTimeout(() => {
-        navigation.navigate('Game');
-      }, 4000);
+        navigation.replace('Game');
+      }, 3000);
     });
   }, []);
   const changeMyStatus = () => {
@@ -104,11 +104,14 @@ export default function WaitingRoom({navigation}) {
           <VSLine></VSLine>
 
           <VSImageContainer>
-            {!opponent ? (
+            {!opponent && (
               <LottieView source={timer} autoPlay style={{height: 150}} />
-            ) : startMatch ? (
+            )}
+            {opponent && startMatch && (
               <LottieView source={countdown} autoPlay style={{height: 80}} />
-            ) : (
+            )}
+
+            {opponent && !startMatch && (
               <LottieView source={swords} autoPlay loop style={{height: 80}} />
             )}
           </VSImageContainer>
