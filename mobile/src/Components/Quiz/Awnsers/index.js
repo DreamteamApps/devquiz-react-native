@@ -10,28 +10,28 @@ export default function Awnser() {
   const [disableAllButtons, setDisableAllButtons] = useState(false);
 
   useEffect(() => {
-    fadeRef.current.start();
+    // fadeRef.current.start();
   }, []);
 
-  const selectAwnser = useCallback(
-    (index) => {
-      setDisableAllButtons(true);
-      let newAwnsers = quiz.awnsers;
-      newAwnsers[index - 1].playerSelected = true;
-      setQuiz({
-        ...quiz,
-        awnsers: newAwnsers,
-      });
-      setTimeout(() => {
-        console.log('quiz updated', quiz);
-        let newAwnsers = quiz.awnsers;
-        newAwnsers[0].opponentSelected = true;
-        newAwnsers[2].correct = true;
-        setQuiz({...quiz, awnsers: newAwnsers, showCorrectAwnser: true});
-      }, 2000);
-    },
-    [setQuiz],
-  );
+  // const selectAwnser = useCallback(
+  //   (index) => {
+  //     setDisableAllButtons(true);
+  //     let newAnswers = quiz.awnsers;
+  //     newAnswers[index - 1].playerSelected = true;
+  //     setQuiz({
+  //       ...quiz,
+  //       answers: newAnswers,
+  //     });
+  //     setTimeout(() => {
+  //       console.log('quiz updated', quiz);
+  //       let newAnswers = quiz.answers;
+  //       newAnswers[0].opponentSelected = true;
+  //       newAnswers[2].correct = true;
+  //       setQuiz({...quiz, anwser: newAnswers, showCorrectAnwser: true});
+  //     }, 2000);
+  //   },
+  //   [setQuiz],
+  // );
 
   return (
     <Container>
@@ -40,11 +40,11 @@ export default function Awnser() {
         duration={1000}
         delay={900}
         small={!!quiz.questionImage}>
-        {quiz.awnsers.map((i) => (
+        {quiz.answers.map((i) => (
           <AwnserButton
             disabled={disableAllButtons}
             onSelect={() => selectAwnser(i.index)}
-            showCorrectAwnser={quiz.showCorrectAwnser}
+            showCorrectAnwser={quiz.showCorrectAnwser}
             key={i.text}
             correct={i.correct}
             playerSelected={i.playerSelected}
