@@ -33,7 +33,7 @@ function Game() {
 
       {game.showQuestionScreen && (
         <>
-          <Header close />
+          {/* <Header close /> */}
           <GameTopInfo />
           <Question />
         </>
