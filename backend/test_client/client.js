@@ -4,7 +4,7 @@ var ui = new inquirer.ui.BottomBar();
 var axios = require("axios");
 var socket = require("socket.io-client");
 
-var baseUrl = "http://127.0.0.1:3333";
+var baseUrl = "http://e5644696.ngrok.io";
 var socketClient;
 var user;
 var room;

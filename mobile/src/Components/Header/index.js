@@ -14,8 +14,10 @@ export default function Header({close, back}) {
   return (
     <Container>
       {close && (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <ButtonArea>
+        <TouchableOpacity
+          onPress={() => navigation.replace('Main')}
+          style={{width: '100%'}}>
+          <ButtonArea right>
             <IconFeather name="x" size={30} color={theme.colors.secondary} />
           </ButtonArea>
         </TouchableOpacity>

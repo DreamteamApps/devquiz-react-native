@@ -7,6 +7,7 @@ import ModeSelect from '../Screens/ModeSelect';
 import WaitingRoom from '../Screens/WaitingRoom';
 import JoinRoom from '../Screens/JoinRoom';
 import Game from '../Screens/Game';
+import Result from '../Screens/Result';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,7 @@ export default function Navigation() {
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
         <Stack.Screen name="JoinRoom" component={JoinRoom} />
         <Stack.Screen name="Game" component={Game} />
+        <Stack.Screen name="Result" component={Result} />
       </Stack.Navigator>
     </NavigationContainer>
   );

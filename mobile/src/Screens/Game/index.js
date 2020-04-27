@@ -1,4 +1,4 @@
-import React, {useCallback, useState, memo} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
@@ -7,11 +7,7 @@ import Header from '~/Components/Header';
 import {useGame} from '~/Contexts/GameContext';
 
 function Game() {
-  const [showRoundScreen, setShowRoundScreen] = useState(true);
-  const [showQuestionScreen, setShowQuestionScreen] = useState(false);
-
   const {game, quiz, setQuiz, hubConnect} = useGame();
-
 
   const onQuestionRecived = (data) => {
     console.log('HSUAUHSUAHSUA', data);
@@ -28,15 +24,22 @@ function Game() {
     //   questionImage: data.image,
     //   question: data.title,
     // });
-
   };
-    useEffect(() => {
+  useEffect(() => {
     hubConnect.on('match-start-question', onQuestionRecived);
     // return () => {
     //   hubConnect.off('match-start-question', onQuestion);
     // };
   }, [onQuestion]);
 
+  useEffect(() => {
+    const listener = hubConnect.on('match-round-end', (data) => {
+      console.log('match-round-end');
+    });
+    // return () => {
+    //   socket.off('match-round-end', listener);
+    // };
+  }, []);
   return (
     <PageContainer>
       {game.showRoundScreen && (

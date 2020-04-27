@@ -6,6 +6,11 @@ const GameProvider = ({children}) => {
   const [hubConnect, setHubConnect] = useState();
   const [players, setPlayers] = useState({});
   const [roundTime, setRoundTime] = useState(10);
+  const [result, setResult] = useState({
+    opponent: {id: 8, losses: 7, score: 0, ties: 0, wins: 5},
+    owner: {id: 1, losses: 21, score: 0, ties: 8, wins: 33},
+  });
+
   const [quiz, setQuiz] = useState({
     answers: [],
     showCorrectAnwser: false,
@@ -53,6 +58,8 @@ const GameProvider = ({children}) => {
         setPlayers,
         roundTime,
         setRoundTime,
+        result,
+        setResult,
       }}>
       {children}
     </GameContext.Provider>
