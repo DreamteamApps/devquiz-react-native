@@ -1,10 +1,8 @@
-import React, {useState, useEffect, useCallback, useContext} from 'react';
-
+import React, {useState, useEffect} from 'react';
+import {Platform} from 'react-native';
 import {
-  Container,
   VSContainer,
   VSLine,
-  VSImage,
   VSImageContainer,
   OpponentContainer,
   GameContainer,
@@ -150,10 +148,26 @@ export default function WaitingRoom({navigation}) {
 
           <VSImageContainer>
             {!opponent && (
-              <LottieView source={timer} autoPlay style={{height: 150}} />
+              <LottieView
+                source={timer}
+                autoPlay
+                style={{
+                  height: 150,
+                  marginRight: -5,
+                  marginTop: Platform.OS == 'android' ? -4 : -2,
+                }}
+              />
             )}
             {opponent && startMatch && (
-              <LottieView source={countdown} autoPlay style={{height: 80}} />
+              <LottieView
+                source={countdown}
+                autoPlay
+                style={{
+                  height: 80,
+                  marginTop: Platform.OS == 'android' ? 0 : -3,
+                  marginLeft: Platform.OS == 'android' ? 0 : -1,
+                }}
+              />
             )}
 
             {opponent && !startMatch && (
