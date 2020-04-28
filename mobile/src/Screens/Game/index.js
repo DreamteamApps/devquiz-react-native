@@ -6,7 +6,7 @@ import GameTopInfo from '../../Components/GameTopInfo';
 import {useGame} from '~/Contexts/GameContext';
 
 function Game() {
-  const {game, quiz, setQuiz, hubConnect} = useGame();
+  const {game, quiz, setQuiz, hubConnect, player} = useGame();
 
   const onQuestionRecived = useCallback((data) => {
     setQuiz({
@@ -29,13 +29,17 @@ function Game() {
     (data) => {
       let newAnwsers = quiz.answers;
       newAnwsers[data.correctAnswer - 1].correct = true;
-      if (data?.opponent?.answer > 0)
+      if (player.id === data?.owner?.id && data?.opponent?.answer > 0) {
         newAnwsers[data.opponent.answer - 1].opponentSelected = true;
-      setQuiz({
-        ...quiz,
-        answers: newAnwsers,
-        showCorrectAnswer: true,
-      });
+      } else if (player.id === data?.opponent?.id && data?.owner?.answer > 0) {
+        newAnwsers[data.owner.answer - 1].opponentSelected = true;
+      }
+      if (data?.opponent?.answer > 0)
+        setQuiz({
+          ...quiz,
+          answers: newAnwsers,
+          showCorrectAnswer: true,
+        });
     },
     [quiz.answers],
   );
@@ -51,7 +55,7 @@ function Game() {
       hubConnect.off('match-round-end', onRoundEnd);
     };
   }, [onQuestionRecived, onRoundEnd]);
-  
+
   return (
     <PageContainer>
       {game.showRoundScreen && (

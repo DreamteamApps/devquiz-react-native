@@ -39,13 +39,6 @@ export default function Awnser() {
         answer: id,
         time: roundTime,
       });
-      console.log('emit', {
-        userId: user.id,
-        matchId: matchId,
-        questionId: quiz.questionId,
-        answer: id,
-        time: roundTime,
-      });
     },
     [setQuiz, quiz.answers, roundTime],
   );
