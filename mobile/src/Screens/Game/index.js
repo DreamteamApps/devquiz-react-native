@@ -12,25 +12,24 @@ function Game() {
   const onQuestionRecived = (data) => {
     console.log('HSUAUHSUAHSUA', data);
     console.log('v', quiz);
-
-    // let newAnswers = quiz.answer;
-    // newAnswers[0] = data.answer1;
-    // newAnswers[1] = data.answer2;
-    // newAnswers[2] = data.answer3;
-    // newAnswers[3] = data.answer4;
-    // setQuiz({
-    //   ...quiz,
-    //   answers: newAnswers,
-    //   questionImage: data.image,
-    //   question: data.title,
-    // });
+    setQuiz({
+      ...quiz,
+      answers: [
+        {text: data.answer1},
+        {text: data.answer2},
+        {text: data.answer3},
+        {text: data.answer4},
+      ],
+      questionImage: data.image,
+      question: data.title,
+    });
   };
   useEffect(() => {
     hubConnect.on('match-start-question', onQuestionRecived);
     // return () => {
     //   hubConnect.off('match-start-question', onQuestion);
     // };
-  }, [onQuestion]);
+  }, [onQuestionRecived]);
 
   useEffect(() => {
     const listener = hubConnect.on('match-round-end', (data) => {

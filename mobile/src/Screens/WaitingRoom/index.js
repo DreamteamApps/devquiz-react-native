@@ -48,6 +48,10 @@ export default function WaitingRoom({navigation}) {
 
   useEffect(() => {
     if (game.matchId) {
+      console.log('joinmatch', {
+        userId: user.id,
+        matchId: game.matchId,
+      });
       emit('join-match', {
         userId: user.id,
         matchId: game.matchId,

@@ -10,7 +10,7 @@ export default function Awnser() {
   const [disableAllButtons, setDisableAllButtons] = useState(false);
 
   useEffect(() => {
-    // fadeRef.current.start();
+    fadeRef.current.start();
   }, []);
 
   // const selectAwnser = useCallback(
