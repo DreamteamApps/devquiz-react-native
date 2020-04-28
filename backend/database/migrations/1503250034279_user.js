@@ -17,6 +17,7 @@ class UserSchema extends Schema {
       table.integer('losses').defaultTo(0)
       table.integer('ties').defaultTo(0)
       table.integer('score').defaultTo(0)
+      table.string('socket_id', 254).defaultTo('')
       table.timestamps()
     })
   }
