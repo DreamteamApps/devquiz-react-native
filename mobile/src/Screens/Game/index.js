@@ -1,9 +1,8 @@
-import React, {useEffect, useState, memo, useCallback} from 'react';
+import React, {useEffect, memo, useCallback} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
 import GameTopInfo from '../../Components/GameTopInfo';
-import Header from '~/Components/Header';
 import {useGame} from '~/Contexts/GameContext';
 
 function Game() {
@@ -52,15 +51,7 @@ function Game() {
       hubConnect.off('match-round-end', onRoundEnd);
     };
   }, [onQuestionRecived, onRoundEnd]);
-
-  useEffect(() => {
-    const listener = hubConnect.on('match-round-end', (data) => {
-      console.log('match-round-end');
-    });
-    // return () => {
-    //   socket.off('match-round-end', listener);
-    // };
-  }, []);
+  
   return (
     <PageContainer>
       {game.showRoundScreen && (
@@ -72,7 +63,6 @@ function Game() {
 
       {game.showQuestionScreen && (
         <>
-          {/* <Header close /> */}
           <GameTopInfo />
           <Question />
         </>

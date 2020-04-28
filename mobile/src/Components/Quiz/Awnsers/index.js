@@ -10,6 +10,7 @@ export default function Awnser() {
     setQuiz,
     emit,
     game: {matchId},
+    roundTime,
   } = useGame();
   const {user} = useAuth();
   const fadeRef = useRef(null);
@@ -36,15 +37,17 @@ export default function Awnser() {
         matchId: matchId,
         questionId: quiz.questionId,
         answer: id,
+        time: roundTime,
       });
       console.log('emit', {
         userId: user.id,
         matchId: matchId,
         questionId: quiz.questionId,
         answer: id,
+        time: roundTime,
       });
     },
-    [setQuiz, quiz.answers],
+    [setQuiz, quiz.answers, roundTime],
   );
 
   return (
