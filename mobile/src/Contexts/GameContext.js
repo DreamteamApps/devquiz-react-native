@@ -14,6 +14,7 @@ const GameProvider = ({children}) => {
   const [quiz, setQuiz] = useState({
     answers: [],
     showCorrectAnwser: false,
+    questionImage: null,
   });
 
   const [game, setGame] = useState({

@@ -1,4 +1,4 @@
-import React, {useEffect, useState, memo} from 'react';
+import React, {useEffect, useState, memo, useCallback} from 'react';
 import {PageContainer} from '~/Components/Layout';
 import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
@@ -9,9 +9,8 @@ import {useGame} from '~/Contexts/GameContext';
 function Game() {
   const {game, quiz, setQuiz, hubConnect} = useGame();
 
-  const onQuestionRecived = (data) => {
-    console.log('HSUAUHSUAHSUA', data);
-    console.log('v', quiz);
+  const onQuestionRecived = useCallback((data) => {
+    console.log('executed on recived');
     setQuiz({
       ...quiz,
       answers: [
@@ -20,15 +19,16 @@ function Game() {
         {text: data.answer3},
         {text: data.answer4},
       ],
-      questionImage: data.image,
       question: data.title,
     });
-  };
+  }, []);
   useEffect(() => {
+    console.log('assign match-start-question');
     hubConnect.on('match-start-question', onQuestionRecived);
-    // return () => {
-    //   hubConnect.off('match-start-question', onQuestion);
-    // };
+    return () => {
+      console.log('unassign match-start-question');
+      hubConnect.off('match-start-question', onQuestionRecived);
+    };
   }, [onQuestionRecived]);
 
   useEffect(() => {

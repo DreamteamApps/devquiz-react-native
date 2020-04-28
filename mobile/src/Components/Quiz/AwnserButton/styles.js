@@ -30,7 +30,6 @@ export const AwnserText = styled.Text`
 
 export const AvatarLeft = styled.Image`
   position: absolute;
-  background-color: red;
   left: -18px;
   width: 36px;
   height: 36px;

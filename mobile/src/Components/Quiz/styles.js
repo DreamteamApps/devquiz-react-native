@@ -12,16 +12,16 @@ export const QuestionContainer = styled.View`
   justify-content: center;
   height: ${(props) => (props.small ? '150px' : '250px')};
   padding: 10px 20px;
+
 `;
 
 export const Question = styled.Text`
-  color:  ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.secondary};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.xxlarge};
 `;
 
 export const Image = styled.Image`
-  display: ${(props) => (props.source? 'flex' : 'none')};
-  width: 90%;
+  padding: 10px 20px;
   min-height: 200px;
 `;
