@@ -20,12 +20,14 @@ export const Name = styled.Text`
   color: #fff;
   font-size: 28px;
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
+  font-family: ${(props) => props.theme.fontName.bold};
 `;
 export const Username = styled.Text`
   color: #fff;
   font-size: 18px;
   margin-bottom: 10px;
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
+  font-family: ${(props) => props.theme.fontName.medium};
 `;
 export const ReposContainer = styled.View`
   flex-direction: ${(props) => (props.alternative ? 'row-reverse' : 'row')};
@@ -37,4 +39,5 @@ export const RepoIcon = styled.View`
 export const Repos = styled.Text`
   color: #fff;
   font-size: 18px;
+  font-family: ${(props) => props.theme.fontName.medium};
 `;

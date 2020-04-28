@@ -17,6 +17,11 @@ const fonts = {
   xlarge: '34px',
   xxlarge: '50px',
 };
+const fontName = {
+  regular: 'Ubuntu-Regular',
+  medium: 'Ubuntu-Medium',
+  bold: 'Ubuntu-Bold',
+};
 let fontsInt = {};
 Object.keys(fonts).forEach(
   (key) => (fontsInt[key] = parseInt(fonts[key].replace('px', ''))),
@@ -26,6 +31,7 @@ const style = {
   colors,
   fonts,
   fontsInt,
+  fontName,
 };
 
 export default style;

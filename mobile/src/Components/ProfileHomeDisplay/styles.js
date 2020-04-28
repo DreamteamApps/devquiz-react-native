@@ -25,8 +25,9 @@ export const ProfileInfo = styled.View`
 export const Name = styled.Text`
   color: #fff;
   font-size: ${(props) => props.theme.fonts.large};
-  font-family: 'Ubuntu-Bold';
+  font-family: ${(props) => props.theme.fontName.bold};
   color: ${(props) => props.theme.colors.primary};
+  margin-bottom: 5px;
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 export const Username = styled.Text`
@@ -34,6 +35,7 @@ export const Username = styled.Text`
   font-size: ${(props) => props.theme.fonts.medium};
   margin-bottom: 10px;
   color: ${(props) => props.theme.colors.gray};
+  font-family: ${(props) => props.theme.fontName.medium};
 `;
 export const ReposContainer = styled.View`
   flex-direction: ${(props) => (props.alternative ? 'row-reverse' : 'row')};
@@ -51,6 +53,7 @@ export const Repos = styled.Text`
   color: #fff;
   font-size: ${(props) => props.theme.fonts.medium};
   color: ${(props) => props.theme.colors.gray};
+  font-family: ${(props) => props.theme.fontName.regular};
 `;
 
 export const ScoreContainer = styled.View`
@@ -67,14 +70,15 @@ export const WinsLoosesContainer = styled.View`
 export const ScoreTitle = styled.Text`
   font-size: ${(props) => props.theme.fonts.small};
   color: ${(props) => props.theme.colors.gray};
+  font-family: ${(props) => props.theme.fontName.regular};
 `;
 export const ScoreLooseValue = styled.Text`
   font-size: ${(props) => props.theme.fonts.large};
   color: ${(props) => props.theme.colors.red};
-  font-family: 'Ubuntu-Bold';
+  font-family: ${(props) => props.theme.fontName.bold};
 `;
 export const ScoreWinValue = styled.Text`
   font-size: ${(props) => props.theme.fonts.large};
   color: ${(props) => props.theme.colors.green};
-  font-family: 'Ubuntu-Bold';
+  font-family: ${(props) => props.theme.fontName.bold};
 `;
