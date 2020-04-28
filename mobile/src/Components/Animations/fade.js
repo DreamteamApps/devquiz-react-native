@@ -2,6 +2,7 @@ import React, {forwardRef, useRef, useImperativeHandle} from 'react';
 import {Animated} from 'react-native';
 
 const Fade = forwardRef((props, ref) => {
+  console.log('fadeprops', props);
   const fadeAnim = useRef(new Animated.Value(props?.start ?? 0)).current;
 
   useImperativeHandle(ref, (onAnimationDone) => ({
@@ -29,7 +30,14 @@ const Fade = forwardRef((props, ref) => {
   }));
 
   return (
-    <Animated.View ref={ref} style={{flex: 1, opacity: fadeAnim}}>
+    <Animated.View
+      ref={ref}
+      style={{
+        ...props.style,
+        flex: props?.flex ?? 0,
+        justifyContent: props.justifyContent,
+        opacity: fadeAnim,
+      }}>
       {props.children}
     </Animated.View>
   );

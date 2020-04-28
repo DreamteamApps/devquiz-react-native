@@ -34,7 +34,7 @@ export default function Awnser() {
   // );
 
   return (
-    <Container>
+    <Container ref={fadeRef} duration={1000} delay={900}>
       <AwnserContainer
         ref={fadeRef}
         duration={1000}
