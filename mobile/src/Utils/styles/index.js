@@ -2,9 +2,11 @@ const colors = {
   primary: '#7159C1',
   secondary: '#fff',
   btnText: '#4B4B4B',
+  btnBg: '#514089',
   backgroundGray: '#e3dddd',
-  green: '#3DBE6F',
-  red: '#E00101',
+  green: '#85C159',
+  red: '#EB6464',
+  gray: '#585858',
   themeType: 'light-content',
 };
 const fonts = {
@@ -23,7 +25,7 @@ Object.keys(fonts).forEach(
 const style = {
   colors,
   fonts,
-  fontsInt
+  fontsInt,
 };
 
 export default style;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Title, ButtonsContainer} from './styles';
+import {Title, ButtonsContainer, Logo} from './styles';
 
 import {getData} from '~/Service/AuthApi';
 import InputText from '~/Components/InputText';
@@ -29,7 +29,7 @@ export default function Main({navigation}) {
         navigation.navigate('JoinRoom', {roomCode: roomCode});
       } else {
         setUser(user);
-        navigation.navigate('ModeSelect');
+        navigation.navigate('Home');
       }
     }
     setLoading(false);
@@ -54,7 +54,7 @@ export default function Main({navigation}) {
         await saveUser(dataReturn.data);
         setUser(dataReturn.data);
 
-        navigation.navigate('ModeSelect');
+        navigation.navigate('Home');
       } catch (error) {
         console.log(error);
         Snackbar.show({
@@ -73,11 +73,12 @@ export default function Main({navigation}) {
 
   return (
     <PageContainer>
+      <Logo source={require('~/Assets/Images/logo.png')} />
       <Title>Type your Github</Title>
       <InputText
         placeholder="type your github username"
         onChangeText={(text) => setUsername(text)}
-        style={{width: 250}}
+        style={{width: '90%'}}
       />
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
