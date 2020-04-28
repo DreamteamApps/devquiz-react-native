@@ -27,12 +27,13 @@ export default function Main({navigation}) {
       const roomCode = await getDeepLink();
       if (roomCode) {
         navigation.navigate('JoinRoom', {roomCode: roomCode});
+        setLoading(false);
       } else {
-        setUser(user);
-        navigation.navigate('Home');
+        getUserData(user.login);
       }
+    } else {
+      setLoading(false);
     }
-    setLoading(false);
   };
   useEffect(() => {
     //check if we have this Local User
@@ -50,15 +51,13 @@ export default function Main({navigation}) {
     if (username) {
       try {
         const dataReturn = await getData(username);
-
         await saveUser(dataReturn.data);
         setUser(dataReturn.data);
-
         navigation.navigate('Home');
       } catch (error) {
         console.log(error);
         Snackbar.show({
-          text: 'Username not found. Check your username and try again',
+          text: error.response.data.message,
           duration: Snackbar.LENGTH_SHORT,
         });
       }

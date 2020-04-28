@@ -203,7 +203,8 @@ export default function WaitingRoom({navigation}) {
             <ButtonsContainer style={{width: '80%'}}>
               <CustomButton
                 containerStyle={{marginBottom: 20}}
-                onPress={() => changeMyStatus()}>
+                onPress={() => changeMyStatus()}
+                disabled={!!ready}>
                 Ready
               </CustomButton>
             </ButtonsContainer>
