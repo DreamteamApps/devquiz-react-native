@@ -17,13 +17,13 @@ export default function Quiz() {
 
   return (
     <Container>
-      <Fade ref={fadeRef} duration={1000} >
+      <Fade ref={fadeRef} duration={1000}>
         <QuestionContainer small={!!quiz.questionImage}>
           <Question adjustsFontSizeToFit minimumFontScale={0.1}>
             {quiz.question}
           </Question>
         </QuestionContainer>
-        <Image source={{uri: quiz.questionImage}} />
+        {quiz?.questionImage && <Image source={{uri: quiz.questionImage}} />}
       </Fade>
       <Awnsers />
     </Container>
