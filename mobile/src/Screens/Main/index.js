@@ -10,6 +10,8 @@ import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {ScrollView} from 'react-native';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
@@ -71,14 +73,16 @@ export default function Main({navigation}) {
   };
 
   return (
-    <PageContainer>
+    <PageContainer justifyContent="flex-start">
       <Logo source={require('~/Assets/Images/logo.png')} />
       <Title>Type your Github</Title>
+
       <InputText
         placeholder="type your github username"
         onChangeText={(text) => setUsername(text)}
         style={{width: '90%'}}
       />
+
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
       </ButtonsContainer>
