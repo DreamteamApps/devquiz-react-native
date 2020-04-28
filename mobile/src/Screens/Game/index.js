@@ -37,12 +37,11 @@ function Game() {
       ) {
         newAnwsers[data.owner.answer - 1].opponentSelected = true;
       }
-      if (data?.opponent?.answer > 0)
-        setQuiz({
-          ...quiz,
-          answers: newAnwsers,
-          showCorrectAnswer: true,
-        });
+      setQuiz({
+        ...quiz,
+        answers: newAnwsers,
+        showCorrectAnswer: true,
+      });
     },
     [quiz.answers],
   );
@@ -51,11 +50,15 @@ function Game() {
     console.log('assign match-start-question');
     hubConnect.on('match-start-question', onQuestionRecived);
     hubConnect.on('match-round-end', onRoundEnd);
+    hubConnect.on('player-disconnected', (data) => {
+      console.log('disconnected');
+    });
 
     return () => {
       console.log('unassign match-start-question');
       hubConnect.off('match-start-question', onQuestionRecived);
       hubConnect.off('match-round-end', onRoundEnd);
+      hubConnect.off('player-disconnected');
     };
   }, [onQuestionRecived, onRoundEnd]);
 
