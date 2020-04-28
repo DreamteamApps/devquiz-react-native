@@ -2,9 +2,17 @@ import React, {useState, useCallback, useEffect, useRef} from 'react';
 import {Container, AwnserContainer} from './styles';
 import AwnserButton from '../AwnserButton';
 import {useGame} from '~/Contexts/GameContext';
+import {useAuth} from '~/Contexts/AuthContext';
 
 export default function Awnser() {
-  const {quiz, setQuiz} = useGame();
+  const {
+    quiz,
+    setQuiz,
+    emit,
+    game: {matchId},
+    roundTime,
+  } = useGame();
+  const {user} = useAuth();
   const fadeRef = useRef(null);
 
   const [disableAllButtons, setDisableAllButtons] = useState(false);
@@ -13,25 +21,34 @@ export default function Awnser() {
     fadeRef.current.start();
   }, []);
 
-  // const selectAwnser = useCallback(
-  //   (index) => {
-  //     setDisableAllButtons(true);
-  //     let newAnswers = quiz.awnsers;
-  //     newAnswers[index - 1].playerSelected = true;
-  //     setQuiz({
-  //       ...quiz,
-  //       answers: newAnswers,
-  //     });
-  //     setTimeout(() => {
-  //       console.log('quiz updated', quiz);
-  //       let newAnswers = quiz.answers;
-  //       newAnswers[0].opponentSelected = true;
-  //       newAnswers[2].correct = true;
-  //       setQuiz({...quiz, anwser: newAnswers, showCorrectAnwser: true});
-  //     }, 2000);
-  //   },
-  //   [setQuiz],
-  // );
+  const selectAwnser = useCallback(
+    (id) => {
+      setDisableAllButtons(true);
+      let newAnswers = quiz.answers;
+      console.log('resp', id, quiz.answers, newAnswers[id - 1]);
+      newAnswers[id - 1].playerSelected = true;
+      setQuiz({
+        ...quiz,
+        disableAllButtons: true,
+        answers: newAnswers,
+      });
+      emit('answer-question', {
+        userId: user.id,
+        matchId: matchId,
+        questionId: quiz.questionId,
+        answer: id,
+        time: roundTime,
+      });
+      console.log('emit', {
+        userId: user.id,
+        matchId: matchId,
+        questionId: quiz.questionId,
+        answer: id,
+        time: roundTime,
+      });
+    },
+    [setQuiz, quiz.answers, roundTime],
+  );
 
   return (
     <Container ref={fadeRef} duration={1000} delay={900}>
@@ -42,10 +59,10 @@ export default function Awnser() {
         small={!!quiz.questionImage}>
         {quiz.answers.map((i) => (
           <AwnserButton
-            disabled={disableAllButtons}
-            onSelect={() => selectAwnser(i.index)}
-            showCorrectAnwser={quiz.showCorrectAnwser}
-            key={i.text}
+            disabled={quiz.disableAllButtons}
+            onSelect={() => selectAwnser(i.id)}
+            showCorrectAnswer={quiz.showCorrectAnswer}
+            key={i.id}
             correct={i.correct}
             playerSelected={i.playerSelected}
             opponentSelected={i.opponentSelected}

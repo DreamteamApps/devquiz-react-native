@@ -2,7 +2,6 @@ import React, {forwardRef, useRef, useImperativeHandle} from 'react';
 import {Animated} from 'react-native';
 
 const Fade = forwardRef((props, ref) => {
-  console.log('fadeprops', props);
   const fadeAnim = useRef(new Animated.Value(props?.start ?? 0)).current;
 
   useImperativeHandle(ref, (onAnimationDone) => ({
