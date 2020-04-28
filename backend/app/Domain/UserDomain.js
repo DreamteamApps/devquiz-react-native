@@ -40,7 +40,26 @@ module.exports.getOrCreateUser = (githubUser) => {
             login: existingUser.username,
             name: existingUser.name,
             avatar: existingUser.image_url,
-            repos: existingUser.repos_quantity
+            repos: existingUser.repos_quantity,
+            score: existingUser.score,
+            wins: existingUser.wins,
+            losses: existingUser.losses,
+            ties: existingUser.ties
         }
     });
+}
+
+/**
+ * Safe sets the socketId of userId
+ *
+ * @param {string} socketId
+*/
+module.exports.setUserSocketId = async (userId, socketId) => {
+    const user = await User.findBy('id', userId);
+
+    user.merge({
+        socket_id: socketId
+    });
+
+    user.save();
 }

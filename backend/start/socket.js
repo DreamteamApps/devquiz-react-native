@@ -1,6 +1,9 @@
 const env = use('Env')
 const Server = use('Server')
-const socketConnection = use('socket.io')(Server.getInstance())
+const socketConnection = use('socket.io')(Server.getInstance(), {
+    pingInterval: 2000,
+    pingTimeout: 5000,
+});
 
 const MatchDomain = use('App/Domain/MatchDomain')
 
@@ -10,11 +13,15 @@ socketConnection.on('connection', function (connection) {
     let room;
 
     socket.on('join-match', async (params) => {
-        const { matchId } = params;
+        const { matchId, userId } = params;
 
         room = createRoom(matchId, connection);
 
-        MatchDomain.getMatchPlayers(room, matchId);
+        MatchDomain.joinMatch(room, matchId, userId);
+    });
+
+    socket.on('disconnect', () => {
+        MatchDomain.disconnectUserFromMatches(connection.id);
     });
 
     socket.on('set-ready', async (params) => {
@@ -34,6 +41,7 @@ const createRoom = (matchId, connection) => {
     connection.join(matchId);
     
     return {
+        socketId: connection.id,
         emit: (eventName, data) => {
             devLog(`Emited ${eventName} to room ${matchId}`, JSON.stringify(data, null, 2));
             socketConnection.to(matchId).emit(eventName, data)
@@ -44,11 +52,11 @@ const createRoom = (matchId, connection) => {
     }
 }
 
-const createSocket = (socket) => {
-    devLog(`New client connected ${socket.id}`);
+const createSocket = (connection) => {
+    devLog(`New client connected ${connection.id}`);
     return {
         on: (eventName, callback) => {
-            socket.on(eventName, (data)=> {
+            connection.on(eventName, (data)=> {
                 devLog(`Received ${eventName}`, JSON.stringify(data, null, 2));
                 callback(data);
             });
