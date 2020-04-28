@@ -6,9 +6,6 @@ import {Fade} from '../Animations';
 
 export default function Quiz() {
   const {quiz, setQuiz, hubConnect} = useGame();
-
-  console.log('atual quiz', quiz.questionImage);
-
   const fadeRef = useRef(null);
 
   useEffect(() => {
