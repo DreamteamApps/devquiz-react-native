@@ -51,10 +51,12 @@ export const Code = styled.Text`
   color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.xxlarge};
   margin-bottom: 20px;
+  font-family: ${(props) => props.theme.fontName.bold};
 `;
 export const CodeExplainText = styled.Text`
   color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.medium};
+  font-family: ${(props) => props.theme.fontName.regular};
 `;
 
 export const ButtonsContainer = styled.View`

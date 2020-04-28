@@ -12,41 +12,10 @@ const GameProvider = ({children}) => {
   });
 
   const [quiz, setQuiz] = useState({
-    question:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
-    // questionImage:
-    //   'https://petgusto.com/wp-content/uploads/2014/10/mini-porco-tudo-sobre-o-animal-que-virou-mania-no-brasil-3.jpg',
-    awnsers: [
-      {
-        index: 1,
-        text: 'A1',
-        playerSelected: false,
-        opponentSelected: false,
-        correct: false,
-      },
-      {
-        index: 2,
-        text: 'Awnser 2',
-        playerSelected: false,
-        opponentSelected: false,
-        correct: false,
-      },
-      {
-        index: 3,
-        text: 'Awnser asdasdasdas weasd r',
-        playerSelected: false,
-        opponentSelected: false,
-        correct: false,
-      },
-      {
-        index: 4,
-        text: 'resp.Certa',
-        playerSelected: false,
-        opponentSelected: false,
-        correct: false,
-      },
-    ],
-    showCorrectAwnser: false,
+    answers: [],
+    showCorrectAnwser: false,
+    questionImage: null,
+    disableAllButtons:false,
   });
 
   const [game, setGame] = useState({

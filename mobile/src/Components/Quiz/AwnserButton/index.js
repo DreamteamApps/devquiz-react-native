@@ -7,7 +7,7 @@ export default function AwnserButton({
   correct,
   playerSelected,
   opponentSelected,
-  showCorrectAwnser,
+  showCorrectAnswer,
   index,
   disabled,
   small,
@@ -21,12 +21,12 @@ export default function AwnserButton({
     <ButtonContainer
       onPress={onSelect}
       selected={playerSelected}
-      showCorrectAwnser={showCorrectAwnser}
+      showCorrectAnwser={showCorrectAnswer}
       disabled={disabled}
       correct={correct}
       small={small}>
       <AwnserText
-        showCorrectAwnser={showCorrectAwnser}
+        showCorrectAnwser={showCorrectAnswer}
         correct={correct}
         selected={playerSelected}
         adjustsFontSizeToFit

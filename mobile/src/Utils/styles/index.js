@@ -2,9 +2,11 @@ const colors = {
   primary: '#7159C1',
   secondary: '#fff',
   btnText: '#4B4B4B',
+  btnBg: '#514089',
   backgroundGray: '#e3dddd',
-  green: '#3DBE6F',
-  red: '#E00101',
+  green: '#85C159',
+  red: '#EB6464',
+  gray: '#585858',
   themeType: 'light-content',
 };
 const fonts = {
@@ -15,6 +17,11 @@ const fonts = {
   xlarge: '34px',
   xxlarge: '50px',
 };
+const fontName = {
+  regular: 'Ubuntu-Regular',
+  medium: 'Ubuntu-Medium',
+  bold: 'Ubuntu-Bold',
+};
 let fontsInt = {};
 Object.keys(fonts).forEach(
   (key) => (fontsInt[key] = parseInt(fonts[key].replace('px', ''))),
@@ -23,7 +30,8 @@ Object.keys(fonts).forEach(
 const style = {
   colors,
   fonts,
-  fontsInt
+  fontsInt,
+  fontName,
 };
 
 export default style;

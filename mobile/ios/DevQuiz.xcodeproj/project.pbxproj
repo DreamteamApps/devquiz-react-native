@@ -20,6 +20,9 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* DevQuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DevQuizTests.m */; };
 		4644443185DAE99B489963EB /* libPods-DevQuiz-DevQuizTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5905F22879166FC85E12FB /* libPods-DevQuiz-DevQuizTests.a */; };
+		8B8D30F924579A7D00F4A69F /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F624579A7C00F4A69F /* Ubuntu-Regular.ttf */; };
+		8B8D30FA24579A7D00F4A69F /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F724579A7C00F4A69F /* Ubuntu-Medium.ttf */; };
+		8B8D30FB24579A7D00F4A69F /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F824579A7D00F4A69F /* Ubuntu-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		2E78C5332FEAC9D80F4F5DF2 /* Pods-DevQuiz-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevQuiz-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-DevQuiz-tvOS/Pods-DevQuiz-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		305DEC259AD1F8F1B5690CEF /* Pods-DevQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevQuiz.debug.xcconfig"; path = "Target Support Files/Pods-DevQuiz/Pods-DevQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		7E110158D5839666BB9448EF /* Pods-DevQuiz-DevQuizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevQuiz-DevQuizTests.debug.xcconfig"; path = "Target Support Files/Pods-DevQuiz-DevQuizTests/Pods-DevQuiz-DevQuizTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B8D30F624579A7C00F4A69F /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		8B8D30F724579A7C00F4A69F /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		8B8D30F824579A7D00F4A69F /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		93C88B9B4E55D9A13B38A9FB /* Pods-DevQuiz-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevQuiz-tvOS.release.xcconfig"; path = "Target Support Files/Pods-DevQuiz-tvOS/Pods-DevQuiz-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		AD5905F22879166FC85E12FB /* libPods-DevQuiz-DevQuizTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevQuiz-DevQuizTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48C3AD634D3A6A1A9B2B631 /* Pods-DevQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevQuiz.release.xcconfig"; path = "Target Support Files/Pods-DevQuiz/Pods-DevQuiz.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +154,6 @@
 				C752450017D730B7A4B4B583 /* Pods-DevQuiz-tvOSTests.debug.xcconfig */,
 				C7A733F9A825BAEFB727B2B5 /* Pods-DevQuiz-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +180,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8B8D30F524579A6100F4A69F /* fonts */,
 				13B07FAE1A68108700A75B9A /* DevQuiz */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* DevQuizTests */,
@@ -196,6 +202,16 @@
 				2D02E4901E0B4A5D006451C7 /* DevQuiz-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8B8D30F524579A6100F4A69F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D30F824579A7D00F4A69F /* Ubuntu-Bold.ttf */,
+				8B8D30F724579A7C00F4A69F /* Ubuntu-Medium.ttf */,
+				8B8D30F624579A7C00F4A69F /* Ubuntu-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +356,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8D30FB24579A7D00F4A69F /* Ubuntu-Bold.ttf in Resources */,
+				8B8D30F924579A7D00F4A69F /* Ubuntu-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				8B8D30FA24579A7D00F4A69F /* Ubuntu-Medium.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

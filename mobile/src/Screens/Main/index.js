@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Title, ButtonsContainer} from './styles';
+import {Title, ButtonsContainer, Logo} from './styles';
 
 import {getData} from '~/Service/AuthApi';
 import InputText from '~/Components/InputText';
@@ -10,6 +10,8 @@ import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {ScrollView} from 'react-native';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
@@ -27,12 +29,13 @@ export default function Main({navigation}) {
       const roomCode = await getDeepLink();
       if (roomCode) {
         navigation.navigate('JoinRoom', {roomCode: roomCode});
+        setLoading(false);
       } else {
-        setUser(user);
-        navigation.navigate('ModeSelect');
+        getUserData(user.login);
       }
+    } else {
+      setLoading(false);
     }
-    setLoading(false);
   };
   useEffect(() => {
     //check if we have this Local User
@@ -50,15 +53,13 @@ export default function Main({navigation}) {
     if (username) {
       try {
         const dataReturn = await getData(username);
-
         await saveUser(dataReturn.data);
         setUser(dataReturn.data);
-
-        navigation.navigate('ModeSelect');
+        navigation.navigate('Home');
       } catch (error) {
         console.log(error);
         Snackbar.show({
-          text: 'Username not found. Check your username and try again',
+          text: error.response.data.message,
           duration: Snackbar.LENGTH_SHORT,
         });
       }
@@ -72,13 +73,16 @@ export default function Main({navigation}) {
   };
 
   return (
-    <PageContainer>
+    <PageContainer justifyContent="flex-start">
+      <Logo source={require('~/Assets/Images/logo.png')} />
       <Title>Type your Github</Title>
+
       <InputText
         placeholder="type your github username"
         onChangeText={(text) => setUsername(text)}
-        style={{width: 250}}
+        style={{width: '90%'}}
       />
+
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
       </ButtonsContainer>

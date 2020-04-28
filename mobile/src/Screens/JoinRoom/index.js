@@ -1,6 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, Text, StyleSheet} from 'react-native';
-import {Container, Title, ButtonsContainer, ContentContainer} from './styles';
+import React, {useState, useEffect, useRef} from 'react';
+import {Keyboard} from 'react-native';
+import {
+  Container,
+  Title,
+  ButtonsContainer,
+  ContentContainer,
+  Image,
+  Digit,
+} from './styles';
 import {PageContainer} from '../../Components/Layout';
 
 import CustomButton from '../../Components/CustomButton';
@@ -13,7 +20,6 @@ import {useApp} from '~/Contexts/AppContext';
 import {
   CodeField,
   Cursor,
-  useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 
@@ -22,11 +28,21 @@ export default function JoinRoom({navigation, route}) {
   const {params} = route;
   const CELL_COUNT = 6;
   const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
+  const CodeInputRef = useRef();
+
+  useEffect(() => {
+    if (roomCode.length == 6) {
+      getRoom(roomCode);
+    }
+  }, [roomCode]);
+
+  useEffect(() => {
+    CodeInputRef.current.focus();
+  }, []);
 
   const {user, setUser} = useAuth();
   const {game, setGame} = useGame();
@@ -41,6 +57,7 @@ export default function JoinRoom({navigation, route}) {
 
   const getRoom = async (roomCode) => {
     if (roomCode) {
+      Keyboard.dismiss();
       setLoading(true);
       try {
         const dataReturn = await joinMatch(user.id, roomCode);
@@ -50,9 +67,8 @@ export default function JoinRoom({navigation, route}) {
 
         navigation.navigate('WaitingRoom');
       } catch (error) {
-        console.log(error);
         Snackbar.show({
-          text: 'Room Code not found. Check the number and try again',
+          text: error.response.data.message,
           duration: Snackbar.LENGTH_SHORT,
         });
       }
@@ -69,19 +85,18 @@ export default function JoinRoom({navigation, route}) {
     <PageContainer justifyContent="space-between">
       <Header back />
       <ContentContainer>
+        <Image source={require('~/Assets/Images/smart_key.png')} />
         <Title>Room Code</Title>
         <CodeField
+          ref={CodeInputRef}
           cellCount={6}
           keyboardType="number-pad"
           onChangeText={(text) => setRoomCode(text)}
           value={roomCode}
           renderCell={({index, symbol, isFocused}) => (
-            <Text
-              key={index}
-              style={[styles.cell, isFocused && styles.focusCell]}
-              onLayout={getCellOnLayoutHandler(index)}>
+            <Digit key={index} onLayout={getCellOnLayoutHandler(index)}>
               {symbol || (isFocused ? <Cursor /> : null)}
-            </Text>
+            </Digit>
           )}></CodeField>
       </ContentContainer>
       <ButtonsContainer>
@@ -90,22 +105,3 @@ export default function JoinRoom({navigation, route}) {
     </PageContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {flex: 1, padding: 20},
-  title: {textAlign: 'center', fontSize: 30},
-  codeFiledRoot: {marginTop: 20},
-  cell: {
-    width: 50,
-    height: 50,
-    lineHeight: 50,
-    fontSize: 40,
-    marginRight: 10,
-    color: '#fff',
-    backgroundColor: '#A790F4',
-    textAlign: 'center',
-  },
-  focusCell: {
-    borderColor: '#fff',
-  },
-});

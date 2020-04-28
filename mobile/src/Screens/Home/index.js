@@ -4,14 +4,14 @@ import {View} from 'react-native';
 import {Container, ButtonsContainer} from './styles';
 import {PageContainer} from '~/Components/Layout';
 import Header from '~/Components/Header';
-import ProfileDisplay from '~/Components/ProfileDisplay';
+import ProfileHomeDisplay from '~/Components/ProfileHomeDisplay';
 import CustomButton from '~/Components/CustomButton';
 import {createRoom} from '~/Service/MatchApi';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useGame} from '~/Contexts/GameContext';
 import {useApp} from '~/Contexts/AppContext';
 
-export default function ModeSelect({navigation}) {
+export default function Home({navigation}) {
   const {user} = useAuth();
   const {game, setGame} = useGame();
   const {setLoading} = useApp();
@@ -35,7 +35,7 @@ export default function ModeSelect({navigation}) {
   return (
     <PageContainer justifyContent="flex-start">
       <Header back />
-      <ProfileDisplay />
+      <ProfileHomeDisplay />
       <ButtonsContainer>
         <CustomButton
           containerStyle={{marginBottom: 30}}

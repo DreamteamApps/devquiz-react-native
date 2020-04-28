@@ -12,4 +12,5 @@ export const RoundTitle = styled.Text`
   font-size: ${(props) =>
     props.small ? props.theme.fonts.large : props.theme.fonts.xxlarge};
   margin-bottom: 20px;
+  font-family: ${(props) => props.theme.fontName.bold};
 `;

@@ -5,12 +5,7 @@ import Awnsers from './Awnsers';
 import {Fade} from '../Animations';
 
 export default function Quiz() {
-  const {
-    quiz: {question, questionImage},
-  } = useGame();
-
-  const componentSmall = !!questionImage;
-
+  const {quiz, setQuiz, hubConnect} = useGame();
   const fadeRef = useRef(null);
 
   useEffect(() => {
@@ -19,16 +14,15 @@ export default function Quiz() {
 
   return (
     <Container>
-      <Fade ref={fadeRef} duration={1000} style={{flex: 1}}>
-        <QuestionContainer small={componentSmall}>
+      <Fade ref={fadeRef} duration={1000}>
+        <QuestionContainer small={!!quiz.questionImage}>
           <Question adjustsFontSizeToFit minimumFontScale={0.1}>
-            {question}
+            {quiz.question}
           </Question>
         </QuestionContainer>
-
-        <Image source={{uri: questionImage}} />
+        {quiz?.questionImage && <Image source={{uri: quiz.questionImage}} />}
       </Fade>
-        <Awnsers />
+      <Awnsers />
     </Container>
   );
 }

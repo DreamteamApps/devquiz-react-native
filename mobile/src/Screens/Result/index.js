@@ -14,11 +14,9 @@ export default function Result({navigation, route}) {
   const {user, setUser} = useAuth();
   const {game, setGame} = useGame();
   const {setLoading} = useApp();
-  useEffect(() => {}, []);
 
   return (
     <PageContainer justifyContent="space-between">
-      <Header close />
       <ContentContainer>
         <Title>{title}</Title>
       </ContentContainer>
