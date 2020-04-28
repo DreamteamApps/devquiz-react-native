@@ -67,9 +67,8 @@ export default function JoinRoom({navigation, route}) {
 
         navigation.navigate('WaitingRoom');
       } catch (error) {
-        console.log(error);
         Snackbar.show({
-          text: 'Room Code not found. Check the number and try again',
+          text: error.response.data.message,
           duration: Snackbar.LENGTH_SHORT,
         });
       }

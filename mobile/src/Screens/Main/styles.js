@@ -18,4 +18,5 @@ export const Logo = styled.Image`
   height: 80px;
   resize-mode: contain;
   margin-bottom: 50px;
+  margin-top: 100px;
 `;

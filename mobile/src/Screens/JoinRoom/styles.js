@@ -25,7 +25,7 @@ export const ButtonsContainer = styled.View`
 export const Digit = styled.Text`
   width: 50px;
   height: 50px;
-  line-height: 50;
+  line-height: 50px;
   font-size: ${(props) => props.theme.fonts.xlarge};
   margin-right: 10px;
   color: ${(props) => props.theme.colors.secondary};
