@@ -59,9 +59,10 @@ function Game() {
         ...quiz,
         answers: newAnwsers,
         showCorrectAnswer: true,
+        disableAllButtons: true,
       });
     },
-    [quiz,quiz.answers, players],
+    [quiz, quiz.answers, players],
   );
 
   useEffect(() => {
