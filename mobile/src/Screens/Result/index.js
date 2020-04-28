@@ -17,7 +17,6 @@ export default function Result({navigation, route}) {
 
   return (
     <PageContainer justifyContent="space-between">
-      <Header close />
       <ContentContainer>
         <Title>{title}</Title>
       </ContentContainer>
