@@ -11,6 +11,10 @@ const GameProvider = ({children}) => {
     owner: {id: 1, losses: 21, score: 0, ties: 8, wins: 33},
   });
 
+  const isPlayer = (ownerId)=>{
+    return players.player.id === ownerId
+  }
+
   const [quiz, setQuiz] = useState({
     answers: [],
     showCorrectAnwser: false,
@@ -52,6 +56,7 @@ const GameProvider = ({children}) => {
         hubConnect,
         setHubConnect,
         game,
+        isPlayer,
         setGame,
         quiz,
         setQuiz,

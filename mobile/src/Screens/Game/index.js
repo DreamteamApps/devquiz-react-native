@@ -6,7 +6,15 @@ import GameTopInfo from '../../Components/GameTopInfo';
 import {useGame} from '~/Contexts/GameContext';
 
 function Game() {
-  const {game, quiz, setQuiz, hubConnect, players} = useGame();
+  const {
+    game,
+    quiz,
+    setQuiz,
+    hubConnect,
+    isPlayer,
+    players,
+    setPlayers,
+  } = useGame();
 
   const onQuestionRecived = useCallback((data) => {
     setQuiz({
@@ -27,23 +35,33 @@ function Game() {
 
   const onRoundEnd = useCallback(
     (data) => {
+      console.log('onRoundEnd', quiz);
       let newAnwsers = quiz.answers;
+      let newPlayers = players;
       newAnwsers[data.correctAnswer - 1].correct = true;
-      if (players.player.id === data?.owner?.id && data?.opponent?.answer > 0) {
-        newAnwsers[data.opponent.answer - 1].opponentSelected = true;
-      } else if (
-        players.player.id === data?.opponent?.id &&
-        data?.owner?.answer > 0
-      ) {
-        newAnwsers[data.owner.answer - 1].opponentSelected = true;
+      if (isPlayer(data?.owner?.id)) {
+        if (data?.opponent?.answer > 0) {
+          newAnwsers[data.opponent.answer - 1].opponentSelected = true;
+        }
+        newPlayers.player.score = data.owner.score;
+        newPlayers.opponent.score = data.opponent.score;
+      } else if (isPlayer(data?.opponent?.id)) {
+        if (data?.owner?.answer > 0) {
+          newAnwsers[data.owner.answer - 1].opponentSelected = true;
+        }
+        newPlayers.player.score = data.opponent.score;
+        newPlayers.opponent.score = data.owner.score;
       }
+
+      setPlayers(newPlayers);
+
       setQuiz({
         ...quiz,
         answers: newAnwsers,
         showCorrectAnswer: true,
       });
     },
-    [quiz.answers],
+    [quiz,quiz.answers, players],
   );
 
   useEffect(() => {
