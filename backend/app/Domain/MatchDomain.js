@@ -5,42 +5,30 @@
 */
 const Database = use('Database')
 const Match = use("App/Models/Match")
-const User = use("App/Models/User")
-const Question = use("App/Models/Question")
-
-
-
 
 /**
- * 
  * Domains
  * 
 */
 const UserDomain = use('App/Domain/UserDomain')
 const QuestionDomain = use('App/Domain/QuestionDomain')
 
-
-
-
 /**
- * 
- * Helpers
+ * General
  * 
 */
 const CodeGenerator = use("App/Helpers/CodeGenerator")
 const Time = use("App/Helpers/Time")
-
-
+const SocketEvents = use('App/Enum/SocketEvents')
+const MatchStatus = use('App/Enum/MatchStatus')
 
 
 /**
- * 
  * Constants
  * All times are in MS
- * 
 */
-const TOTAL_ROUNDS = 5;
-const ROUND_COUNTDOWN_TIME = 10;
+const TOTAL_ROUNDS = 1;
+const ROUND_COUNTDOWN_TIME = 5;
 
 const TIME_BEFORE_START_MATCH = 1000;
 const TIME_BEFORE_START_FIRST_ROUND = 3500;
@@ -48,8 +36,8 @@ const TIME_BEFORE_SEND_QUESTION = 4000;
 const TIME_BEFORE_COUNTDOWN = 1000;
 const TIME_BEFORE_NEW_ROUND = 3000;
 
-
-
+const TIME_BEFORE_MATCH_PLAY_AGAIN = 3000;
+const MATCH_PLAY_AGAIN_COUNTDOWN_TIME = 5;
 
 /**
  * 
@@ -64,7 +52,7 @@ const TIME_BEFORE_NEW_ROUND = 3000;
 */
 module.exports.setReady = async (room, userId, matchId) => {
 
-  let match = await Match.findBy('id', matchId);
+  let match = await module.exports.getMatchById(matchId);
 
   match.merge({
     [match.owner_id == userId ? "owner_isReady" : "opponent_isReady"]: true
@@ -72,7 +60,7 @@ module.exports.setReady = async (room, userId, matchId) => {
 
   match.save();
 
-  room.emit('player-ready', { userId: userId });
+  room.emit(SocketEvents.SERVER_PLAYER_READY, { userId: userId });
 
   if (match.owner_isReady && match.opponent_isReady) {
     await Time.waitMS(TIME_BEFORE_START_MATCH);
@@ -90,9 +78,9 @@ module.exports.joinMatch = async (room, matchId, userId) => {
   const matchPlayers = {};
   const getRolesPromises = [];
 
-  const match = await Match.findBy('id', matchId);
+  const match = await module.exports.getMatchById(matchId);
 
-  const getOwnerPromise = User.findBy('id', match.owner_id).then((owner) => matchPlayers.owner = {
+  const getOwnerPromise = UserDomain.getUserById(match.owner_id).then((owner) => matchPlayers.owner = {
     id: owner.id,
     login: owner.username,
     name: owner.name,
@@ -103,7 +91,7 @@ module.exports.joinMatch = async (room, matchId, userId) => {
   getRolesPromises.push(getOwnerPromise);
 
   if (match.opponent_id) {
-    const getOpponentPromise = User.findBy('id', match.opponent_id).then((opponent) => matchPlayers.opponent = {
+    const getOpponentPromise = UserDomain.getUserById(match.opponent_id).then((opponent) => matchPlayers.opponent = {
       id: opponent.id,
       login: opponent.username,
       name: opponent.name,
@@ -116,7 +104,7 @@ module.exports.joinMatch = async (room, matchId, userId) => {
 
   await Promise.all(getRolesPromises);
 
-  room.emit('player-joined', matchPlayers);
+  room.emit(SocketEvents.SERVER_PLAYER_JOINED, matchPlayers);
 
   UserDomain.setUserSocketId(userId, room.socketId);
 }
@@ -127,7 +115,7 @@ module.exports.joinMatch = async (room, matchId, userId) => {
  * @param {integer} userId
 */
 module.exports.createMatch = async (userId) => {
-  let existingUser = await User.findBy('id', userId);
+  let existingUser = await UserDomain.getUserById(userId);
   if (!existingUser) {
     return {
       "errorCode": 1,
@@ -153,7 +141,7 @@ module.exports.createMatch = async (userId) => {
  * @param {integer} userId
 */
 module.exports.joinMatchWithCode = async (matchCode, userId) => {
-  let existingUser = await User.findBy('id', userId);
+  let existingUser = await UserDomain.getUserById(userId);
   if (!existingUser) {
     return {
       "errorCode": 1,
@@ -183,7 +171,7 @@ module.exports.joinMatchWithCode = async (matchCode, userId) => {
     };
   }
 
-  if (['pristine', 'ended'].indexOf(existingMatch.status) == -1) {
+  if ([MatchStatus.PRISTINE, MatchStatus.ENDED].indexOf(existingMatch.status) == -1) {
     return {
       "errorCode": 5,
       "message": "This room is already started!"
@@ -199,7 +187,7 @@ module.exports.joinMatchWithCode = async (matchCode, userId) => {
 
   existingMatch.merge({
     opponent_id: userId,
-    status: 'lobby'
+    status: MatchStatus.LOBBY
   });
 
   await existingMatch.save();
@@ -220,13 +208,13 @@ module.exports.joinMatchWithCode = async (matchCode, userId) => {
 */
 module.exports.answerQuestion = async (userId, matchId, questionId, answer, time) => {
 
-  const [match, question] = await Promise.all([Match.findBy('id', matchId), Question.findBy('id', questionId)]);
+  const [match, question] = await Promise.all([module.exports.getMatchById(matchId), QuestionDomain.getQuestionById(questionId)]);
 
   const isMatchOwner = match.owner_id == userId;
 
   const playerOldScore = match[isMatchOwner ? "owner_score" : "opponent_score"];
   const rightAnswerScore = question.correct_answer == answer ? 5 : 0;
-  const score = playerOldScore + rightAnswerScore + (time || 0);
+  const score = playerOldScore + rightAnswerScore + (rightAnswerScore > 0 ? (time || 0) : 0);
 
   match.merge({
     [isMatchOwner ? "owner_last_answer" : "opponent_last_answer"]: answer,
@@ -241,27 +229,57 @@ module.exports.answerQuestion = async (userId, matchId, questionId, answer, time
  *
  * @param {object} room
 */
-module.exports.disconnectUserFromMatches = async (socketId) => {
-  const user = await User.findBy('socket_id', socketId);
+module.exports.disconnectUserFromMatch = async (socketId) => {
+  const user = await UserDomain.getUserBySocketId(socketId);
   if (user) {
     UserDomain.setUserSocketId(user.id, "");
 
     const matches = await Database.table('matches').whereRaw(`(owner_id = ? || opponent_id = ?)`, [user.id, user.id]).orderBy('id', 'desc');
 
     if (matches && matches[0]) {
-      const match = await Match.findBy('id', matches[0].id);
+      const match = await module.exports.getMatchById(matches[0].id);
       const isMatchOwner = user.id == match.owner_id;
 
-      if (match.status == 'playing') {
+      if (match.status == MatchStatus.PLAYING) {
         match.merge({
           [isMatchOwner ? "owner_disconnected" : "opponent_disconnected"]: true,
-          status: 'disconnected'
+          status: MatchStatus.DISCONNECTED
         });
+
         match.save();
       }
     }
   }
 }
+
+/**
+ * Register if user wants to play again
+ *
+ * @param {integer} userId
+ * @param {integer} matchId
+*/
+module.exports.playAgainAnswer = async (userId, matchId) => {
+  const match = await module.exports.getMatchById(matchId);
+  const isMatchOwner = match.owner_id == userId;
+
+  match.merge({
+    [isMatchOwner ? "owner_play_again" : "opponent_play_again"]: true
+  })
+
+  match.save();
+}
+
+/**
+ * Get match by id
+ *
+ * @param {string} matchId
+*/
+module.exports.getMatchById = async (matchId) => {
+  const match = await Match.findBy('id', matchId);
+  return match;
+}
+
+
 
 
 /**
@@ -277,7 +295,7 @@ module.exports.disconnectUserFromMatches = async (socketId) => {
  * @param {integer} matchId
 */
 const startMatch = async (room, matchId) => {
-  room.emit('match-start');
+  room.emit(SocketEvents.SERVER_MATCH_START);
 
   await Time.waitMS(TIME_BEFORE_START_FIRST_ROUND);
 
@@ -291,7 +309,7 @@ const startMatch = async (room, matchId) => {
  * @param {integer} matchId
 */
 const playNextRound = async (room, matchId) => {
-  let match = await Match.findBy('id', matchId);
+  let match = await module.exports.getMatchById(matchId);
 
   if (match.round == TOTAL_ROUNDS) {
     endMatch(room, matchId);
@@ -302,7 +320,7 @@ const playNextRound = async (room, matchId) => {
   const round = match.round + 1;
 
   match.merge({
-    status: `playing`,
+    status: MatchStatus.PLAYING,
     round: round,
     owner_last_answer: 0,
     opponent_last_answer: 0,
@@ -311,11 +329,11 @@ const playNextRound = async (room, matchId) => {
 
   match.save();
 
-  room.emit('match-start-round', { currentRound: match.round, totalRound: TOTAL_ROUNDS });
+  room.emit(SocketEvents.SERVER_MATCH_START_ROUND, { currentRound: match.round, totalRound: TOTAL_ROUNDS });
 
   await Time.waitMS(TIME_BEFORE_SEND_QUESTION);
 
-  room.emit('match-start-question', {
+  room.emit(SocketEvents.SERVER_MATCH_START_QUESTION, {
     id: question.id,
     title: question.title,
     image: question.image,
@@ -330,9 +348,9 @@ const playNextRound = async (room, matchId) => {
   let userDisconnected = false;
 
   await Time.countdownFrom(ROUND_COUNTDOWN_TIME, async (counted, stopCounting) => {
-    room.emit('match-countdown', { seconds: counted });
+    room.emit(SocketEvents.SERVER_MATCH_COUNTDOWN, { seconds: counted });
 
-    match = await Match.findBy('id', matchId);
+    match = await module.exports.getMatchById(matchId);
 
     if (match.owner_disconnected || match.opponent_disconnected) {
       userDisconnected = true;
@@ -344,9 +362,9 @@ const playNextRound = async (room, matchId) => {
     }
   });
 
-  match = await Match.findBy('id', matchId);
+  match = await module.exports.getMatchById(matchId);
 
-  room.emit('match-round-end', {
+  room.emit(SocketEvents.SERVER_MATCH_END_ROUND, {
     owner: {
       id: match.owner_id,
       answer: match.owner_last_answer,
@@ -361,7 +379,7 @@ const playNextRound = async (room, matchId) => {
   });
 
   await Time.waitMS(TIME_BEFORE_NEW_ROUND);
-  
+
   if (userDisconnected) {
     endMatch(room, matchId);
     return;
@@ -377,9 +395,9 @@ const playNextRound = async (room, matchId) => {
  * @param {integer} matchId
 */
 const endMatch = async (room, matchId) => {
-  const match = await Match.findBy('id', matchId);
+  const match = await module.exports.getMatchById(matchId);
 
-  const [owner, opponent] = await Promise.all([User.findBy('id', match.owner_id), User.findBy('id', match.opponent_id)]);
+  const [owner, opponent] = await Promise.all([UserDomain.getUserById(match.owner_id), UserDomain.getUserById(match.opponent_id)]);
 
   const isTied = match.owner_score == match.opponent_score;
   const ownerHasWinned = match.owner_score > match.opponent_score;
@@ -431,7 +449,7 @@ const endMatch = async (room, matchId) => {
         opponent.merge({
           wins: opponent.wins + (ownerHasWinned ? 0 : 1)
         });
-        
+
         if (!match.owner_disconnected) {
           opponent.merge({
             losses: opponent.losses + (!ownerHasWinned ? 0 : 1)
@@ -447,16 +465,16 @@ const endMatch = async (room, matchId) => {
 
 
   if (someoneScored && !isTied) {
-    if(!match.owner_disconnected && !match.opponent_disconnected) {
+    if (!match.owner_disconnected && !match.opponent_disconnected) {
       match.merge({
         winner_id: ownerHasWinned ? owner.id : opponent.id,
       });
     }
   }
 
-  if (match.status != 'disconnected') {
+  if (match.status != MatchStatus.DISCONNECTED) {
     match.merge({
-      status: 'ended'
+      status: MatchStatus.ENDED
     });
   }
 
@@ -464,14 +482,16 @@ const endMatch = async (room, matchId) => {
   opponent.save();
   match.save();
 
-  room.emit('match-end', {
+  room.emit(SocketEvents.SERVER_MATCH_END, {
     owner: {
       id: match.owner_id,
       score: ownerScore,
       wins: owner.wins,
       losses: owner.losses,
       ties: owner.ties,
-      disconnected: match.owner_disconnected
+      lastMatchScore: match.owner_score,
+      winned: someoneScored && !isTied && ownerHasWinned,
+      disconnected: match.owner_disconnected,
     },
     opponent: {
       id: match.opponent_id,
@@ -479,10 +499,51 @@ const endMatch = async (room, matchId) => {
       wins: opponent.wins,
       losses: opponent.losses,
       ties: opponent.ties,
-      disconnected: match.opponent_disconnected
-    },
-    winner_id: match.winner_id
+      lastMatchScore: match.opponent_score,
+      winned: someoneScored && !isTied && !ownerHasWinned,
+      disconnected: match.opponent_disconnected,
+    }
   });
+
+  await Time.waitMS(TIME_BEFORE_MATCH_PLAY_AGAIN);
+
+  playAgain(room, matchId);
+}
+
+/**
+ * Countdown from 10 seconds to 0 and wait players response if they want to play again
+ *
+ * @param {object} room
+ * @param {integer} matchId
+*/
+const playAgain = async (room, matchId) => {
+  let match = await module.exports.getMatchById(matchId);
+  let newMatch;
+
+  await Time.countdownFrom(MATCH_PLAY_AGAIN_COUNTDOWN_TIME, async (counted, stopCounting) => {
+    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN_COUNTDOWN, { seconds: counted });
+
+    match = await module.exports.getMatchById(matchId);
+
+    if (match.owner_play_again && match.opponent_play_again) {
+      stopCounting();
+    }
+  });
+
+  if (match.owner_play_again) {
+    newMatch = await module.exports.createMatch(match.owner_id);
+    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.owner_id, matchId: newMatch.matchId });
+  }
+
+  if (match.opponent_play_again) {
+    if (newMatch) {
+      newMatch = await module.exports.joinMatchWithCode(newMatch.matchCode);
+    } else {
+      newMatch = await module.exports.createMatch(match.opponent_id);
+    }
+
+    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.opponent_id, matchId: newMatch.matchId });
+  }
 
   room.leave();
 }

@@ -11,3 +11,13 @@ module.exports.getRandomQuestion = async (alreadyPlayedQuestions) => {
 
     return question;
 }
+
+/**
+ * Get question by id
+ *
+ * @param {string} questionId
+*/
+module.exports.getQuestionById = async (questionId) => {
+    const question = await Question.findBy('id', questionId);
+    return question;
+}
