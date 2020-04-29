@@ -1,5 +1,4 @@
 /**
- * 
  * Models
  * 
 */
@@ -27,7 +26,7 @@ const MatchStatus = use('App/Enum/MatchStatus')
  * Constants
  * All times are in MS
 */
-const TOTAL_ROUNDS = 1;
+const TOTAL_ROUNDS = 5;
 const ROUND_COUNTDOWN_TIME = 5;
 
 const TIME_BEFORE_START_MATCH = 1000;
@@ -125,7 +124,8 @@ module.exports.createMatch = async (userId) => {
 
   const createdMatch = await Match.create({
     code: CodeGenerator.generateCode(),
-    owner_id: userId
+    owner_id: userId,
+    status: MatchStatus.PRISTINE
   });
 
   return {
@@ -178,7 +178,7 @@ module.exports.joinMatchWithCode = async (matchCode, userId) => {
     };
   }
 
-  if (existingMatch.status == 'ended') {
+  if (existingMatch.status == MatchStatus.ENDED) {
     return {
       "errorCode": 6,
       "message": "This room is already over!"
@@ -532,17 +532,17 @@ const playAgain = async (room, matchId) => {
 
   if (match.owner_play_again) {
     newMatch = await module.exports.createMatch(match.owner_id);
-    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.owner_id, matchId: newMatch.matchId });
+    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.owner_id, matchId: newMatch.matchId, matchCode: newMatch.matchCode });
   }
 
   if (match.opponent_play_again) {
     if (newMatch) {
-      newMatch = await module.exports.joinMatchWithCode(newMatch.matchCode);
+      newMatch = await module.exports.joinMatchWithCode(newMatch.matchCode, match.opponent_id);
     } else {
       newMatch = await module.exports.createMatch(match.opponent_id);
     }
 
-    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.opponent_id, matchId: newMatch.matchId });
+    room.emit(SocketEvents.SERVER_MATCH_PLAY_AGAIN, { userId: match.opponent_id, matchId: newMatch.matchId, matchCode: newMatch.matchCode });
   }
 
   room.leave();
