@@ -40,6 +40,7 @@ export const PlayerName = styled.Text.attrs((props) => ({
   numberOfLines: 1,
 }))`
   width: 120px;
+  text-align: center;
   font-size: ${(props) => props.theme.fonts.small};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.regular};

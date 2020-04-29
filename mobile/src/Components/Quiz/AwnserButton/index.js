@@ -30,6 +30,7 @@ export default function AwnserButton({
         correct={correct}
         selected={playerSelected}
         adjustsFontSizeToFit
+        numberOfLines={2}
         opacity={disabled && !(playerSelected || correct)}
         minimumFontScale={0.1}>
         {children}
