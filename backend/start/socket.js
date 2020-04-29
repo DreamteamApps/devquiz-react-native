@@ -1,23 +1,32 @@
+/**
+ * Server
+ * 
+*/
 const env = use('Env')
 const Server = use('Server')
+const socketConnection = use('socket.io')(Server.getInstance(), { pingInterval: 2000, pingTimeout: 5000 });
 
+/**
+ * Domains
+ * 
+*/
 const MatchDomain = use('App/Domain/MatchDomain')
 
+/**
+ * General
+ * 
+*/
 const SocketEvents = use('App/Enum/SocketEvents')
-
-const socketConnection = use('socket.io')(Server.getInstance(), {
-    pingInterval: 2000,
-    pingTimeout: 5000,
-});
 
 socketConnection.on('connection', function (connection) {
     const socket = createSocket(connection);
 
-    let room;
     socket.on(SocketEvents.CLIENT_EVENT_JOIN_MATCH, async (params) => {
         const { matchId, userId } = params;
+        
+        connection.join(matchId);
 
-        room = createRoom(matchId, connection);
+        let room = createRoom(matchId, connection);
 
         MatchDomain.joinMatch(room, matchId, userId);
     });
@@ -25,6 +34,8 @@ socketConnection.on('connection', function (connection) {
 
     socket.on(SocketEvents.CLIENT_EVENT_SET_READY, async (params) => {
         const { userId, matchId } = params;
+
+        let room = createRoom(matchId, connection);
 
         MatchDomain.setReady(room, userId, matchId);
     });
@@ -41,7 +52,7 @@ socketConnection.on('connection', function (connection) {
         MatchDomain.playAgainAnswer(userId, matchId);
     });
 
-    socket.on('disconnect', () => {
+    socket.on('disconnect', async () => {
         const { id } = connection;
 
         MatchDomain.disconnectUserFromMatch(id);
@@ -49,8 +60,6 @@ socketConnection.on('connection', function (connection) {
 });
 
 const createRoom = (matchId, connection) => {
-    connection.join(matchId);
-
     return {
         socketId: connection.id,
         emit: (eventName, data) => {
@@ -58,7 +67,7 @@ const createRoom = (matchId, connection) => {
             socketConnection.to(matchId).emit(eventName, data)
         },
         leave: () => {
-            connection.leave();
+            connection.leave(matchId);
         }
     }
 }

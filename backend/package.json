@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
-    "dev": "adonis serve --dev --debug"
+    "dev:setup": "adonis migration:run && adonis seed",
+    "dev:run": "adonis serve --dev --debug"
   },
   "keywords": [
     "adonisjs",

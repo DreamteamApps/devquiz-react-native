@@ -250,6 +250,10 @@ const startMatchMenu = () => {
   socketClient.on('play-again-countdown', (data) => {
     console.log('play-again-countdown', data);
   });
+
+  socketClient.on('play-again', (data) => {
+    console.log('play-again', data);
+  });
 }
 
 const changeUrlScreen = () => {
