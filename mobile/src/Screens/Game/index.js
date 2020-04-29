@@ -10,10 +10,16 @@ function Game({navigation}) {
     game,
     quiz,
     setQuiz,
+    setGame,
     hubConnect,
     isPlayer,
     players,
     setPlayers,
+    setRoundTime,
+    showQuestionScreen,
+    setShowQuestionScreen,
+    setShowRoundScreen,
+    showRoundScreen,
   } = useGame();
 
   const onQuestionRecived = useCallback((data) => {
@@ -35,7 +41,7 @@ function Game({navigation}) {
 
   const onRoundEnd = useCallback(
     (data) => {
-      console.log('onRoundEnd', quiz);
+      console.log('onRoundEnd');
       let newAnwsers = quiz.answers;
       let newPlayers = players;
       newAnwsers[data.correctAnswer - 1].correct = true;
@@ -66,7 +72,7 @@ function Game({navigation}) {
   );
 
   const onMatchEndRecived = useCallback((data) => {
-    console.log('onMatchEnd', data);
+    console.log('onMatchEnd');
     let winned = false;
     let tied = !data?.opponent?.winned && !data?.owner?.winned;
     if (isPlayer(data?.owner?.id)) {
@@ -74,6 +80,7 @@ function Game({navigation}) {
     } else if (isPlayer(data?.opponent?.id)) {
       winned = data?.opponent?.winned;
     }
+    setShowQuestionScreen(false);
 
     navigation.replace('Result', {didWin: winned, didTie: tied});
   }, []);
@@ -82,8 +89,30 @@ function Game({navigation}) {
     console.log('assign match-start-question');
     hubConnect.on('match-start-question', onQuestionRecived);
     hubConnect.on('match-round-end', onRoundEnd);
-    hubConnect.on('player-disconnected', (data) => {
-      console.log('disconnected');
+    hubConnect.on('match-countdown', ({seconds}) => {
+      console.log('Going to update CountDown', seconds);
+      setRoundTime(seconds);
+    });
+    hubConnect.on('match-start-round', ({currentRound, totalRound}) => {
+      console.log('match-start-round');
+      setGame({
+        ...game,
+        showRoundScreen: true,
+        currentRound: currentRound,
+        totalRound: totalRound,
+      });
+
+      //navigation.navigate('Game');
+    });
+
+    hubConnect.on('match-start-question', () => {
+      console.log('match-start-question');
+      setRoundTime(10);
+      setShowQuestionScreen(true);
+      setGame({
+        ...game,
+        showRoundScreen: false,
+      });
     });
 
     hubConnect.on('match-end', onMatchEndRecived);
@@ -92,7 +121,10 @@ function Game({navigation}) {
       console.log('unassign match-start-question');
       hubConnect.off('match-start-question', onQuestionRecived);
       hubConnect.off('match-round-end', onRoundEnd);
-      hubConnect.off('player-disconnected');
+      hubConnect.off('match-countdown');
+      hubConnect.off('match-start-question');
+      hubConnect.off('match-start-round');
+      hubConnect.off('match-end', onMatchEndRecived);
     };
   }, [onQuestionRecived, onRoundEnd]);
 
@@ -105,7 +137,7 @@ function Game({navigation}) {
         />
       )}
 
-      {game.showQuestionScreen && (
+      {showQuestionScreen && (
         <>
           <GameTopInfo />
           <Question />

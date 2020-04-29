@@ -8,10 +8,14 @@ export default function CustomButton({
   onPress,
   onLongPress,
   containerStyle,
+  disabled,
 }) {
   return (
-    <Container style={containerStyle}>
-      <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
+    <Container style={containerStyle} disabled={disabled}>
+      <TouchableOpacity
+        onPress={onPress}
+        disabled={disabled}
+        onLongPress={onLongPress}>
         <Text>{children}</Text>
       </TouchableOpacity>
     </Container>

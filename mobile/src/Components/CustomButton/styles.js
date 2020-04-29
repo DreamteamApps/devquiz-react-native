@@ -5,6 +5,7 @@ export const Container = styled.View`
   width: 100%;
   padding: 15px;
   border-radius: 10px;
+  opacity: ${(props) => (props.disabled ? '0.5' : '1')};
 `;
 export const Text = styled.Text`
   text-align: center;
