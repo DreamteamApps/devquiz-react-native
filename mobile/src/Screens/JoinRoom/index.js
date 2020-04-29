@@ -26,7 +26,6 @@ import {
 export default function JoinRoom({navigation, route}) {
   const [roomCode, setRoomCode] = useState('');
   const {params} = route;
-  const CELL_COUNT = 6;
   const [value, setValue] = useState('');
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,

@@ -40,7 +40,6 @@ export const AvatarLeft = styled.Image`
 
 export const AvatarRight = styled.Image`
   position: absolute;
-  background-color: red;
   right: -18px;
   width: 36px;
   height: 36px;
