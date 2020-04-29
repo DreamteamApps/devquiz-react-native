@@ -27,7 +27,8 @@ export default function Result({navigation, route}) {
   const {didWin, didTie} = route.params;
   const {
     hubConnect,
-    setGame,
+    game,
+    emit,
     players: {player, opponent},
   } = useGame();
 
@@ -45,12 +46,20 @@ export default function Result({navigation, route}) {
     }
   }, []);
 
+  const handlePlayAgain = () => {
+    emit('answer-play-again', {
+      userId: player.id,
+      matchId: game.matchId,
+    });
+  };
   useEffect(() => {
     hubConnect.on('play-again-countdown', onPlayAgainCountdownRecived);
+    hubConnect.on('play-again', onPlayAgainRecived);
 
     return () => {
       console.log('unassign play-again-countdown');
       hubConnect.off('play-again-countdown', onPlayAgainCountdownRecived);
+      hubConnect.off('play-again', onPlayAgainRecived);
     };
   }, [onPlayAgainCountdownRecived]);
 
@@ -58,6 +67,12 @@ export default function Result({navigation, route}) {
     setSeconds(seconds);
   };
 
+  const onPlayAgainRecived = (data) => {
+    emit('answer-play-again', {
+      userId: player.id,
+      matchId: game.matchId,
+    });
+  };
   return (
     <PageContainer justifyContent="space-between">
       <IconContainer icon={icon} title={title}>
@@ -84,7 +99,9 @@ export default function Result({navigation, route}) {
       </IconContainer>
 
       <ButtonsContainer>
-        <CustomButton containerStyle={{marginBottom: 30}}>
+        <CustomButton
+          containerStyle={{marginBottom: 30}}
+          onPress={() => handlePlayAgain()}>
           Play again ({seconds})
         </CustomButton>
         <CustomButton onPress={() => navigation.replace('Main')}>
