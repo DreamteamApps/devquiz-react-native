@@ -117,10 +117,6 @@ export default function WaitingRoom({navigation}) {
     // hubConnect.on('match-round-end', (data) => {
     //   console.log('match-round-end');
     // });
-    hubConnect.on('match-end', (data) => {
-      console.log('match-end', data);
-      navigation.replace('Result');
-    });
   }, []);
   const changeMyStatus = () => {
     emit('set-ready', {

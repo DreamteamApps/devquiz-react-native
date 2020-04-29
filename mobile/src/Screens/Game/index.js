@@ -5,7 +5,7 @@ import Question from '~/Components/Quiz';
 import GameTopInfo from '../../Components/GameTopInfo';
 import {useGame} from '~/Contexts/GameContext';
 
-function Game() {
+function Game({navigation}) {
   const {
     game,
     quiz,
@@ -65,6 +65,19 @@ function Game() {
     [quiz, quiz.answers, players],
   );
 
+  const onMatchEndRecived = useCallback((data) => {
+    console.log('onMatchEnd', data);
+    let winned = false;
+    let tied = !data?.opponent?.winned && !data?.owner?.winned;
+    if (isPlayer(data?.owner?.id)) {
+      winned = data?.owner?.winned;
+    } else if (isPlayer(data?.opponent?.id)) {
+      winned = data?.opponent?.winned;
+    }
+
+    navigation.replace('Result', {didWin: winned, didTie: tied});
+  }, []);
+
   useEffect(() => {
     console.log('assign match-start-question');
     hubConnect.on('match-start-question', onQuestionRecived);
@@ -72,6 +85,8 @@ function Game() {
     hubConnect.on('player-disconnected', (data) => {
       console.log('disconnected');
     });
+
+    hubConnect.on('match-end', onMatchEndRecived);
 
     return () => {
       console.log('unassign match-start-question');
