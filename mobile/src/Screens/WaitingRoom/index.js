@@ -27,7 +27,7 @@ import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
 import Share from 'react-native-share';
 
-export default function WaitingRoom({navigation}) {
+export default function WaitingRoom({navigation, route}) {
   const [opponent, setOpponent] = useState();
   const [ready, setReady] = useState(false);
   const [startMatch, setStartMatch] = useState(false);
@@ -44,6 +44,21 @@ export default function WaitingRoom({navigation}) {
     setRoundTime,
   } = useGame();
 
+  const onPlayerJoined = (data) => {
+    console.log(`player-joined ${Platform.OS}`);
+    console.log('isOpponent', user.isOpponent);
+
+    if (user.id == data.opponent?.id) {
+      setOpponent(data.owner);
+      setPlayers({...players, player: data.opponent, opponent: data.owner});
+    } else {
+      if (data.opponent) {
+        setOpponent(data.opponent);
+      }
+
+      setPlayers({...players, player: data.owner, opponent: data.opponent});
+    }
+  };
   useEffect(() => {
     if (game.matchId) {
       console.log('joinmatch', {
@@ -56,23 +71,10 @@ export default function WaitingRoom({navigation}) {
       });
     }
 
-    hubConnect.on('player-joined', (data) => {
-      console.log('player-joined', data);
-      console.log('isOpponent', user.isOpponent);
-      if (user.isOpponent) {
-        setOpponent(data.owner);
-        setPlayers({...players, player: data.opponent, opponent: data.owner});
-      } else {
-        if (data.opponent) {
-          setOpponent(data.opponent);
-        }
-
-        setPlayers({...players, player: data.owner, opponent: data.opponent});
-      }
-    });
+    hubConnect.on('player-joined', onPlayerJoined);
 
     hubConnect.on('player-ready', (data) => {
-      console.log('player-ready', data);
+      console.log('player-ready');
       if (data.userId != user.id) {
         setOpponentReady(true);
       } else {
@@ -84,13 +86,7 @@ export default function WaitingRoom({navigation}) {
       console.log('match-start');
       setStartMatch(true);
       // setTimeout(() => {
-
       // }, 5000);
-    });
-
-    hubConnect.on('match-countdown', ({seconds}) => {
-      console.log('Going to update CountDown', seconds);
-      setRoundTime(seconds);
     });
 
     hubConnect.on('match-start-round', ({currentRound, totalRound}) => {
@@ -102,21 +98,21 @@ export default function WaitingRoom({navigation}) {
         totalRound: totalRound,
       });
 
-      navigation.navigate('Game');
-    });
-
-    hubConnect.on('match-start-question', () => {
-      console.log('match-start-question', game);
-      setRoundTime(10);
-      setGame({
-        ...game,
-        showQuestionScreen: true,
-      });
+      navigation.replace('Game');
     });
 
     // hubConnect.on('match-round-end', (data) => {
     //   console.log('match-round-end');
     // });
+
+    return () => {
+      console.log('unassign ');
+      hubConnect.off('match-start-round');
+      hubConnect.off('match-start');
+      hubConnect.off('player-ready');
+      hubConnect.off('player-joined', onPlayerJoined);
+      console.log('unassign player-joined ');
+    };
   }, []);
   const changeMyStatus = () => {
     emit('set-ready', {

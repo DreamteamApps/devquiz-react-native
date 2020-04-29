@@ -21,6 +21,8 @@ import winIcon from '~/Assets/Images/win_icon.png';
 import looseIcon from '~/Assets/Images/loose_icon.png';
 export default function Result({navigation, route}) {
   const [title, setTitle] = useState('');
+  const [btnPlayAgainText, setbtnPlayAgainText] = useState('Play again');
+  const [btnPlayDisabled, setBtnPlayDisabled] = useState(false);
   const [seconds, setSeconds] = useState(10);
   const [icon, setIcon] = useState(winIcon);
   const {user, setUser} = useAuth();
@@ -28,6 +30,7 @@ export default function Result({navigation, route}) {
   const {
     hubConnect,
     game,
+    setGame,
     emit,
     players: {player, opponent},
   } = useGame();
@@ -51,27 +54,34 @@ export default function Result({navigation, route}) {
       userId: player.id,
       matchId: game.matchId,
     });
+    setBtnPlayDisabled(true);
   };
   useEffect(() => {
-    hubConnect.on('play-again-countdown', onPlayAgainCountdownRecived);
-    hubConnect.on('play-again', onPlayAgainRecived);
+    hubConnect.on('play-again-countdown', onPlayAgainCountdownReceived);
+    hubConnect.on('play-again', onPlayAgainReceived);
 
     return () => {
       console.log('unassign play-again-countdown');
-      hubConnect.off('play-again-countdown', onPlayAgainCountdownRecived);
-      hubConnect.off('play-again', onPlayAgainRecived);
+      hubConnect.off('play-again-countdown', onPlayAgainCountdownReceived);
+      hubConnect.off('play-again', onPlayAgainReceived);
     };
-  }, [onPlayAgainCountdownRecived]);
+  }, [onPlayAgainCountdownReceived]);
 
-  const onPlayAgainCountdownRecived = ({seconds}) => {
+  const onPlayAgainCountdownReceived = ({seconds}) => {
     setSeconds(seconds);
+    setbtnPlayAgainText(`Play again (${seconds})`);
+    if (seconds == 0) {
+      setBtnPlayDisabled(true);
+      setbtnPlayAgainText(`Play again`);
+    }
   };
 
-  const onPlayAgainRecived = (data) => {
-    emit('answer-play-again', {
-      userId: player.id,
-      matchId: game.matchId,
-    });
+  const onPlayAgainReceived = ({userId, matchId, matchCode}) => {
+    console.log('onPlayAgainReceived');
+    if (userId == user.id) {
+      setGame({...game, matchId: matchId, roomCode: matchCode, player: {}});
+      navigation.replace('WaitingRoom', {restart: true});
+    }
   };
   return (
     <PageContainer justifyContent="space-between">
@@ -101,10 +111,11 @@ export default function Result({navigation, route}) {
       <ButtonsContainer>
         <CustomButton
           containerStyle={{marginBottom: 30}}
-          onPress={() => handlePlayAgain()}>
-          Play again ({seconds})
+          onPress={() => handlePlayAgain()}
+          disabled={btnPlayDisabled}>
+          {btnPlayAgainText}
         </CustomButton>
-        <CustomButton onPress={() => navigation.replace('Main')}>
+        <CustomButton onPress={() => navigation.replace('Home')}>
           Give up
         </CustomButton>
       </ButtonsContainer>

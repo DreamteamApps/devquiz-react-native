@@ -4,6 +4,8 @@ import {connect, hubEmit} from '~/Service/SocketIOClient';
 export const GameContext = createContext();
 const GameProvider = ({children}) => {
   const [hubConnect, setHubConnect] = useState();
+  const [showQuestionScreen, setShowQuestionScreen] = useState(false);
+  const [showRoundScreen, setShowRoundScreen] = useState(true);
   const [players, setPlayers] = useState({
     player: {
       name: 'Ricardo Vaz Correia Dutra',
@@ -39,7 +41,6 @@ const GameProvider = ({children}) => {
     currentRound: 1,
     totalRound: 5,
     showRoundScreen: false,
-    showQuestionScreen: false,
     matchId: 10,
     roomCode: '',
   });
@@ -80,6 +81,10 @@ const GameProvider = ({children}) => {
         setRoundTime,
         result,
         setResult,
+        setShowQuestionScreen,
+        showQuestionScreen,
+        setShowRoundScreen,
+        showRoundScreen,
       }}>
       {children}
     </GameContext.Provider>

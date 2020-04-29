@@ -64,7 +64,7 @@ export default function JoinRoom({navigation, route}) {
         setGame({...game, matchId: matchId});
         setUser({...user, isOpponent: true});
 
-        navigation.navigate('WaitingRoom');
+        navigation.replace('WaitingRoom');
       } catch (error) {
         Snackbar.show({
           text: error.response.data.message,
