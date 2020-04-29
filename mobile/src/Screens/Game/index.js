@@ -101,13 +101,13 @@ function Game({navigation}) {
         currentRound: currentRound,
         totalRound: totalRound,
       });
-
+      setShowQuestionScreen(false);
       //navigation.navigate('Game');
     });
 
     hubConnect.on('match-start-question', () => {
       console.log('match-start-question');
-      setRoundTime(10);
+      setRoundTime('');
       setShowQuestionScreen(true);
       setGame({
         ...game,

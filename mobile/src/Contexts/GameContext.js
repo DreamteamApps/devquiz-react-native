@@ -20,7 +20,7 @@ const GameProvider = ({children}) => {
         'https://img.quizur.com/f/img5dcff6e29551f7.10735221.png?lastEdited=1573910302',
     },
   });
-  const [roundTime, setRoundTime] = useState(10);
+  const [roundTime, setRoundTime] = useState('');
   const [result, setResult] = useState({
     opponent: {id: 8, losses: 7, score: 0, ties: 0, wins: 5},
     owner: {id: 1, losses: 21, score: 0, ties: 8, wins: 33},
