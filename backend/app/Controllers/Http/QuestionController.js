@@ -1,14 +1,11 @@
 'use strict'
 
-const Question = use("App/Models/Question")
-
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
-
 /**
- * Resourceful controller for interacting with questions
- */
+ * Domains
+ * 
+*/
+const QuestionDomain = use('App/Domain/QuestionDomain')
+
 class QuestionController {
   /**
    * Show a list of all questions.
@@ -19,26 +16,25 @@ class QuestionController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ request, response, view }) {
-    const retrieved = await Question.all();
-    
-    return retrieved;
+  async index({ request }) {
+    const page = request.input('page', 1);
+    const perPage = request.input('perPage', 10);
+    const sortBy = request.input('sortBy', 'id');
+    const sort = request.input('sort', 'asc');
+
+    return await QuestionDomain.getAll(page, perPage, sortBy, sort);
   }
 
   /**
    * Create/save a new question.
    * POST questions
    *
-   * @param {object} ctx
    * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async store({ request }) {
     const data = request.only(["title", "image", "answer1", "answer2", "answer3", "answer4", "correct_answer", "theme_id"])
 
-    const created = await Question.create(data)
-
-    return created;
+    return await QuestionDomain.create(data);
   }
 
   /**

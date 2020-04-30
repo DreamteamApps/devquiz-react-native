@@ -26,18 +26,24 @@ class UserController {
    * @param {string} email
    * @param {string} password
   */
-  async loginAdmin({ request }) {
+  async loginAdmin({ request, auth, response }) {
     const { email, password } = request.only(["email", "password"]);
 
     try {
       const user = await UserDomain.getUserByEmail(email);
 
-      if (user && user.type == UserType.ADMIN) {
-        const token = await auth.attempt(email, password);
-        return token;
+      if (!user || user.type != UserType.ADMIN) throw "";
+
+      const token = await auth.attempt(email, password);
+
+      return {
+        user: {
+          name: user.username,
+          email: user.email,
+        },
+        ...token
       }
 
-      throw email;
     } catch (e) {
       return response.status(400).send({
         code: 8,

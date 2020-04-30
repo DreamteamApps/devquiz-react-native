@@ -4,6 +4,6 @@
     "name": "Dev Quiz",
     "email": "admin@devquiz.com.br",
     "password": "$2a$10$XFvSWYQ0jW66iVcd3SZXYepJwKc6DYMktipQDupjLhxIiTzs4GY1e",
-    "user_type": "admin"
+    "type": "admin"
   }
 ]

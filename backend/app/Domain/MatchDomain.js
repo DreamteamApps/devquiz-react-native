@@ -79,7 +79,7 @@ module.exports.joinMatch = async (room, matchId, userId) => {
 
   const match = await module.exports.getMatchById(matchId);
 
-  const getOwnerPromise = UserDomain.getUserById(match.owner_id).then((owner) => matchPlayers.owner = {
+  const getOwnerPromise = await match.owner().fetch().then((owner) => matchPlayers.owner = {
     id: owner.id,
     login: owner.username,
     name: owner.name,
@@ -90,7 +90,7 @@ module.exports.joinMatch = async (room, matchId, userId) => {
   getRolesPromises.push(getOwnerPromise);
 
   if (match.opponent_id) {
-    const getOpponentPromise = UserDomain.getUserById(match.opponent_id).then((opponent) => matchPlayers.opponent = {
+    const getOpponentPromise = await match.opponent().fetch().then((opponent) => matchPlayers.opponent = {
       id: opponent.id,
       login: opponent.username,
       name: opponent.name,
@@ -397,7 +397,7 @@ const playNextRound = async (room, matchId) => {
 const endMatch = async (room, matchId) => {
   const match = await module.exports.getMatchById(matchId);
 
-  const [owner, opponent] = await Promise.all([UserDomain.getUserById(match.owner_id), UserDomain.getUserById(match.opponent_id)]);
+  const [owner, opponent] = await Promise.all([match.owner().fetch(), match.opponent().fetch()]);
 
   const isTied = match.owner_score == match.opponent_score;
   const ownerHasWinned = match.owner_score > match.opponent_score;

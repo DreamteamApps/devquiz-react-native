@@ -20,17 +20,20 @@ const Route = use('Route')
  * Admin Routes
  * 
 */
+Route.post('admin/auth/token', 'UserController.loginAdmin');
+
 Route.group(() => {
-    Route.post('auth/token', 'UserController.loginAdmin')
     Route.resource('questions', 'QuestionController').apiOnly();
     Route.resource('themes', 'ThemeController').apiOnly();
-}).prefix('admin');
-
+}).prefix('admin').middleware('auth');
 
 /**
  * Game routes
  * 
 */
+Route.group(() => {
+    Route.get('create/:userId', 'MatchController.store');
+    Route.post('join', 'MatchController.joinMatchWithCode');
+}).prefix('match');
+
 Route.get('/users/:githubuser', 'UserController.getOrCreateUser');
-Route.get('/match/create/:userId', 'MatchController.store');
-Route.post('/match/join', 'MatchController.joinMatchWithCode');

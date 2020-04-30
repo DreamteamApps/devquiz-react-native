@@ -11,19 +11,13 @@ const authProvider = AuthProvider(baseUrl)
 
 const App = () => (
 
-  <Admin dataProvider={dataProvider} authProvider={authProvider} dashboard={Dashboard}>
+  <Admin dataProvider={dataProvider} authProvider={authProvider}>
 
     <Resource name="questions" list={QuestionList} create={QuestionCreate}/>
     <Resource name="themes" list={ListGuesser} />
 
   </Admin>
 
-);
-
-export const Dashboard = (props) => (
-  <div>
-    <h1>dashboard</h1>
-  </div>
 );
 
 export const QuestionList = (props) => (

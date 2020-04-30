@@ -18,7 +18,7 @@ class UserSchema extends Schema {
       table.string('socket_id', 254).defaultTo('')
       table.string('email', 254).unique()
       table.string('password', 60)
-      table.string('user_type', 254).defaultTo('user')
+      table.string('type', 254).defaultTo('user')
       table.timestamps()
     })
   }

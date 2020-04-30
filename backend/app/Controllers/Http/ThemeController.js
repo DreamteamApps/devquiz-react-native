@@ -1,44 +1,40 @@
 'use strict'
 
-const Theme = use("App/Models/Theme");
-
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
+/**
+ * Domains
+ * 
+*/
+const ThemeDomain = use('App/Domain/ThemeDomain')
 
 /**
  * Resourceful controller for interacting with themes
  */
 class ThemeController {
+
   /**
    * Show a list of all themes.
    * GET themes
    *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
-    const retrieved = await Theme.all();
-    
-    return retrieved;
+  async index ({ request }) {
+    const page = request.input('page', 1);
+    const perPage = request.input('perPage', 10);
+    const sortBy = request.input('sortBy', 'id');
+    const sort = request.input('sort', 'asc');
+
+    return await ThemeDomain.getAll(page, perPage, sortBy, sort);
   }
 
   /**
    * Create/save a new theme.
    * POST themes
    *
-   * @param {object} ctx
    * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store ({ request }) {
     const data = request.only(["name"])
 
-    const created = await Theme.create(data)
-
-    return created;
+    return await ThemeDomain.create(data);
   }
 
   /**
