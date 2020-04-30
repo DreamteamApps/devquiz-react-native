@@ -78,5 +78,55 @@
     "answer4": "All of these",
     "correct_answer": 4,
     "theme_id": 1
+  },
+  {
+    "title": "What is a controlled input element?",
+    "image": "",
+    "answer1": "What is a controlled input element?",
+    "answer2": "An input element whose value is being controlled by a component’s state",
+    "answer3": "An input element that can only accept a list of characters",
+    "answer4": "An input element that is controlled by the value of another input element",
+    "correct_answer": 2,
+    "theme_id": 1
+  },
+  {
+    "title": "What is the declarative way to render a dynamic list of components based on values in an array",
+    "image": "",
+    "answer1": "Using the reduce array method",
+    "answer2": "With a for/while loop",
+    "answer3": "Using the <Each /> component",
+    "answer4": "Using the Array.map() method",
+    "correct_answer": 4,
+    "theme_id": 1
+  },
+  {
+    "title": "When it is recommended to pass this.setState as a function instead of an object?",
+    "image": "",
+    "answer1": "When the new state should completely replace the old state",
+    "answer2": "When the new state depends on the old state",
+    "answer3": "When the new state does not depend on the old state",
+    "answer4": "All of these",
+    "correct_answer": 2,
+    "theme_id": 1
+  },
+  {
+    "title": "What will happen if you render an input element with disabled = {false}",
+    "image": "",
+    "answer1": "It will be rendered as enabled",
+    "answer2": "It will be rendered as disabled",
+    "answer3": "It will not be rendered at all",
+    "answer4": "None of these",
+    "correct_answer": 1,
+    "theme_id": 1
+  },
+  {
+    "title": "Which of the following below act as the input of a class-based component?",
+    "image": "",
+    "answer1": "class and factory",
+    "answer2": "render and mount",
+    "answer3": "props",
+    "answer4": "render",
+    "correct_answer": 3,
+    "theme_id": 1
   }
 ]
