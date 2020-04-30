@@ -11,7 +11,6 @@ export const QuestionContainer = styled.View`
   align-items: center;
   justify-content: center;
   height: ${(props) => (props.small ? '150px' : '250px')};
-
 `;
 
 export const Question = styled.Text`
@@ -19,10 +18,10 @@ export const Question = styled.Text`
   text-align: center;
   font-size: ${(props) => props.theme.fonts.xxlarge};
   padding: 10px 20px;
-
 `;
 
 export const Image = styled.Image`
   min-height: 220px;
-  min-width:90%;
+  min-width: 90%;
+  resize-mode: contain;
 `;
