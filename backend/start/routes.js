@@ -23,8 +23,12 @@ const Route = use('Route')
 Route.post('admin/auth/token', 'UserController.loginAdmin');
 
 Route.group(() => {
+    Route.get('questions/list', 'QuestionController.getListById');
     Route.resource('questions', 'QuestionController').apiOnly();
+    
+    Route.get('themes/list', 'ThemeController.getListById');
     Route.resource('themes', 'ThemeController').apiOnly();
+
 }).prefix('admin').middleware('auth');
 
 /**

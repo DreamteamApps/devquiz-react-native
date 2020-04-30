@@ -46,7 +46,9 @@ class ThemeController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
+    const { id } = params;
+    return await ThemeDomain.getById(id);
   }
 
   /**
@@ -80,7 +82,24 @@ class ThemeController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy ({ params }) {
+    const { id } = params;
+    return await ThemeDomain.deleteById(id);
+  }
+
+  /**
+   * Get themes by a list of ids
+   * Get ?ids=1,2,3
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   */
+  async getListById({ request }) {
+    const paramIds = request.input('ids', '');
+    const ids = paramIds.split(',');
+
+    return await ThemeDomain.getListById(ids);
   }
 }
 

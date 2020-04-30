@@ -20,13 +20,23 @@ module.exports.getAll = async (page, perPage, sortBy, sort) => {
 }
 
 /**
- * Get all questions paginated and sorted
+ * Create a new
  *
  * @param {object} question
 */
 module.exports.create = async (question) => {
     const created = await Question.create(question)
     return created;
+}
+
+/**
+ * Get questions by id list
+ *
+ * @param {Array<string>} page
+*/
+module.exports.getListById = async (ids) => {
+    const retrieved = await Database.from('questions').whereIn('id', ids);
+    return retrieved;
 }
 
 /**
@@ -42,9 +52,19 @@ module.exports.getRandomQuestion = async (alreadyPlayedQuestions) => {
 /**
  * Get question by id
  *
- * @param {string} questionId
+ * @param {string} id
 */
-module.exports.getQuestionById = async (questionId) => {
-    const question = await Question.findBy('id', questionId);
-    return question;
+module.exports.getById = async (id) => {
+    const retrieved = await Question.findBy('id', id);
+    return retrieved;
+}
+
+/**
+ * Delete by id
+ *
+ * @param {string} id
+*/
+module.exports.deleteById = async (id) => {
+    const retrieved = await Question.findBy('id', id);
+    await retrieved.delete();
 }

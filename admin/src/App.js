@@ -1,8 +1,11 @@
 import React from 'react';
-import { Admin, Resource, ListGuesser, List, Datagrid, TextField, SimpleForm, Create, TextInput } from 'react-admin';
+import { Admin, Resource, ListGuesser } from 'react-admin';
 
-import AuthProvider from './AuthProvider';
-import Provider from './DataProvider';
+import AuthProvider from './Providers/AuthProvider';
+import Provider from './Providers/DataProvider';
+
+import {QuestionList, QuestionCreate, QuestionEdit} from './Resources/Question';
+import {ThemeList, ThemeCreate, ThemeEdit} from './Resources/Theme';
 
 const baseUrl = 'http://localhost:3333';
 
@@ -12,37 +15,10 @@ const authProvider = AuthProvider(baseUrl)
 const App = () => (
 
   <Admin dataProvider={dataProvider} authProvider={authProvider}>
-
-    <Resource name="questions" list={QuestionList} create={QuestionCreate}/>
-    <Resource name="themes" list={ListGuesser} />
-
+    <Resource name="questions" list={QuestionList} create={QuestionCreate} edit={QuestionEdit}/>
+    <Resource name="themes" list={ThemeList} create={ThemeCreate} edit={ThemeEdit}/>
   </Admin>
 
-);
-
-export const QuestionList = (props) => (
-  <List {...props}>
-      <Datagrid>
-          <TextField source="id" />
-          <TextField source="title" />
-          <TextField source="answer1" />
-      </Datagrid>
-  </List>
-);
-
-export const QuestionCreate = (props) => (
-  <Create {...props}>
-      <SimpleForm>
-          <TextInput source="title" />
-          <TextInput source="answer1"/>
-          <TextInput source="answer2"/>
-          <TextInput source="answer3"/>
-          <TextInput source="answer4"/>
-          <TextInput source="correct_answer"/>
-          <TextInput source="theme_id"/>
-
-      </SimpleForm>
-  </Create>
 );
 
 export default App;

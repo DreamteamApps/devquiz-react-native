@@ -208,7 +208,7 @@ module.exports.joinMatchWithCode = async (matchCode, userId) => {
 */
 module.exports.answerQuestion = async (userId, matchId, questionId, answer, time) => {
 
-  const [match, question] = await Promise.all([module.exports.getMatchById(matchId), QuestionDomain.getQuestionById(questionId)]);
+  const [match, question] = await Promise.all([module.exports.getMatchById(matchId), QuestionDomain.getById(questionId)]);
 
   const isMatchOwner = match.owner_id == userId;
 

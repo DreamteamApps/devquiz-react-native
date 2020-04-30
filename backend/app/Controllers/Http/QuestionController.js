@@ -46,7 +46,9 @@ class QuestionController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show({ params, request, response, view }) {
+  async show({ params, request, response }) {
+    const { id } = params;
+    return await QuestionDomain.getById(id);
   }
 
   /**
@@ -81,6 +83,22 @@ class QuestionController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
+    return await QuestionDomain.deleteById(id);
+  }
+
+  /**
+   * Get questions by a list of ids
+   * Get ?ids=1,2,3
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   */
+  async getListById({ params, request, response }) {
+    const paramIds = request.input('ids', '');
+    const ids = paramIds.split(',');
+
+    return await QuestionDomain.getListById(ids);
   }
 }
 

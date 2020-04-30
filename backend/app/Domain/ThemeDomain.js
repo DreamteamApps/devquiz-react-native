@@ -2,7 +2,9 @@
  * Models
  * 
 */
+const Database = use('Database')
 const Theme = use("App/Models/Theme")
+
 
 /**
  * Get all paginated and sorted
@@ -18,11 +20,41 @@ module.exports.getAll = async (page, perPage, sortBy, sort) => {
 }
 
 /**
- * Create new
+ * Get themes by id list
  *
- * @param {object} question
+ * @param {Array<string>} page
 */
-module.exports.create = async (question) => {
-    const created = await Theme.create(question)
+module.exports.getListById = async (ids) => {
+    const retrieved = await Database.from('themes').whereIn('id', ids);
+    return retrieved;
+}
+
+/**
+ * Create a new
+ *
+ * @param {object} theme
+*/
+module.exports.create = async (theme) => {
+    const created = await Theme.create(theme)
     return created;
+}
+
+/**
+ * Get by id
+ *
+ * @param {string} id
+*/
+module.exports.getById = async (id) => {
+    const retrieved = await Theme.findBy('id', id);
+    return retrieved;
+}
+
+/**
+ * Delete by id
+ *
+ * @param {string} id
+*/
+module.exports.deleteById = async (id) => {
+    const retrieved = await Theme.findBy('id', id);
+    await retrieved.delete();
 }
