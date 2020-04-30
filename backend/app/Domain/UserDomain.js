@@ -74,6 +74,16 @@ module.exports.getUserById = async (userId) => {
 }
 
 /**
+ * Get user by email
+ *
+ * @param {string} email
+*/
+module.exports.getUserByEmail = async (email) => {
+    const user = await User.findBy('email', email);
+    return user;
+}
+
+/**
  * Get user by socketId
  *
  * @param {string} socketId

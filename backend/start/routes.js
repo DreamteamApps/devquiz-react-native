@@ -16,10 +16,21 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/users/:githubuser', 'UserController.getOrCreateUser');
+/**
+ * Admin Routes
+ * 
+*/
+Route.group(() => {
+    Route.post('auth/token', 'UserController.loginAdmin')
+    Route.resource('questions', 'QuestionController').apiOnly();
+    Route.resource('themes', 'ThemeController').apiOnly();
+}).prefix('admin');
 
+
+/**
+ * Game routes
+ * 
+*/
+Route.get('/users/:githubuser', 'UserController.getOrCreateUser');
 Route.get('/match/create/:userId', 'MatchController.store');
 Route.post('/match/join', 'MatchController.joinMatchWithCode');
-
-Route.resource('questions', 'QuestionController').apiOnly();
-Route.resource('themes', 'ThemeController').apiOnly();

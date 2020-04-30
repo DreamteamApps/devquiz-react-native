@@ -13,7 +13,8 @@ const Database = use('Database')
 
 const config = {
   themes: require('./raw/themes.json'),
-  questions: require('./raw/questions.json')
+  questions: require('./raw/questions.json'),
+  users: require('./raw/users.json')
 }
 
 class DatabaseSeeder {
