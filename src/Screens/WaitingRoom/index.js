@@ -26,6 +26,7 @@ import swords from '~/Assets/Animations/swords.json';
 import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
 import Share from 'react-native-share';
+import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
 
 export default function WaitingRoom({navigation, route}) {
   const [opponent, setOpponent] = useState();
@@ -51,15 +52,18 @@ export default function WaitingRoom({navigation, route}) {
     if (user.id == data.opponent?.id) {
       setOpponent(data.owner);
       setPlayers({...players, player: data.opponent, opponent: data.owner});
+      AudioPlayer().play(AUDIOS.NEWUSER, 'ui');
     } else {
       if (data.opponent) {
         setOpponent(data.opponent);
+        AudioPlayer().play(AUDIOS.NEWUSER, 'ui');
       }
 
       setPlayers({...players, player: data.owner, opponent: data.opponent});
     }
   };
   useEffect(() => {
+    AudioPlayer().play(AUDIOS.LOBBY);
     if (game.matchId) {
       console.log('joinmatch', {
         userId: user.id,
@@ -77,8 +81,10 @@ export default function WaitingRoom({navigation, route}) {
       console.log('player-ready');
       if (data.userId != user.id) {
         setOpponentReady(true);
+        AudioPlayer().play(AUDIOS.READY, 'ui');
       } else {
         setReady(true);
+        AudioPlayer().play(AUDIOS.READY, 'ui');
       }
     });
 
@@ -106,6 +112,7 @@ export default function WaitingRoom({navigation, route}) {
     // });
 
     return () => {
+      AudioPlayer().stop();
       console.log('unassign ');
       hubConnect.off('match-start-round');
       hubConnect.off('match-start');
@@ -119,6 +126,7 @@ export default function WaitingRoom({navigation, route}) {
       userId: user.id,
       matchId: game.matchId,
     });
+    AudioPlayer().play(AUDIOS.CLICK, 'UI');
   };
 
   const handleFriendInvite = () => {

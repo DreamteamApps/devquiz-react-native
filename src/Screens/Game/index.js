@@ -4,6 +4,7 @@ import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
 import GameTopInfo from '../../Components/GameTopInfo';
 import {useGame} from '~/Contexts/GameContext';
+import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
 
 function Game({navigation}) {
   const {
@@ -41,6 +42,7 @@ function Game({navigation}) {
 
   const onRoundEnd = useCallback(
     (data) => {
+      AudioPlayer().stop('countdown');
       console.log('onRoundEnd');
       let newAnwsers = quiz.answers;
       let newPlayers = players;
@@ -109,6 +111,7 @@ function Game({navigation}) {
       console.log('match-start-question');
       setRoundTime('');
       setShowQuestionScreen(true);
+      AudioPlayer().play(AUDIOS.COUNTDOWN, 'countdown');
       setGame({
         ...game,
         showRoundScreen: false,

@@ -19,6 +19,7 @@ import {useApp} from '~/Contexts/AppContext';
 import IconContainer from '~/Components/IconContainer';
 import winIcon from '~/Assets/Images/win_icon.png';
 import looseIcon from '~/Assets/Images/loose_icon.png';
+import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
 export default function Result({navigation, route}) {
   const [title, setTitle] = useState('');
   const [btnPlayAgainText, setbtnPlayAgainText] = useState('Play again');
@@ -40,12 +41,15 @@ export default function Result({navigation, route}) {
     if (didWin) {
       setTitle('You win!');
       setIcon(winIcon);
+      AudioPlayer().play(AUDIOS.WINNER, 'ui');
     } else if (didTie) {
       setTitle('Draw!');
       setIcon(winIcon);
+      AudioPlayer().play(AUDIOS.WINNER, 'ui');
     } else {
       setTitle('You loose :(');
       setIcon(looseIcon);
+      AudioPlayer().play(AUDIOS.LOOSER, 'ui');
     }
   }, []);
 
