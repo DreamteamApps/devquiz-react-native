@@ -10,7 +10,6 @@ import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
-import {ScrollView} from 'react-native';
 
 export default function Main({navigation}) {
   const [username, setUsername] = useState('');
@@ -18,7 +17,7 @@ export default function Main({navigation}) {
   const {setUser} = useAuth();
   const {setLoading} = useApp();
   const {getInitialState} = useLinking(ref, {
-    prefixes: ['http://devquiz.pt/invite', 'devquiz://invite'],
+    prefixes: ['http://devquiz.app/invite', 'devquiz://invite'],
   });
 
   const getLocalUserData = async () => {

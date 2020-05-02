@@ -6,14 +6,20 @@ import {useTheme} from 'styled-components';
 
 import {Container, ButtonArea} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {useGame} from '~/Contexts/GameContext';
 
-export default function Header({close, back}) {
+export default function Header({exitRoom, back}) {
   const navigation = useNavigation();
   const theme = useTheme();
+  const {emit} = useGame();
 
+  const handleBack = () => {
+    exitRoom && exitRoom();
+    navigation.goBack();
+  };
   return (
     <Container>
-      {close && (
+      {/* {close && (
         <TouchableOpacity
           onPress={() => navigation.replace('Main')}
           style={{width: '100%'}}>
@@ -21,9 +27,9 @@ export default function Header({close, back}) {
             <IconFeather name="x" size={30} color={theme.colors.secondary} />
           </ButtonArea>
         </TouchableOpacity>
-      )}
+      )} */}
       {back && (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => handleBack()}>
           <ButtonArea>
             <IconIonicons
               name="ios-arrow-back"

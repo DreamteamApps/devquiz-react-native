@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Platform} from 'react-native';
+import {Platform, BackHandler} from 'react-native';
 import {
   VSContainer,
   VSLine,
@@ -14,6 +14,7 @@ import {
   CheckFirstPlayer,
 } from './styles';
 import {PageContainer} from '../../Components/Layout';
+import Snackbar from 'react-native-snackbar';
 
 import Header from '../../Components/Header';
 import ProfileDisplay from '../../Components/ProfileDisplay';
@@ -44,6 +45,9 @@ export default function WaitingRoom({navigation, route}) {
     setPlayers,
     setRoundTime,
   } = useGame();
+  const backButtonHandler = () => {
+    emit('leave-match');
+  };
 
   const onPlayerJoined = (data) => {
     console.log(`player-joined ${Platform.OS}`);
@@ -64,6 +68,7 @@ export default function WaitingRoom({navigation, route}) {
   };
   useEffect(() => {
     AudioPlayer().play(AUDIOS.LOBBY);
+
     if (game.matchId) {
       console.log('joinmatch', {
         userId: user.id,
@@ -95,6 +100,24 @@ export default function WaitingRoom({navigation, route}) {
       // }, 5000);
     });
 
+    hubConnect.on('player-leaved', ({isMatchOwner, userId}) => {
+      console.log('player-leaved', isMatchOwner, userId);
+      if (user.id != userId) {
+        if (isMatchOwner) {
+          navigation.goBack();
+          backButtonHandler();
+        } else {
+          setOpponent(null);
+          setOpponentReady(false);
+        }
+
+        Snackbar.show({
+          text: 'Your opponent leave the match',
+          duration: Snackbar.LENGTH_SHORT,
+        });
+      }
+    });
+
     hubConnect.on('match-start-round', ({currentRound, totalRound}) => {
       console.log('match-start-round');
       setGame({
@@ -110,10 +133,12 @@ export default function WaitingRoom({navigation, route}) {
     // hubConnect.on('match-round-end', (data) => {
     //   console.log('match-round-end');
     // });
-
+    BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
     return () => {
       AudioPlayer().stop();
       console.log('unassign ');
+      BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
+      hubConnect.off('player-leaved');
       hubConnect.off('match-start-round');
       hubConnect.off('match-start');
       hubConnect.off('player-ready');
@@ -126,7 +151,7 @@ export default function WaitingRoom({navigation, route}) {
       userId: user.id,
       matchId: game.matchId,
     });
-    AudioPlayer().play(AUDIOS.CLICK, 'UI');
+    AudioPlayer().play(AUDIOS.CLICK, 'ui');
   };
 
   const handleFriendInvite = () => {
@@ -140,7 +165,7 @@ export default function WaitingRoom({navigation, route}) {
 
   return (
     <PageContainer justifyContent="flex-start">
-      <Header back />
+      <Header back exitRoom={() => emit('leave-match')} />
       <GameContainer>
         <ProfileDisplay data={user} />
         <VSContainer>

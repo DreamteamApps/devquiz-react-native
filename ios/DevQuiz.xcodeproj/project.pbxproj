@@ -23,7 +23,7 @@
 		8B8D30F924579A7D00F4A69F /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F624579A7C00F4A69F /* Ubuntu-Regular.ttf */; };
 		8B8D30FA24579A7D00F4A69F /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F724579A7C00F4A69F /* Ubuntu-Medium.ttf */; };
 		8B8D30FB24579A7D00F4A69F /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D30F824579A7D00F4A69F /* Ubuntu-Bold.ttf */; };
-		8BBFF288245BACD80039AE9F /* cowntdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFF281245BACD60039AE9F /* cowntdown.mp3 */; };
+		8BBFF288245BACD80039AE9F /* countdown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFF281245BACD60039AE9F /* countdown.mp3 */; };
 		8BBFF289245BACD80039AE9F /* looser.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFF282245BACD60039AE9F /* looser.mp3 */; };
 		8BBFF28A245BACD80039AE9F /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFF283245BACD60039AE9F /* winner.mp3 */; };
 		8BBFF28B245BACD80039AE9F /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFF284245BACD70039AE9F /* click.mp3 */; };
@@ -71,7 +71,7 @@
 		8B8D30F624579A7C00F4A69F /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		8B8D30F724579A7C00F4A69F /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		8B8D30F824579A7D00F4A69F /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
-		8BBFF281245BACD60039AE9F /* cowntdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cowntdown.mp3; path = ../android/app/src/main/res/raw/cowntdown.mp3; sourceTree = "<group>"; };
+		8BBFF281245BACD60039AE9F /* countdown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = countdown.mp3; path = ../android/app/src/main/res/raw/countdown.mp3; sourceTree = "<group>"; };
 		8BBFF282245BACD60039AE9F /* looser.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = looser.mp3; path = ../android/app/src/main/res/raw/looser.mp3; sourceTree = "<group>"; };
 		8BBFF283245BACD60039AE9F /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = winner.mp3; path = ../android/app/src/main/res/raw/winner.mp3; sourceTree = "<group>"; };
 		8BBFF284245BACD70039AE9F /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = click.mp3; path = ../android/app/src/main/res/raw/click.mp3; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				8BBFF284245BACD70039AE9F /* click.mp3 */,
-				8BBFF281245BACD60039AE9F /* cowntdown.mp3 */,
+				8BBFF281245BACD60039AE9F /* countdown.mp3 */,
 				8BBFF286245BACD70039AE9F /* error.mp3 */,
 				8BBFF287245BACD70039AE9F /* lobby.mp3 */,
 				8BBFF282245BACD60039AE9F /* looser.mp3 */,
@@ -386,7 +386,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				8BBFF28E245BACD80039AE9F /* lobby.mp3 in Resources */,
 				8B8D30FA24579A7D00F4A69F /* Ubuntu-Medium.ttf in Resources */,
-				8BBFF288245BACD80039AE9F /* cowntdown.mp3 in Resources */,
+				8BBFF288245BACD80039AE9F /* countdown.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				8BBFF28D245BACD80039AE9F /* error.mp3 in Resources */,
 			);
