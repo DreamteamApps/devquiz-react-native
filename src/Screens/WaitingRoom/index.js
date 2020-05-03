@@ -157,7 +157,7 @@ export default function WaitingRoom({navigation, route}) {
     const shareOptions = {
       title: 'DevQuiz',
       message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
-      url: `http://devquiz.pt/invite/${game.roomCode}`,
+      url: `http://devquiz.app/invite/${game.roomCode}`,
     };
     Share.open(shareOptions);
   };
