@@ -19,7 +19,7 @@ export default function UserList({data, title, onPress}) {
         />
       ) : (
         <LoadingContainer>
-          <ActivityIndicator size="small" color="#fff" />
+          {/* <ActivityIndicator size="small" color="#fff" /> */}
         </LoadingContainer>
       )}
     </Container>

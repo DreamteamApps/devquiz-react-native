@@ -17,7 +17,7 @@ export const ButtonsContainer = styled.View`
 
 export const Logo = styled.Image`
   width: 100%;
-  height: ${(props) =>props.theme.hpx(80)};
+  height: ${(props) => props.theme.hpx(80)};
   resize-mode: contain;
   margin-bottom: ${(props) => props.theme.hpx(50)};
   margin-top: ${(props) => props.theme.hpx(10)};

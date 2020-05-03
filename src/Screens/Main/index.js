@@ -27,7 +27,6 @@ export default function Main({navigation}) {
     prefixes: ['http://devquiz.app/invite', 'devquiz://invite'],
   });
 
- 
   const getLocalUserData = async () => {
     const user = await getUser();
 
@@ -48,7 +47,6 @@ export default function Main({navigation}) {
     setLoading(true);
     getLocalUserData();
   }, []);
-
 
   const getDeepLink = async () => {
     const deepLink = await getInitialState();

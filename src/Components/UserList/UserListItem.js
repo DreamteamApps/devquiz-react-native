@@ -3,7 +3,7 @@ import React from 'react';
 import {ContainerUserList, Image, Name} from './styles';
 import {TouchableOpacity} from 'react-native';
 
-export default function UserListItem({data: {id, name, avatar}, onPress}) {
+export default function UserListItem({data: {key, id, name, avatar}, onPress}) {
   return (
     <TouchableOpacity onPress={() => onPress(id)}>
       <ContainerUserList>

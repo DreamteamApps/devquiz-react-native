@@ -66,9 +66,7 @@ export default function Home({navigation}) {
         onPress={handleCreateRoom}
       />
       <ButtonsContainer>
-        <CustomButton
-          containerStyle={{marginBottom: 30}}
-          onPress={() => handleCreateRoom()}>
+        <CustomButton onPress={() => handleCreateRoom()}>
           Create Room
         </CustomButton>
         <CustomButton onPress={() => navigation.navigate('JoinRoom')}>

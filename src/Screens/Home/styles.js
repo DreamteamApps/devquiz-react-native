@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const ButtonsContainer = styled.View`
   position: absolute;
-  bottom: 20px;
+  bottom: ${(props) => props.theme.hpx(20)};
   width: 100%;
-  padding-horizontal: 20px;
+  padding-horizontal: ${(props) => props.theme.hpx(20)};
 `;

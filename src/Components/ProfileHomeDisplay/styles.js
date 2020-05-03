@@ -1,13 +1,13 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  padding: 25px;
+  padding: ${(props) => props.theme.wpx(15)};
   background: ${(props) => props.theme.colors.secondary};
   align-items: center;
-  margin-top: ${(props) => props.theme.hpx(110)};
-  border-radius: 20px;
+  margin-top: ${(props) => props.theme.hpx(50)};
+  border-radius: ${(props) => props.theme.wpx(20)};
   width: 80%;
-  height: ${(props) => props.theme.hpx(250)};
+  height: ${(props) => props.theme.hpx(200)};
 `;
 
 export const Avatar = styled.Image`
@@ -33,7 +33,7 @@ export const Name = styled.Text`
 export const Username = styled.Text`
   color: #fff;
   font-size: ${(props) => props.theme.fonts.medium};
-  margin-bottom:  ${(props) =>props.theme.hpx(10)};
+  margin-bottom: ${(props) => props.theme.hpx(10)};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.medium};
 `;

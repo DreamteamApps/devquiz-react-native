@@ -1,14 +1,14 @@
 import {Dimensions} from 'react-native';
 
 const sizeMultiplier = {
-  height: 812 / Dimensions.get('window').height,
-  width: 375 / Dimensions.get('window').width,
+  height: Dimensions.get('window').height / 812,
+  width: Dimensions.get('window').width / 375,
 };
 
 const hpx = (value) => {
   return value * sizeMultiplier.height + 'px';
 };
-const wpx = () => {
+const wpx = (value) => {
   return value * sizeMultiplier.width + 'px';
 };
 

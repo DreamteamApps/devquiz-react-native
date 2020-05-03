@@ -4,38 +4,38 @@ export const Container = styled.View`
   align-items: flex-start;
   width: 100%;
   background: rgba(255, 255, 255, 0.3);
-  padding-vertical: 10px;
-  margin-top: 20px;
-  height: 140px;
+  padding-vertical: ${(props) => props.theme.hpx(10)};
+  margin-top: ${(props) => props.theme.hpx(20)};
+  height: ${(props) => props.theme.hpx(140)};
 `;
 
 export const ContainerUserList = styled.View`
   align-items: center;
-  margin-right: 5px;
+  margin-right: ${(props) => props.theme.wpx(5)};
 `;
 export const Image = styled.Image`
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
+  height: ${(props) => props.theme.hpx(60)};
+  width: ${(props) => props.theme.hpx(60)};
+  border-radius: ${(props) => props.theme.hpx(30)};
 `;
 export const Name = styled.Text.attrs((props) => ({
   ellipsizeMode: 'tail',
   numberOfLines: 1,
 }))`
-  width: 90px;
+  width: ${(props) => props.theme.wpx(90)};
   color: ${(props) => props.theme.colors.secondary};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.small};
-  margin-top: 5px;
+  margin-top: ${(props) => props.theme.hpx(5)};
 `;
 
 export const Title = styled.Text`
   color: ${(props) => props.theme.colors.secondary};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.small};
-  padding-horizontal: 20px;
+  padding-horizontal: ${(props) => props.theme.wpx(20)};
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: ${(props) => props.theme.hpx(10)};
 `;
 export const LoadingContainer = styled.View`
   align-items: center;
