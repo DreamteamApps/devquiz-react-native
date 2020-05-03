@@ -19,8 +19,6 @@ function Game({navigation}) {
     setRoundTime,
     showQuestionScreen,
     setShowQuestionScreen,
-    setShowRoundScreen,
-    showRoundScreen,
   } = useGame();
 
   const onQuestionRecived = useCallback((data) => {
@@ -40,35 +38,30 @@ function Game({navigation}) {
     });
   }, []);
 
+  //TESTAR
   const onRoundEnd = useCallback(
     (data) => {
       AudioPlayer().stop('countdown');
       console.log('onRoundEnd');
       let newAnwsers = quiz.answers;
       let newPlayers = players;
+      
+      const isOwner = isPlayer(data?.owner?.id);
+      const myData = isOwner ? data.owner : data.opponent;
+      const myOpponentData = !isOwner ? data.owner : data.opponent;
+      
+      newPlayers.player.score = myData.score;
+      newPlayers.opponent.score = myOpponentData.score;
+      
       newAnwsers[data.correctAnswer - 1].correct = true;
-      if (isPlayer(data?.owner?.id)) {
-        if (data?.opponent?.answer > 0) {
-          newAnwsers[data.opponent.answer - 1].opponentSelected = true;
-        }
-        newPlayers.player.score = data.owner.score;
-        newPlayers.opponent.score = data.opponent.score;
-        if (data?.owner?.answer == data.correctAnswer) {
-          AudioPlayer().play(AUDIOS.SUCCESS, 'ui');
-        } else {
-          AudioPlayer().play(AUDIOS.ERROR, 'ui');
-        }
-      } else if (isPlayer(data?.opponent?.id)) {
-        if (data?.owner?.answer > 0) {
-          newAnwsers[data.owner.answer - 1].opponentSelected = true;
-        }
-        if (data?.opponent?.answer == data.correctAnswer) {
-          AudioPlayer().play(AUDIOS.SUCCESS);
-        } else {
-          AudioPlayer().play(AUDIOS.ERROR);
-        }
-        newPlayers.player.score = data.opponent.score;
-        newPlayers.opponent.score = data.owner.score;
+      
+      if (myOpponentData.answer > 0) {
+        newAnwsers[myOpponentData.answer - 1].opponentSelected = true;
+      }
+      if (myData.answer == data.correctAnswer) {
+        AudioPlayer().play(AUDIOS.SUCCESS, 'ui');
+      } else {
+        AudioPlayer().play(AUDIOS.ERROR, 'ui');
       }
 
       setPlayers(newPlayers);

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {Title, ButtonsContainer, Logo} from './styles';
+import {Title, ButtonsContainer, Logo, UserContainer} from './styles';
 
 import {getData} from '~/Service/AuthApi';
 import InputText from '~/Components/InputText';
@@ -15,9 +15,10 @@ import Snackbar from 'react-native-snackbar';
 import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
-import OneSignal from 'react-native-onesignal';
+import {useKeyboard} from '@react-native-community/hooks';
 
 export default function Main({navigation}) {
+  const keyboard = useKeyboard();
   const [username, setUsername] = useState('');
   const ref = React.useRef();
   const {setUser} = useAuth();
@@ -26,23 +27,7 @@ export default function Main({navigation}) {
     prefixes: ['http://devquiz.app/invite', 'devquiz://invite'],
   });
 
-  const oneSignalConfiguration = () => {
-    OneSignal.init('96aa2b3c-b7a4-411c-a10a-0b14fe2c6d0a', {
-      kOSSettingsKeyAutoPrompt: false,
-      kOSSettingsKeyInAppLaunchURL: false,
-      kOSSettingsKeyInFocusDisplayOption: 2,
-    });
-    OneSignal.addEventListener('received', onPushReceived);
-    OneSignal.addEventListener('ids', (device) => {
-      if (device && device.userId) {
-        savePushToken(device.userId);
-        //AsyncStorage.setItem('playerId', device.userId);
-      }
-    });
-  };
-  const onPushReceived = (notification) => {
-    console.log(notification);
-  };
+ 
   const getLocalUserData = async () => {
     const user = await getUser();
 
@@ -62,8 +47,8 @@ export default function Main({navigation}) {
     //check if we have this Local User
     setLoading(true);
     getLocalUserData();
-    oneSignalConfiguration();
   }, []);
+
 
   const getDeepLink = async () => {
     const deepLink = await getInitialState();
@@ -97,14 +82,19 @@ export default function Main({navigation}) {
 
   return (
     <PageContainer justifyContent="flex-start">
-      <Logo source={require('~/Assets/Images/logo.png')} />
-      <Title>Type your Github</Title>
-
-      <InputText
-        placeholder="type your github username"
-        onChangeText={(text) => setUsername(text)}
-        style={{width: '90%'}}
+      <Logo
+        source={require('~/Assets/Images/logo.png')}
+        hide={keyboard.keyboardShown}
       />
+      <UserContainer>
+        <Title>Type your Github</Title>
+
+        <InputText
+          placeholder="type your github username"
+          onChangeText={(text) => setUsername(text)}
+          style={{width: '90%'}}
+        />
+      </UserContainer>
 
       <ButtonsContainer>
         <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>

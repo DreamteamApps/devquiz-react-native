@@ -1,21 +1,25 @@
 import styled from 'styled-components/native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export const Container = styled.View`
   padding: 25px;
   background: ${(props) => props.theme.colors.secondary};
   align-items: center;
-  margin-top: 110px;
+  margin-top:${hp('8%')}px;
   border-radius: 20px;
   width: 80%;
+  height:${hp('30%')}px;
 `;
 
 export const Avatar = styled.Image`
-  width: 100px;
-  height: 120px;
+  width: ${hp('15%')}px;;
+  height:${hp('15%')}px;
   border-radius: 20px;
-
-  margin-top: -110px;
-  margin-bottom: 10px;
+  margin-top: -${hp('15%')}px;;
+  margin-bottom: ${hp('1%')}px;
 `;
 export const ProfileInfo = styled.View`
   margin-left: 10px;
@@ -27,13 +31,13 @@ export const Name = styled.Text`
   font-size: ${(props) => props.theme.fonts.large};
   font-family: ${(props) => props.theme.fontName.bold};
   color: ${(props) => props.theme.colors.primary};
-  margin-bottom: 5px;
+  margin-bottom: ${hp('1%')}px;
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 export const Username = styled.Text`
   color: #fff;
   font-size: ${(props) => props.theme.fonts.medium};
-  margin-bottom: 10px;
+  margin-bottom: ${hp('1%')}px;
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.medium};
 `;
@@ -42,10 +46,11 @@ export const ReposContainer = styled.View`
   color: ${(props) => props.theme.colors.gray};
   justify-content: center;
   align-items: center;
+
 `;
 export const RepoIcon = styled.Image`
-  width: 17px;
-  height: 17px;
+  width: ${hp('2%')}px;
+  height: ${hp('2%')}px;
   resize-mode: contain;
 `;
 
@@ -54,6 +59,7 @@ export const Repos = styled.Text`
   font-size: ${(props) => props.theme.fonts.medium};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.regular};
+
 `;
 
 export const ScoreContainer = styled.View`
@@ -61,7 +67,8 @@ export const ScoreContainer = styled.View`
   width: 100%;
   align-items: center;
   align-content: space-around;
-  margin-top: 20px;
+  margin-top: ${hp('2%')}px;
+
 `;
 export const WinsLoosesContainer = styled.View`
   align-items: center;

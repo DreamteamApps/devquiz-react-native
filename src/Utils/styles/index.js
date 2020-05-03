@@ -1,3 +1,6 @@
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+
 const colors = {
   primary: '#7159C1',
   secondary: '#fff',
@@ -10,12 +13,12 @@ const colors = {
   themeType: 'light-content',
 };
 const fonts = {
-  xsmall: '14px',
-  small: '16px',
-  medium: '18px',
-  large: '28px',
-  xlarge: '34px',
-  xxlarge: '50px',
+  xsmall: `${hp('1.5%')}px`,
+  small:  `${hp('2%')}px`,
+  medium: `${hp('2.5%')}px`,
+  large: `${hp('4%')}px`,
+  xlarge: `${hp('6%')}px`,
+  xxlarge: `${hp('8%')}px`,
 };
 const fontName = {
   regular: 'Ubuntu-Regular',
