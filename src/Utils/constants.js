@@ -1,1 +1,1 @@
-export const SERVER_URL = 'http://f7c90e5f.ngrok.io/';
+export const SERVER_URL = 'https://devquiz-backend.herokuapp.com/';
