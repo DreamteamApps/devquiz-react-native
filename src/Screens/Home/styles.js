@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
 
-
-
 export const ButtonsContainer = styled.View`
   position: absolute;
   bottom: 20px;
