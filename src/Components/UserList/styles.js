@@ -6,6 +6,7 @@ export const Container = styled.View`
   background: rgba(255, 255, 255, 0.3);
   padding-vertical: 10px;
   margin-top: 20px;
+  height: 140px;
 `;
 
 export const ContainerUserList = styled.View`
@@ -35,4 +36,9 @@ export const Title = styled.Text`
   padding-horizontal: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+`;
+export const LoadingContainer = styled.View`
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;

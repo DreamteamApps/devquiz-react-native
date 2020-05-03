@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+import {Platform} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
 import {PageContainer} from '~/Components/Layout';
@@ -16,17 +16,29 @@ import UserList from '~/Components/UserList';
 export default function Home({navigation}) {
   const [recentlyUsers, setRecentlyUsers] = useState([]);
   const {user} = useAuth();
-  const {game, setGame} = useGame();
+  const {game, setGame, hubConnect, emit} = useGame();
   const {setLoading} = useApp();
 
   useEffect(() => {
-    const getData = async () => {
-      const userList = await getRecentlyUsers(user.id);
-      setRecentlyUsers(userList.data);
+    getRecentlyUsersData();
+    hubConnect.on('recent-played', onRecentPlayed);
+    emit('client-connect');
+    return () => {
+      hubConnect.off('recent-played', onRecentPlayed);
     };
-    getData();
   }, []);
 
+  const getRecentlyUsersData = async () => {
+    const userList = await getRecentlyUsers();
+    setRecentlyUsers(filterMyselfFromRecentUsers(userList.data));
+  };
+  const onRecentPlayed = (data) => {
+    console.log(`onRecentPlayed ${Platform.OS}`, data);
+    setRecentlyUsers(filterMyselfFromRecentUsers(data));
+  };
+  const filterMyselfFromRecentUsers = (data) => {
+    return data.filter((item) => item.id != user.id);
+  };
   const handleCreateRoom = async (opponentId = '') => {
     setLoading(true);
     try {

@@ -7,6 +7,6 @@ export function getData(username, playerId = '') {
     pushToken: playerId,
   });
 }
-export function getRecentlyUsers(userId) {
-  return axios.get(`${SERVER_URL}user/recent/${userId}`);
+export function getRecentlyUsers() {
+  return axios.get(`${SERVER_URL}user/recent/`);
 }
