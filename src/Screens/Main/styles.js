@@ -1,8 +1,5 @@
 import styled from 'styled-components/native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+
 import style from '~/Utils/styles';
 
 export const Title = styled.Text`
@@ -13,17 +10,17 @@ export const Title = styled.Text`
 
 export const ButtonsContainer = styled.View`
   position: absolute;
-  bottom: ${hp('0.5%')}px;
+  bottom: ${(props) => props.theme.hpx(20)};
   width: 100%;
   padding: 20px;
 `;
 
 export const Logo = styled.Image`
   width: 100%;
-  height: ${hp('13%')}px;
+  height: ${(props) =>props.theme.hpx(80)};
   resize-mode: contain;
-  margin-bottom: ${hp('5%')}px;
-  margin-top: ${hp('10%')}px;
+  margin-bottom: ${(props) => props.theme.hpx(50)};
+  margin-top: ${(props) => props.theme.hpx(10)};
   display: ${(props) => (props.hide ? 'none' : 'flex')};
 `;
 
@@ -32,5 +29,5 @@ export const UserContainer = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-bottom: ${hp('35%')}px;
+  margin-bottom: ${(props) => props.theme.hpx(230)};
 `;

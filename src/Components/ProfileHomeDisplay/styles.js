@@ -1,25 +1,21 @@
 import styled from 'styled-components/native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 
 export const Container = styled.View`
   padding: 25px;
   background: ${(props) => props.theme.colors.secondary};
   align-items: center;
-  margin-top:${hp('8%')}px;
+  margin-top: ${(props) => props.theme.hpx(110)};
   border-radius: 20px;
   width: 80%;
-  height:${hp('30%')}px;
+  height: ${(props) => props.theme.hpx(250)};
 `;
 
 export const Avatar = styled.Image`
-  width: ${hp('15%')}px;;
-  height:${hp('15%')}px;
+  width: ${(props) => props.theme.hpx(100)};
+  height: ${(props) => props.theme.hpx(120)};
   border-radius: 20px;
-  margin-top: -${hp('15%')}px;;
-  margin-bottom: ${hp('1%')}px;
+  margin-top: -${(props) => props.theme.hpx(110)};
+  margin-bottom: ${(props) => props.theme.hpx(10)};
 `;
 export const ProfileInfo = styled.View`
   margin-left: 10px;
@@ -31,13 +27,13 @@ export const Name = styled.Text`
   font-size: ${(props) => props.theme.fonts.large};
   font-family: ${(props) => props.theme.fontName.bold};
   color: ${(props) => props.theme.colors.primary};
-  margin-bottom: ${hp('1%')}px;
+  margin-bottom: ${(props) => props.theme.hpx(5)};
   text-align: ${(props) => (props.alternative ? 'right' : 'left')};
 `;
 export const Username = styled.Text`
   color: #fff;
   font-size: ${(props) => props.theme.fonts.medium};
-  margin-bottom: ${hp('1%')}px;
+  margin-bottom:  ${(props) =>props.theme.hpx(10)};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.medium};
 `;
@@ -46,11 +42,10 @@ export const ReposContainer = styled.View`
   color: ${(props) => props.theme.colors.gray};
   justify-content: center;
   align-items: center;
-
 `;
 export const RepoIcon = styled.Image`
-  width: ${hp('2%')}px;
-  height: ${hp('2%')}px;
+  width: ${(props) => props.theme.hpx(17)};
+  height: ${(props) => props.theme.hpx(17)};
   resize-mode: contain;
 `;
 
@@ -59,7 +54,6 @@ export const Repos = styled.Text`
   font-size: ${(props) => props.theme.fonts.medium};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.regular};
-
 `;
 
 export const ScoreContainer = styled.View`
@@ -67,8 +61,7 @@ export const ScoreContainer = styled.View`
   width: 100%;
   align-items: center;
   align-content: space-around;
-  margin-top: ${hp('2%')}px;
-
+  margin-top: ${(props) => props.theme.hpx(10)};
 `;
 export const WinsLoosesContainer = styled.View`
   align-items: center;

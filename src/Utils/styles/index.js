@@ -1,5 +1,16 @@
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {Dimensions} from 'react-native';
 
+const sizeMultiplier = {
+  height: 812 / Dimensions.get('window').height,
+  width: 375 / Dimensions.get('window').width,
+};
+
+const hpx = (value) => {
+  return value * sizeMultiplier.height + 'px';
+};
+const wpx = () => {
+  return value * sizeMultiplier.width + 'px';
+};
 
 const colors = {
   primary: '#7159C1',
@@ -13,12 +24,12 @@ const colors = {
   themeType: 'light-content',
 };
 const fonts = {
-  xsmall: `${hp('1.5%')}px`,
-  small:  `${hp('2%')}px`,
-  medium: `${hp('2.5%')}px`,
-  large: `${hp('4%')}px`,
-  xlarge: `${hp('6%')}px`,
-  xxlarge: `${hp('8%')}px`,
+  xsmall: hpx(14),
+  small: hpx(16),
+  medium: hpx(18),
+  large: hpx(28),
+  xlarge: hpx(34),
+  xxlarge: hpx(50),
 };
 const fontName = {
   regular: 'Ubuntu-Regular',
@@ -35,6 +46,8 @@ const style = {
   fonts,
   fontsInt,
   fontName,
+  hpx,
+  wpx,
 };
 
 export default style;
