@@ -20,7 +20,7 @@ export const Logo = styled.Image`
   height: ${(props) => props.theme.hpx(80)};
   resize-mode: contain;
   margin-bottom: ${(props) => props.theme.hpx(50)};
-  margin-top: ${(props) => props.theme.hpx(10)};
+  margin-top: ${(props) => props.theme.hpx(150)};
   display: ${(props) => (props.hide ? 'none' : 'flex')};
 `;
 

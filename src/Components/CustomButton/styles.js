@@ -3,8 +3,8 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   background: ${(props) => props.theme.colors.btnBg};
   width: 100%;
-  padding: 15px;
-  border-radius: 10px;
+  padding: ${(props) => props.theme.hpx(15)};
+  border-radius: ${(props) => props.theme.hpx(10)};
   opacity: ${(props) => (props.disabled ? '0.5' : '1')};
   margin-bottom: ${(props) => props.theme.hpx(20)};
 `;

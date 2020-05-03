@@ -90,6 +90,9 @@ export default function Main({navigation}) {
         <InputText
           placeholder="type your github username"
           onChangeText={(text) => setUsername(text)}
+          onSubmitEditing={() => getUserData(username)}
+          autoCapitalize={false}
+          autoFocus={true}
           style={{width: '90%'}}
         />
       </UserContainer>

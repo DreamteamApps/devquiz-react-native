@@ -16,9 +16,9 @@ export const VSContainer = styled.View`
 
 export const VSImageContainer = styled.View`
   background: #fff;
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: ${(props) => props.theme.hpx(100)};
+  height: ${(props) => props.theme.hpx(100)};
+  border-radius: ${(props) => props.theme.hpx(50)};
 
   align-items: center;
   justify-content: center;
@@ -30,7 +30,7 @@ export const VSImage = styled.Image``;
 export const VSLine = styled.View`
   background: #fff;
   width: 100%;
-  height: 5px;
+  height: ${(props) => props.theme.hpx(5)};
   position: relative;
   flex: 1;
 `;
@@ -40,7 +40,7 @@ export const OpponentContainer = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin-bottom: ${(props) => props.theme.hpx(50)};
 `;
 
 export const ShareContainer = styled.View`
@@ -50,7 +50,7 @@ export const ShareContainer = styled.View`
 export const Code = styled.Text`
   color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.xxlarge};
-  margin-bottom: 20px;
+  margin-bottom: ${(props) => props.theme.hpx(20)};
   font-family: ${(props) => props.theme.fontName.bold};
 `;
 export const CodeExplainText = styled.Text`
@@ -65,14 +65,14 @@ export const ButtonsContainer = styled.View`
 
 export const CheckFirstPlayer = styled.View`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: ${(props) => props.theme.hpx(10)};
+  right: ${(props) => props.theme.wpx(10)};
   opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;
 
 export const CheckOpponent = styled.View`
   position: absolute;
-  bottom: -55px;
-  right: 10px;
+  bottom: ${(props) => props.theme.hpx(-55)};
+  right: ${(props) => props.theme.wpx(10)};
   opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;

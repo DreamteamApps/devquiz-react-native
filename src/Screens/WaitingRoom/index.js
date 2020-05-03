@@ -28,12 +28,14 @@ import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
 import Share from 'react-native-share';
 import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
+import {useTheme} from 'styled-components';
 
 export default function WaitingRoom({navigation, route}) {
   const [opponent, setOpponent] = useState();
   const [ready, setReady] = useState(false);
   const [startMatch, setStartMatch] = useState(false);
   const [opponentReady, setOpponentReady] = useState(false);
+  const theme = useTheme();
 
   const {user} = useAuth();
   const {

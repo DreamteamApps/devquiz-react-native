@@ -4,7 +4,7 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 5px;
+  margin-top: ${(props) => props.theme.hpx(5)};
 `;
 
 export const ContainerScore = styled.View`

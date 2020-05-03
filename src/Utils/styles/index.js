@@ -24,6 +24,7 @@ const colors = {
   themeType: 'light-content',
 };
 const fonts = {
+  xxsmall: hpx(12),
   xsmall: hpx(14),
   small: hpx(16),
   medium: hpx(18),

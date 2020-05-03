@@ -2,9 +2,9 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   background: ${(props) => props.theme.colors.secondary};
-  border-radius: 30px;
-  width: 60px;
-  height: 60px;
+  border-radius: ${(props) => props.theme.hpx(30)};
+  width: ${(props) => props.theme.hpx(60)};
+  height: ${(props) => props.theme.hpx(60)};
   align-items: center;
   justify-content: center;
   border: 3px #a790f4;
