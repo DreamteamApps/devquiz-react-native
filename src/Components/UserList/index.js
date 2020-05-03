@@ -13,7 +13,11 @@ export default function UserList({data, title, onPress}) {
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
-          <UserListItem key={item?.id} data={item} onPress={onPress} />
+          <UserListItem
+            key={item?.id.toString()}
+            data={item}
+            onPress={onPress}
+          />
         )}
       />
     </Container>

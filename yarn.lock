@@ -5808,6 +5808,13 @@ react-native-iphone-x-helper@^1.2.1:
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha512-/VbpIEp8tSNNHIvstuA3Swx610whci1Zpc9mqNkqn14DkMbw+ORviln2u0XyHG1kPvvwTNGZY6QpeFwxYaSdbQ==
 
+react-native-onesignal@^3.7.3:
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/react-native-onesignal/-/react-native-onesignal-3.7.3.tgz#95b65ba6b612126127d878382c5a263265faea62"
+  integrity sha512-zBrf6uXQG6D2VSatZ8cxSmvW5YcSNU5eiGL3qdhjp/0BHFXC/ZFN7pdZ3lcgM2Q/ddb9Vtb7+DrycRk1UnRBdQ==
+  dependencies:
+    invariant "^2.2.2"
+
 react-native-reanimated@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.8.0.tgz#0b5719b20c1fed9aaf8afd9a12e21c9bd46ee428"

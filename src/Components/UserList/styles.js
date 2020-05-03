@@ -25,6 +25,7 @@ export const Name = styled.Text.attrs((props) => ({
   color: ${(props) => props.theme.colors.secondary};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.small};
+  margin-top: 5px;
 `;
 
 export const Title = styled.Text`

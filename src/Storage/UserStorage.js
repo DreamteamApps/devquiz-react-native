@@ -18,3 +18,21 @@ export const getUser = async () => {
     // error reading value
   }
 };
+
+export const savePushToken = async (pushToken) => {
+  try {
+    await AsyncStorage.setItem('pushToken', pushToken);
+  } catch (e) {
+    // saving error
+  }
+};
+export const getPushToken = async () => {
+  try {
+    const value = await AsyncStorage.getItem('pushToken');
+    if (value !== null) {
+      return value;
+    }
+  } catch (e) {
+    // error reading value
+  }
+};

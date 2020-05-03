@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "release": "cd android/ && ./gradlew assembleRelease",
     "install": "cd android/app/build/outputs/apk/release && adb install app-release.apk",
-    "iosrelease" : "react-native run-ios --configuration Release"
+    "iosrelease": "react-native run-ios --configuration Release"
   },
   "rnpm": {
     "assets": [
@@ -28,6 +28,7 @@
     "react-native": "0.62.2",
     "react-native-confirmation-code-field": "^6.0.0",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-onesignal": "^3.7.3",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-safe-area-view": "^1.1.0",
