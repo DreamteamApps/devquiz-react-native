@@ -96,8 +96,6 @@ export default function WaitingRoom({navigation, route}) {
     hubConnect.on('match-start', (data) => {
       console.log('match-start');
       setStartMatch(true);
-      // setTimeout(() => {
-      // }, 5000);
     });
 
     hubConnect.on('player-leaved', ({isMatchOwner, userId}) => {
