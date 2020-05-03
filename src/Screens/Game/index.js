@@ -53,9 +53,19 @@ function Game({navigation}) {
         }
         newPlayers.player.score = data.owner.score;
         newPlayers.opponent.score = data.opponent.score;
+        if (data?.owner?.answer == data.correctAnswer) {
+          AudioPlayer().play(AUDIOS.SUCCESS, 'ui');
+        } else {
+          AudioPlayer().play(AUDIOS.ERROR, 'ui');
+        }
       } else if (isPlayer(data?.opponent?.id)) {
         if (data?.owner?.answer > 0) {
           newAnwsers[data.owner.answer - 1].opponentSelected = true;
+        }
+        if (data?.opponent?.answer == data.correctAnswer) {
+          AudioPlayer().play(AUDIOS.SUCCESS);
+        } else {
+          AudioPlayer().play(AUDIOS.ERROR);
         }
         newPlayers.player.score = data.opponent.score;
         newPlayers.opponent.score = data.owner.score;
