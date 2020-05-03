@@ -6,7 +6,7 @@ export const Container = styled(Fade).attrs({
   justifyContent: 'flex-end',
 })`
   justify-content: flex-end;
-  padding: 10px;
+  padding: ${(props) => props.theme.hpx(10)};
   height: 100%;
   width: 100%;
 `;

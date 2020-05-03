@@ -12,7 +12,7 @@ export const ButtonsContainer = styled.View`
   position: absolute;
   bottom: ${(props) => props.theme.hpx(20)};
   width: 100%;
-  padding: 20px;
+  padding: ${(props) => props.theme.hpx(20)};
 `;
 
 export const Logo = styled.Image`

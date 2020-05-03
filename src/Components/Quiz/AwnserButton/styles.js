@@ -6,9 +6,9 @@ export const ButtonContainer = styled.TouchableOpacity`
   flex-basis: ${(props) => (props.small ? '40%' : '100%')};
   justify-content: center;
   align-items: center;
-  height: 66px;
-  margin: 10px;
-  border-radius: 10px;
+  height: ${(props) => props.theme.hpx(66)};
+  margin: ${(props) => props.theme.hpx(10)};
+  border-radius: ${(props) => props.theme.hpx(10)};
   background-color: ${(props) =>
     props.showCorrectAnwser && props.correct
       ? props.theme.colors.green
@@ -25,25 +25,25 @@ export const AwnserText = styled.Text`
       : props.theme.colors.btnText};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.xxlarge};
-  padding: 10px;
+  padding: ${(props) => props.theme.hpx(10)};
 `;
 
 export const AvatarLeft = styled.Image`
   position: absolute;
-  left: -18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 25px;
+  left: ${(props) => props.theme.wpx(-18)};
+  width: ${(props) => props.theme.wpx(36)};
+  height: ${(props) => props.theme.hpx(36)};
+  border-radius: ${(props) => props.theme.hpx(25)};
   border-width: 2px;
   border-color: #fff;
 `;
 
 export const AvatarRight = styled.Image`
   position: absolute;
-  right: -18px;
-  width: 36px;
-  height: 36px;
-  border-radius: 25px;
+  right: ${(props) => props.theme.wpx(-18)};
+  width: ${(props) => props.theme.wpx(36)};
+  height: ${(props) => props.theme.hpx(36)};
+  border-radius: ${(props) => props.theme.hpx(25)};
   border-width: 2px;
   border-color: #fff;
 `;

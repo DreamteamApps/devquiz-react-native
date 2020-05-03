@@ -18,7 +18,7 @@ export const Avatar = styled.Image`
   margin-bottom: ${(props) => props.theme.hpx(10)};
 `;
 export const ProfileInfo = styled.View`
-  margin-left: 10px;
+  margin-left: ${(props) => props.theme.wpx(10)};
   margin-right: ${(props) => (props.alternative ? '10px' : '0')};
   align-items: center;
 `;
