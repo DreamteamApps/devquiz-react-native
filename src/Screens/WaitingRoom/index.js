@@ -151,7 +151,6 @@ export default function WaitingRoom({navigation, route}) {
       userId: user.id,
       matchId: game.matchId,
     });
-    AudioPlayer().play(AUDIOS.CLICK, 'ui');
   };
 
   const handleFriendInvite = () => {
