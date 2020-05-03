@@ -25,8 +25,8 @@
           <action android:name="android.intent.action.VIEW" />
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
-          <data android:scheme="http" android:host="devquiz.pt" />
-          <data android:scheme="https" android:host="devquiz.pt" />
+          <data android:scheme="http" android:host="devquiz.app" />
+          <data android:scheme="https" android:host="devquiz.app" />
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
