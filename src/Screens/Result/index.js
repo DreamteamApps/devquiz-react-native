@@ -114,7 +114,6 @@ export default function Result({navigation, route}) {
 
       <ButtonsContainer>
         <CustomButton
-          containerStyle={{marginBottom: 30}}
           onPress={() => handlePlayAgain()}
           disabled={btnPlayDisabled}>
           {btnPlayAgainText}

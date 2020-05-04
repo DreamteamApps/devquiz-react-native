@@ -91,7 +91,7 @@ export default function Main({navigation}) {
           placeholder="type your github username"
           onChangeText={(text) => setUsername(text)}
           onSubmitEditing={() => getUserData(username)}
-          autoCapitalize={false}
+          autoCapitalize={'none'}
           autoFocus={true}
           style={{width: '90%'}}
         />

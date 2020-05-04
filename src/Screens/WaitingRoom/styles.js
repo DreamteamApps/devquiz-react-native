@@ -72,7 +72,7 @@ export const CheckFirstPlayer = styled.View`
 
 export const CheckOpponent = styled.View`
   position: absolute;
-  bottom: ${(props) => props.theme.hpx(-55)};
+  bottom: ${(props) => props.theme.wpx(-65)};
   right: ${(props) => props.theme.wpx(10)};
   opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;
