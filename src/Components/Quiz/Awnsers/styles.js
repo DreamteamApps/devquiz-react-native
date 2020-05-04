@@ -14,5 +14,7 @@ export const Container = styled(Fade).attrs({
 export const AwnserContainer = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
-  height: ${(props) => (props.small ? '200px' : '340px')};
+  height: ${(props) =>
+    props.small ? props.theme.hpx(200) : props.theme.hpx(340)};
+  margin-bottom: ${(props) => props.theme.hpx(10)};
 `;

@@ -41,7 +41,7 @@ export const AvatarLeft = styled.Image`
 export const AvatarRight = styled.Image`
   position: absolute;
   right: ${(props) => props.theme.wpx(-18)};
-  width: ${(props) => props.theme.wpx(36)};
+  width: ${(props) => props.theme.hpx(36)};
   height: ${(props) => props.theme.hpx(36)};
   border-radius: ${(props) => props.theme.hpx(25)};
   border-width: 2px;

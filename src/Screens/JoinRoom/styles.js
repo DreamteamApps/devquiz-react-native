@@ -23,7 +23,7 @@ export const ButtonsContainer = styled.View`
 `;
 
 export const Digit = styled.Text`
-  width: ${(props) => props.theme.wpx(50)};
+  width: ${(props) => props.theme.hpx(50)};
   height: ${(props) => props.theme.hpx(50)};
   line-height: ${(props) => props.theme.hpx(50)};
   font-size: ${(props) => props.theme.fonts.xlarge};
