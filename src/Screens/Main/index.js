@@ -16,6 +16,7 @@ import {useLinking} from '@react-navigation/native';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
 import {useKeyboard} from '@react-native-community/hooks';
+import OneSignalConfig from '~/Service/pushService';
 
 export default function Main({navigation}) {
   const keyboard = useKeyboard();
@@ -80,6 +81,7 @@ export default function Main({navigation}) {
 
   return (
     <PageContainer justifyContent="flex-start">
+      <OneSignalConfig />
       <Logo
         source={require('~/Assets/Images/logo.png')}
         hide={keyboard.keyboardShown}

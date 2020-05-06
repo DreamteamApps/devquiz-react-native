@@ -32,9 +32,12 @@ export default function JoinRoom({navigation, route}) {
     setValue,
   });
   const CodeInputRef = useRef();
+  const {user} = useAuth();
+  const {game, setGame} = useGame();
+  const {setLoading} = useApp();
 
   useEffect(() => {
-    if (roomCode.length == 6) {
+    if (roomCode.length == 6 && !params?.roomCode) {
       getRoom(roomCode);
     }
   }, [roomCode]);
@@ -43,9 +46,6 @@ export default function JoinRoom({navigation, route}) {
     CodeInputRef.current.focus();
   }, []);
 
-  const {user, setUser} = useAuth();
-  const {game, setGame} = useGame();
-  const {setLoading} = useApp();
   useEffect(() => {
     if (params?.roomCode) {
       console.log(user);
@@ -62,9 +62,9 @@ export default function JoinRoom({navigation, route}) {
         const dataReturn = await joinMatch(user.id, roomCode);
         const {matchId} = dataReturn.data;
         setGame({...game, matchId: matchId});
-        setUser({...user, isOpponent: true});
-
-        navigation.replace('WaitingRoom');
+        setTimeout(() => {
+          navigation.replace('WaitingRoom');
+        }, 100);
       } catch (error) {
         Snackbar.show({
           text: error.response.data.message,
