@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Platform, BackHandler} from 'react-native';
+import {Platform, BackHandler, AppState} from 'react-native';
 import {
   VSContainer,
   VSLine,
@@ -68,6 +68,8 @@ export default function WaitingRoom({navigation, route}) {
     }
   };
   useEffect(() => {
+    AppState.addEventListener('change', handleChangeAppState);
+
     AudioPlayer().play(AUDIOS.LOBBY);
 
     if (game.matchId) {
@@ -144,7 +146,7 @@ export default function WaitingRoom({navigation, route}) {
       hubConnect.off('match-start');
       hubConnect.off('player-ready');
       hubConnect.off('player-joined', onPlayerJoined);
-      console.log('unassign player-joined ');
+      AppState.removeEventListener('change', handleChangeAppState);
     };
   }, []);
   const changeMyStatus = () => {
@@ -153,7 +155,13 @@ export default function WaitingRoom({navigation, route}) {
       matchId: game.matchId,
     });
   };
-
+  const handleChangeAppState = (newState) => {
+    if (newState === 'active') {
+      AudioPlayer().play(AUDIOS.LOBBY);
+    } else {
+      AudioPlayer().stop();
+    }
+  };
   const handleFriendInvite = () => {
     const shareOptions = {
       title: 'DevQuiz',
