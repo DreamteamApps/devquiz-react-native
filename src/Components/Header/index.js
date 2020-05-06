@@ -3,12 +3,15 @@ import {TouchableOpacity} from 'react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 import {useTheme} from 'styled-components';
+import {useRoute} from '@react-navigation/native';
 
 import {Container, ButtonArea} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {useGame} from '~/Contexts/GameContext';
 
 export default function Header({exitRoom, back}) {
+  const route = useRoute();
+
   const navigation = useNavigation();
   const theme = useTheme();
   const {emit} = useGame();
@@ -17,6 +20,8 @@ export default function Header({exitRoom, back}) {
     exitRoom && exitRoom();
     navigation.goBack();
   };
+
+  console.log('navigation', navigation);
   return (
     <Container>
       {/* {close && (

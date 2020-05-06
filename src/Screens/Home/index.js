@@ -23,6 +23,7 @@ export default function Home({navigation}) {
     getRecentlyUsersData();
     hubConnect.on('recent-played', onRecentPlayed);
     emit('client-connect');
+
     return () => {
       hubConnect.off('recent-played', onRecentPlayed);
     };

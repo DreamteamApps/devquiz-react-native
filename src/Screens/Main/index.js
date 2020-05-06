@@ -38,6 +38,7 @@ export default function Main({navigation}) {
     if (user?.login) {
       const roomCode = await getDeepLink();
       if (roomCode) {
+        navigation.navigate('Home');
         navigation.navigate('JoinRoom', {roomCode: roomCode});
         setLoading(false);
       } else {
@@ -66,7 +67,7 @@ export default function Main({navigation}) {
         const dataReturn = await getData(username, pushToken);
         await saveUser(dataReturn.data);
         setUser(dataReturn.data);
-        navigation.navigate('Home');
+        navigation.replace('Home');
       } catch (error) {
         console.log(error);
         Snackbar.show({
