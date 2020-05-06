@@ -53,7 +53,6 @@ export default function WaitingRoom({navigation, route}) {
 
   const onPlayerJoined = (data) => {
     console.log(`player-joined ${Platform.OS}`);
-    console.log('isOpponent', user.isOpponent);
 
     if (user.id == data.opponent?.id) {
       setOpponent(data.owner);

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WhatsAppClone.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>armv7</string>
+				<string>arm64</string>
+			</array>
+			<key>bitcode</key>
+			<true/>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>AA26B8CA895BDEA3841EF9B425528FD928C2059D</string>
+				<key>dateExpires</key>
+				<string>02/05/21</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>85E8WAS7T4.br.com.dreamteamapp.simplechat</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>85E8WAS7T4</string>
+				<key>get-task-allow</key>
+				<false/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>85E8WAS7T4.br.com.dreamteamapp.simplechat</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>SimpleChat.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>06221364-4f24-48dc-a850-555b9cd52858</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: *</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>85E8WAS7T4</string>
+				<key>name</key>
+				<string>LITHIC SOLUCOES DE INTERNET LTDA ME</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -25,7 +25,11 @@ export default function Main({navigation}) {
   const {setUser} = useAuth();
   const {setLoading} = useApp();
   const {getInitialState} = useLinking(ref, {
-    prefixes: ['http://devquiz.app/invite', 'devquiz://invite'],
+    prefixes: [
+      'http://devquiz.app/invite',
+      'devquiz://invite',
+      'https://devquiz.app/invite',
+    ],
   });
 
   const getLocalUserData = async () => {

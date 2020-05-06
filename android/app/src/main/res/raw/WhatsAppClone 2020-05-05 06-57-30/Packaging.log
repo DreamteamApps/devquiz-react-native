@@ -1,0 +1,648 @@
+2020-05-05 05:56:14 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fe18574ab90; archive(resolved)='<IDEArchive: 0x7fe184703770>', distributionTask(resolved)='2', distributionDestination(resolved)='2', distributionMethod(resolved)='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team(resolved)='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	Chain (13, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7fe18574ab90; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionProcessingPipelineContext: 0x7fe1855e0450; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe1852beed0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe1855c8ca0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe1855de620; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe185520a60; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe18585c690; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe1938132d0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe1855d3ae0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe185442ae0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fe1982d9880; teamID='85E8WAS7T4', teamName='LITHIC SOLUCOES DE INTERNET LTDA ME', teamType='Company', username='erick@erickalves.com.br', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fe18539e8f0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='(null)'>
+	<IDEDistributionContext: 0x7fe1851db4b0; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='<IDEDistributionMethodiOSAppStoreDistribution: 0x7fe1846da610>', team='(null)'>
+	<IDEDistributionContext: 0x7fe185439f20; archive = '<IDEArchive: 0x7fe184703770>', distributionMethod='(null)', team='(null)'>
+</IDEDistributionProcessingPipelineContext: 0x7fe18574ab90>
+2020-05-05 05:56:14 +0000  Processing step: IDEDistributionCreateDestRootStep
+2020-05-05 05:56:14 +0000  Processing step: IDEDistributionCopyItemStep
+2020-05-05 05:56:14 +0000  Running /usr/bin/ditto '-V' '/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app'
+2020-05-05 05:56:14 +0000  >>> Copying /Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app 
+2020-05-05 05:56:14 +0000  copying file ./_CodeSignature/CodeResources ... 
+2020-05-05 05:56:14 +0000  17199 bytes for ./_CodeSignature/CodeResources
+2020-05-05 05:56:14 +0000  copying file ./Fontisto.ttf ... 
+2020-05-05 05:56:14 +0000  313528 bytes for ./Fontisto.ttf
+copying file ./Octicons.ttf ... 
+2020-05-05 05:56:14 +0000  28364 bytes for ./Octicons.ttf
+2020-05-05 05:56:14 +0000  copying file ./Feather.ttf ... 
+2020-05-05 05:56:14 +0000  58272 bytes for ./Feather.ttf
+2020-05-05 05:56:14 +0000  copying file ./AppIcon20x20@2x.png ... 
+2020-05-05 05:56:14 +0000  1375 bytes for ./AppIcon20x20@2x.png
+2020-05-05 05:56:14 +0000  copying file ./AppIcon57x57.png ... 
+2020-05-05 05:56:14 +0000  1820 bytes for ./AppIcon57x57.png
+2020-05-05 05:56:14 +0000  copying file ./Entypo.ttf ... 
+2020-05-05 05:56:14 +0000  65584 bytes for ./Entypo.ttf
+copying file ./AppIcon20x20@3x.png ... 
+2020-05-05 05:56:14 +0000  1881 bytes for ./AppIcon20x20@3x.png
+2020-05-05 05:56:14 +0000  copying file ./FontAwesome5_Brands.ttf ... 
+2020-05-05 05:56:14 +0000  125016 bytes for ./FontAwesome5_Brands.ttf
+copying file ./AppIcon29x29.png ... 
+1056 bytes for ./AppIcon29x29.png
+2020-05-05 05:56:14 +0000  copying file ./MaterialCommunityIcons.ttf ... 
+2020-05-05 05:56:14 +0000  546548 bytes for ./MaterialCommunityIcons.ttf
+2020-05-05 05:56:14 +0000  copying file ./AppIcon60x60@2x.png ... 
+2020-05-05 05:56:14 +0000  3482 bytes for ./AppIcon60x60@2x.png
+2020-05-05 05:56:14 +0000  copying file ./AppIcon29x29@2x.png ... 
+2020-05-05 05:56:14 +0000  1864 bytes for ./AppIcon29x29@2x.png
+2020-05-05 05:56:14 +0000  copying file ./AntDesign.ttf ... 
+2020-05-05 05:56:14 +0000  70344 bytes for ./AntDesign.ttf
+2020-05-05 05:56:14 +0000  copying file ./AppIcon40x40@3x.png ... 
+2020-05-05 05:56:14 +0000  3482 bytes for ./AppIcon40x40@3x.png
+copying file ./AppIcon57x57@2x.png ... 
+2020-05-05 05:56:14 +0000  3301 bytes for ./AppIcon57x57@2x.png
+copying file ./Foundation.ttf ... 
+2020-05-05 05:56:14 +0000  56976 bytes for ./Foundation.ttf
+2020-05-05 05:56:14 +0000  copying file ./Ionicons.ttf ... 
+2020-05-05 05:56:14 +0000  112472 bytes for ./Ionicons.ttf
+2020-05-05 05:56:14 +0000  copying file ./FontAwesome5_Solid.ttf ... 
+2020-05-05 05:56:14 +0000  186228 bytes for ./FontAwesome5_Solid.ttf
+copying file ./AppIcon40x40@2x.png ... 
+2020-05-05 05:56:14 +0000  2595 bytes for ./AppIcon40x40@2x.png
+2020-05-05 05:56:14 +0000  copying file ./FontAwesome5_Regular.ttf ... 
+2020-05-05 05:56:14 +0000  34092 bytes for ./FontAwesome5_Regular.ttf
+2020-05-05 05:56:14 +0000  copying file ./AppIcon29x29@3x.png ... 
+2020-05-05 05:56:14 +0000  2682 bytes for ./AppIcon29x29@3x.png
+2020-05-05 05:56:14 +0000  copying file ./AppIcon60x60@3x.png ... 
+2020-05-05 05:56:14 +0000  4930 bytes for ./AppIcon60x60@3x.png
+2020-05-05 05:56:14 +0000  copying file ./Base.lproj/LaunchScreen.nib ... 
+2020-05-05 05:56:14 +0000  3150 bytes for ./Base.lproj/LaunchScreen.nib
+2020-05-05 05:56:14 +0000  copying file ./FontAwesome.ttf ... 
+2020-05-05 05:56:14 +0000  165548 bytes for ./FontAwesome.ttf
+2020-05-05 05:56:14 +0000  copying file ./Zocial.ttf ... 
+2020-05-05 05:56:14 +0000  25552 bytes for ./Zocial.ttf
+2020-05-05 05:56:14 +0000  copying file ./Assets.car ... 
+2020-05-05 05:56:14 +0000  78312 bytes for ./Assets.car
+2020-05-05 05:56:14 +0000  copying file ./EvilIcons.ttf ... 
+2020-05-05 05:56:14 +0000  13456 bytes for ./EvilIcons.ttf
+2020-05-05 05:56:14 +0000  copying file ./main.jsbundle ... 
+2020-05-05 05:56:14 +0000  1269468 bytes for ./main.jsbundle
+2020-05-05 05:56:14 +0000  copying file ./Frameworks/libswiftObjectiveC.dylib ... 
+2020-05-05 05:56:14 +0000  679680 bytes for ./Frameworks/libswiftObjectiveC.dylib
+copying file ./Frameworks/libswiftCore.dylib ... 
+2020-05-05 05:56:15 +0000  95497584 bytes for ./Frameworks/libswiftCore.dylib
+2020-05-05 05:56:16 +0000  copying file ./Frameworks/libswiftCoreGraphics.dylib ... 
+2020-05-05 05:56:16 +0000  2041040 bytes for ./Frameworks/libswiftCoreGraphics.dylib
+2020-05-05 05:56:16 +0000  copying file ./Frameworks/libswiftMetal.dylib ... 
+724416 bytes for ./Frameworks/libswiftMetal.dylib
+copying file ./Frameworks/libswiftDispatch.dylib ... 
+2020-05-05 05:56:16 +0000  4056896 bytes for ./Frameworks/libswiftDispatch.dylib
+2020-05-05 05:56:16 +0000  copying file ./Frameworks/libswiftos.dylib ... 
+857184 bytes for ./Frameworks/libswiftos.dylib
+copying file ./Frameworks/libswiftCoreFoundation.dylib ... 
+2020-05-05 05:56:16 +0000  450384 bytes for ./Frameworks/libswiftCoreFoundation.dylib
+copying file ./Frameworks/libswiftDarwin.dylib ... 
+2020-05-05 05:56:16 +0000  1091440 bytes for ./Frameworks/libswiftDarwin.dylib
+2020-05-05 05:56:16 +0000  copying file ./Frameworks/libswiftQuartzCore.dylib ... 
+486336 bytes for ./Frameworks/libswiftQuartzCore.dylib
+copying file ./Frameworks/libswiftFoundation.dylib ... 
+2020-05-05 05:56:16 +0000  43094320 bytes for ./Frameworks/libswiftFoundation.dylib
+2020-05-05 05:56:16 +0000  copying file ./SimpleLineIcons.ttf ... 
+2020-05-05 05:56:16 +0000  54056 bytes for ./SimpleLineIcons.ttf
+2020-05-05 05:56:16 +0000  copying file ./embedded.mobileprovision ... 
+2020-05-05 05:56:16 +0000  10740 bytes for ./embedded.mobileprovision
+2020-05-05 05:56:16 +0000  copying file ./assets/app.json ... 
+2020-05-05 05:56:16 +0000  63 bytes for ./assets/app.json
+copying file ./assets/node_modules/css-color-keywords/colors.json ... 
+3796 bytes for ./assets/node_modules/css-color-keywords/colors.json
+copying file ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@3x.png ... 
+761 bytes for ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@3x.png
+copying file ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@2x.png ... 
+405 bytes for ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@2x.png
+copying file ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon.png ... 
+290 bytes for ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon.png
+copying file ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon-mask.png ... 
+913 bytes for ./assets/node_modules/@react-navigation/stack/src/views/assets/back-icon-mask.png
+copying file ./assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json ... 
+2020-05-05 05:56:16 +0000  17166 bytes for ./assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json
+2020-05-05 05:56:16 +0000  copying file ./assets/src/Assets/Animations/chat.json ... 
+2020-05-05 05:56:16 +0000  5205 bytes for ./assets/src/Assets/Animations/chat.json
+2020-05-05 05:56:16 +0000  copying file ./Info.plist ... 
+2020-05-05 05:56:16 +0000  1755 bytes for ./Info.plist
+copying file ./PkgInfo ... 
+2020-05-05 05:56:16 +0000  8 bytes for ./PkgInfo
+2020-05-05 05:56:16 +0000  copying file ./MaterialIcons.ttf ... 
+2020-05-05 05:56:16 +0000  128180 bytes for ./MaterialIcons.ttf
+2020-05-05 05:56:16 +0000  copying file ./SimpleChat ... 
+2020-05-05 05:56:17 +0000  53645584 bytes for ./SimpleChat
+2020-05-05 05:56:17 +0000  /usr/bin/ditto exited with 0
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionEmbedProfileStep
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe195c02f70; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe1855eaa50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe184708850; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe18559dc40; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195ac8b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855d2120; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185753c90; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185280bb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855d2120; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe1857571b0; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185755e00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185726e40; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185756620; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18551f100; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185394c10; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185762510; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18575d9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe184708850; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185717a70; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18457ffd0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe184708850; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185a0e1d0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195b46120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185394c10; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe18575df30; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185717d50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855f8230; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fe185a11a10; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185509ab0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855f8230; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionInfoPlistStep
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionInfoPlistStep because it said so
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionItemRemovalStep
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2020-05-05 05:56:17 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2020-05-05 05:56:17 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2020-05-05 05:56:18 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2020-05-05 05:56:18 +0000  Running /usr/bin/ditto '-V' '/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/BCSymbolMaps/183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/BCSymbolMaps/183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap'
+2020-05-05 05:56:18 +0000  >>> Copying /Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/BCSymbolMaps/183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap 
+2020-05-05 05:56:18 +0000  copying file ./183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap ... 
+2020-05-05 05:56:18 +0000  2458824 bytes for ./183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap
+2020-05-05 05:56:18 +0000  /usr/bin/ditto exited with 0
+2020-05-05 05:56:18 +0000  Running /usr/bin/ditto '-V' '/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/BCSymbolMaps/3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/BCSymbolMaps/3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap'
+2020-05-05 05:56:18 +0000  >>> Copying /Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/BCSymbolMaps/3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap 
+2020-05-05 05:56:18 +0000  copying file ./3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap ... 
+2020-05-05 05:56:18 +0000  2487140 bytes for ./3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap
+2020-05-05 05:56:18 +0000  /usr/bin/ditto exited with 0
+2020-05-05 05:56:18 +0000  Processing step: IDEDistributionSymbolsStep
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftCore.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftCoreFoundation.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftCoreGraphics.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftDarwin.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftDispatch.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftFoundation.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftMetal.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftObjectiveC.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftQuartzCore.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for libswiftos.dylib
+2020-05-05 05:56:19 +0000  Excluding symbols for SimpleChat.app
+2020-05-05 05:56:19 +0000  Processing step: IDEDistributionCopyAppleProvidedContentStep
+2020-05-05 05:56:19 +0000  Running /usr/bin/ditto '-V' '/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/SwiftSupport' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/SwiftSupport'
+2020-05-05 05:56:19 +0000  >>> Copying /Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/SwiftSupport 
+2020-05-05 05:56:19 +0000  copying file ./iphoneos/libswiftObjectiveC.dylib ... 
+2020-05-05 05:56:19 +0000  853536 bytes for ./iphoneos/libswiftObjectiveC.dylib
+2020-05-05 05:56:19 +0000  copying file ./iphoneos/libswiftCore.dylib ... 
+2020-05-05 05:56:20 +0000  140528488 bytes for ./iphoneos/libswiftCore.dylib
+copying file ./iphoneos/libswiftCoreGraphics.dylib ... 
+2020-05-05 05:56:20 +0000  2727340 bytes for ./iphoneos/libswiftCoreGraphics.dylib
+2020-05-05 05:56:20 +0000  copying file ./iphoneos/libswiftMetal.dylib ... 
+2020-05-05 05:56:20 +0000  897155 bytes for ./iphoneos/libswiftMetal.dylib
+2020-05-05 05:56:20 +0000  copying file ./iphoneos/libswiftDispatch.dylib ... 
+2020-05-05 05:56:20 +0000  5501324 bytes for ./iphoneos/libswiftDispatch.dylib
+copying file ./iphoneos/libswiftos.dylib ... 
+2020-05-05 05:56:20 +0000  1136724 bytes for ./iphoneos/libswiftos.dylib
+copying file ./iphoneos/libswiftCoreFoundation.dylib ... 
+2020-05-05 05:56:20 +0000  503571 bytes for ./iphoneos/libswiftCoreFoundation.dylib
+2020-05-05 05:56:20 +0000  copying file ./iphoneos/libswiftDarwin.dylib ... 
+2020-05-05 05:56:20 +0000  1412286 bytes for ./iphoneos/libswiftDarwin.dylib
+2020-05-05 05:56:20 +0000  copying file ./iphoneos/libswiftQuartzCore.dylib ... 
+580068 bytes for ./iphoneos/libswiftQuartzCore.dylib
+copying file ./iphoneos/libswiftFoundation.dylib ... 
+2020-05-05 05:56:20 +0000  62290319 bytes for ./iphoneos/libswiftFoundation.dylib
+2020-05-05 05:56:20 +0000  /usr/bin/ditto exited with 0
+2020-05-05 05:56:20 +0000  Processing step: IDEDistributionAppThinningStep
+2020-05-05 05:56:20 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2020-05-05 05:56:20 +0000  Processing step: IDEDistributionArchThinningStep
+2020-05-05 05:56:20 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:20 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:20 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftCore.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftCoreFoundation.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftCoreGraphics.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftDarwin.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftDispatch.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftFoundation.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftMetal.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Successfully thinned item "libswiftObjectiveC.dylib", arch "arm64e"
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:21 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:21 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'
+2020-05-05 05:56:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:22 +0000  Successfully thinned item "libswiftQuartzCore.dylib", arch "arm64e"
+2020-05-05 05:56:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib' '-verify_arch' 'arm64e'
+2020-05-05 05:56:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib' '-remove' 'arm64e' '-output' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib'
+2020-05-05 05:56:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 0
+2020-05-05 05:56:22 +0000  Successfully thinned item "libswiftos.dylib", arch "arm64e"
+2020-05-05 05:56:22 +0000  Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/SimpleChat' '-verify_arch' 'arm64e'
+2020-05-05 05:56:22 +0000  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2020-05-05 05:56:22 +0000  Skipping architecture thinning for item "SimpleChat" because arch "arm64e" wasn't found
+2020-05-05 05:56:22 +0000  Processing step: IDEDistributionODRStep
+2020-05-05 05:56:22 +0000  Processing step: IDEDistributionStripXattrsStep
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe195c02f70; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe1855eaa50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a1c6a0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe18559dc40; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195ac8b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a1a630; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185753c90; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185280bb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855d8c80; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe1857571b0; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185755e00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855f95a0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185756620; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18551f100; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855f95a0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185762510; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18575d9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855f95a0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185717a70; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18457ffd0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1847d3c60; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185a0e1d0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195b46120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1857487d0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe18575df30; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185717d50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855d92d0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Skipping stripping extended attributes of item: <IDEDistributionItem: 0x7fe185a11a10; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185509ab0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a26e70; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>
+2020-05-05 05:56:22 +0000  Running /usr/bin/xattr '-crs' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app'
+2020-05-05 05:56:22 +0000  /usr/bin/xattr exited with 0
+2020-05-05 05:56:22 +0000  Processing step: IDEDistributionCodesignStep
+2020-05-05 05:56:22 +0000  Entitlements for <IDEDistributionItem: 0x7fe195c02f70; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe1855eaa50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1855d6be0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:22 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe195c02f70; bundleID='com.apple.dt.runtime.swiftCore', path='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe1855eaa50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185924990; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCore', executablePath='<DVTFilePath:0x7fe1851c65d0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCore.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~CT1q52
+2020-05-05 05:56:22 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~CT1q52' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib'
+2020-05-05 05:56:22 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib: replacing existing signature
+2020-05-05 05:56:24 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCore.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCore]
+2020-05-05 05:56:24 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:24 +0000  Entitlements for <IDEDistributionItem: 0x7fe18559dc40; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195ac8b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a163d0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:24 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe18559dc40; bundleID='com.apple.dt.runtime.swiftCoreFoundation', path='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195ac8b20; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1858711b0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreFoundation', executablePath='<DVTFilePath:0x7fe185a00a80:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~s2BJ1p
+2020-05-05 05:56:24 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~s2BJ1p' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib'
+2020-05-05 05:56:24 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib: replacing existing signature
+2020-05-05 05:56:24 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCoreFoundation]
+2020-05-05 05:56:24 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:24 +0000  Entitlements for <IDEDistributionItem: 0x7fe185753c90; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185280bb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe18576a1b0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:24 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185753c90; bundleID='com.apple.dt.runtime.swiftCoreGraphics', path='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185280bb0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe18576dea0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftCoreGraphics', executablePath='<DVTFilePath:0x7fe185863d70:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~0bOmjZ
+2020-05-05 05:56:24 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~0bOmjZ' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib'
+2020-05-05 05:56:24 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib: replacing existing signature
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftCoreGraphics]
+2020-05-05 05:56:25 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:25 +0000  Entitlements for <IDEDistributionItem: 0x7fe1857571b0; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185755e00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185923db0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:25 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe1857571b0; bundleID='com.apple.dt.runtime.swiftDarwin', path='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185755e00; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe18585ca70; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDarwin', executablePath='<DVTFilePath:0x7fe1842e6640:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDarwin.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~JlTrWK
+2020-05-05 05:56:25 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~JlTrWK' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib'
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib: replacing existing signature
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftDarwin]
+2020-05-05 05:56:25 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:25 +0000  Entitlements for <IDEDistributionItem: 0x7fe185756620; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18551f100; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185769930; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:25 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185756620; bundleID='com.apple.dt.runtime.swiftDispatch', path='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18551f100; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe18576b920; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftDispatch', executablePath='<DVTFilePath:0x7fe1854368c0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftDispatch.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~9bll0b
+2020-05-05 05:56:25 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~9bll0b' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib'
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib: replacing existing signature
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftDispatch]
+2020-05-05 05:56:25 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:25 +0000  Entitlements for <IDEDistributionItem: 0x7fe185762510; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18575d9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185919880; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:25 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185762510; bundleID='com.apple.dt.runtime.swiftFoundation', path='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18575d9d0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185769a40; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftFoundation', executablePath='<DVTFilePath:0x7fe1851e39e0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftFoundation.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~N7EOmq
+2020-05-05 05:56:25 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~N7EOmq' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib'
+2020-05-05 05:56:25 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib: replacing existing signature
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftFoundation]
+2020-05-05 05:56:26 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:26 +0000  Entitlements for <IDEDistributionItem: 0x7fe185717a70; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18457ffd0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185919ea0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:26 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185717a70; bundleID='com.apple.dt.runtime.swiftMetal', path='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe18457ffd0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185769a10; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftMetal', executablePath='<DVTFilePath:0x7fe18587a840:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftMetal.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~uJpHT5
+2020-05-05 05:56:26 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~uJpHT5' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib'
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib: replacing existing signature
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftMetal]
+2020-05-05 05:56:26 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:26 +0000  Entitlements for <IDEDistributionItem: 0x7fe185a0e1d0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195b46120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a1bac0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:26 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185a0e1d0; bundleID='com.apple.dt.runtime.swiftObjectiveC', path='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe195b46120; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a2e450; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftObjectiveC', executablePath='<DVTFilePath:0x7fe1854f1030:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~rDpHoT
+2020-05-05 05:56:26 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~rDpHoT' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib'
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib: replacing existing signature
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftObjectiveC]
+2020-05-05 05:56:26 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:26 +0000  Entitlements for <IDEDistributionItem: 0x7fe18575df30; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185717d50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185a23b30; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:26 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe18575df30; bundleID='com.apple.dt.runtime.swiftQuartzCore', path='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185717d50; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1859247e0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftQuartzCore', executablePath='<DVTFilePath:0x7fe18587bc10:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~jZvmoM
+2020-05-05 05:56:26 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~jZvmoM' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib'
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib: replacing existing signature
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftQuartzCore]
+2020-05-05 05:56:26 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:26 +0000  Entitlements for <IDEDistributionItem: 0x7fe185a11a10; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185509ab0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185871290; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'>: {
+}
+2020-05-05 05:56:26 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185a11a10; bundleID='com.apple.dt.runtime.swiftos', path='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185509ab0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1858878c0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='(null)', teamID='85E8WAS7T4', identifier='com.apple.dt.runtime.swiftos', executablePath='<DVTFilePath:0x7fe1846daec0:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/Frameworks/libswiftos.dylib'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~6MgHBD
+2020-05-05 05:56:26 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~6MgHBD' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib'
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib: replacing existing signature
+2020-05-05 05:56:26 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app/Frameworks/libswiftos.dylib: signed Mach-O universal (armv7 armv7s arm64) [com.apple.dt.runtime.swiftos]
+2020-05-05 05:56:26 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:26 +0000  Entitlements for <IDEDistributionItem: 0x7fe185769300; bundleID='br.com.dreamteamapp.simplechat', path='<DVTFilePath:0x7fe191463f60:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185854740; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe1859297b0; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='{
+    "application-identifier" = "85E8WAS7T4.br.com.dreamteamapp.simplechat";
+    "com.apple.developer.team-identifier" = 85E8WAS7T4;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "85E8WAS7T4.br.com.dreamteamapp.simplechat"
+    );
+}', teamID='85E8WAS7T4', identifier='br.com.dreamteamapp.simplechat', executablePath='<DVTFilePath:0x7fe185516140:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/SimpleChat'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "85E8WAS7T4.br.com.dreamteamapp.simplechat";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = 85E8WAS7T4;
+    "get-task-allow" = 0;
+    "keychain-access-groups" =     (
+        "85E8WAS7T4.br.com.dreamteamapp.simplechat"
+    );
+}
+2020-05-05 05:56:26 +0000  Writing entitlements for <IDEDistributionItem: 0x7fe185769300; bundleID='br.com.dreamteamapp.simplechat', path='<DVTFilePath:0x7fe191463f60:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x7fe185854740; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x7fe185870430; name='Apple Development: Erick Alves (HM9BE4MVYB)', hash='D0375F756BA4A6179B507DB2BE29F5DE0093CFC7', serialNumber='5068F40E3FBD0E52', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2019-10-22 17:10:51 +0000''>', entitlements='{
+    "application-identifier" = "85E8WAS7T4.br.com.dreamteamapp.simplechat";
+    "com.apple.developer.team-identifier" = 85E8WAS7T4;
+    "get-task-allow" = 1;
+    "keychain-access-groups" =     (
+        "85E8WAS7T4.br.com.dreamteamapp.simplechat"
+    );
+}', teamID='85E8WAS7T4', identifier='br.com.dreamteamapp.simplechat', executablePath='<DVTFilePath:0x7fe185516140:'/Users/erickalves/Library/Developer/Xcode/Archives/2020-05-05/WhatsAppClone 05-05-20 06.55.xcarchive/Products/Applications/SimpleChat.app/SimpleChat'>', hardenedRuntime='0'>'> to: /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~9LJQmT
+2020-05-05 05:56:26 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'AA26B8CA895BDEA3841EF9B425528FD928C2059D' '--entitlements' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/entitlements~~~9LJQmT' '--preserve-metadata=identifier,flags,runtime' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app'
+2020-05-05 05:56:30 +0000  /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root/Payload/SimpleChat.app: signed app bundle with Mach-O universal (armv7 arm64) [br.com.dreamteamapp.simplechat]
+2020-05-05 05:56:30 +0000  /usr/bin/codesign exited with 0
+2020-05-05 05:56:30 +0000  Processing step: IDEDistributionZipODRItemStep
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2020-05-05 05:56:30 +0000  Processing step: IDEDistributionCreateIPAStep
+2020-05-05 05:56:30 +0000  Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root' '/var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Packages/WhatsAppClone.ipa'
+2020-05-05 05:56:30 +0000  >>> Copying /var/folders/ts/dp7n93s91lncyxx637tsnb900000gp/T/XcodeDistPipeline.~~~kOprvb/Root 
+2020-05-05 05:56:30 +0000  copying file ./BCSymbolMaps/183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap ... 
+2020-05-05 05:56:30 +0000  2458824 bytes for ./BCSymbolMaps/183E4B57-BA61-3FA9-9608-A549F415DCBB.bcsymbolmap
+2020-05-05 05:56:30 +0000  copying file ./BCSymbolMaps/3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap ... 
+2020-05-05 05:56:30 +0000  2487140 bytes for ./BCSymbolMaps/3C5362C7-13A7-3726-9260-C7831C71BA87.bcsymbolmap
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/_CodeSignature/CodeResources ... 
+2020-05-05 05:56:30 +0000  17199 bytes for ./Payload/SimpleChat.app/_CodeSignature/CodeResources
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Fontisto.ttf ... 
+2020-05-05 05:56:30 +0000  313528 bytes for ./Payload/SimpleChat.app/Fontisto.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Octicons.ttf ... 
+2020-05-05 05:56:30 +0000  28364 bytes for ./Payload/SimpleChat.app/Octicons.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Feather.ttf ... 
+2020-05-05 05:56:30 +0000  58272 bytes for ./Payload/SimpleChat.app/Feather.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon20x20@2x.png ... 
+2020-05-05 05:56:30 +0000  1375 bytes for ./Payload/SimpleChat.app/AppIcon20x20@2x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon57x57.png ... 
+2020-05-05 05:56:30 +0000  1820 bytes for ./Payload/SimpleChat.app/AppIcon57x57.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Entypo.ttf ... 
+2020-05-05 05:56:30 +0000  65584 bytes for ./Payload/SimpleChat.app/Entypo.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon20x20@3x.png ... 
+2020-05-05 05:56:30 +0000  1881 bytes for ./Payload/SimpleChat.app/AppIcon20x20@3x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/FontAwesome5_Brands.ttf ... 
+2020-05-05 05:56:30 +0000  125016 bytes for ./Payload/SimpleChat.app/FontAwesome5_Brands.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon29x29.png ... 
+2020-05-05 05:56:30 +0000  1056 bytes for ./Payload/SimpleChat.app/AppIcon29x29.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/MaterialCommunityIcons.ttf ... 
+2020-05-05 05:56:30 +0000  546548 bytes for ./Payload/SimpleChat.app/MaterialCommunityIcons.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon60x60@2x.png ... 
+2020-05-05 05:56:30 +0000  3482 bytes for ./Payload/SimpleChat.app/AppIcon60x60@2x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon29x29@2x.png ... 
+2020-05-05 05:56:30 +0000  1864 bytes for ./Payload/SimpleChat.app/AppIcon29x29@2x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AntDesign.ttf ... 
+2020-05-05 05:56:30 +0000  70344 bytes for ./Payload/SimpleChat.app/AntDesign.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon40x40@3x.png ... 
+2020-05-05 05:56:30 +0000  3482 bytes for ./Payload/SimpleChat.app/AppIcon40x40@3x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon57x57@2x.png ... 
+2020-05-05 05:56:30 +0000  3301 bytes for ./Payload/SimpleChat.app/AppIcon57x57@2x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Foundation.ttf ... 
+2020-05-05 05:56:30 +0000  56976 bytes for ./Payload/SimpleChat.app/Foundation.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Ionicons.ttf ... 
+2020-05-05 05:56:30 +0000  112472 bytes for ./Payload/SimpleChat.app/Ionicons.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/FontAwesome5_Solid.ttf ... 
+2020-05-05 05:56:30 +0000  186228 bytes for ./Payload/SimpleChat.app/FontAwesome5_Solid.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon40x40@2x.png ... 
+2020-05-05 05:56:30 +0000  2595 bytes for ./Payload/SimpleChat.app/AppIcon40x40@2x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/FontAwesome5_Regular.ttf ... 
+2020-05-05 05:56:30 +0000  34092 bytes for ./Payload/SimpleChat.app/FontAwesome5_Regular.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon29x29@3x.png ... 
+2020-05-05 05:56:30 +0000  2682 bytes for ./Payload/SimpleChat.app/AppIcon29x29@3x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/AppIcon60x60@3x.png ... 
+2020-05-05 05:56:30 +0000  4930 bytes for ./Payload/SimpleChat.app/AppIcon60x60@3x.png
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Base.lproj/LaunchScreen.nib ... 
+2020-05-05 05:56:30 +0000  3150 bytes for ./Payload/SimpleChat.app/Base.lproj/LaunchScreen.nib
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/FontAwesome.ttf ... 
+2020-05-05 05:56:30 +0000  165548 bytes for ./Payload/SimpleChat.app/FontAwesome.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Zocial.ttf ... 
+2020-05-05 05:56:30 +0000  25552 bytes for ./Payload/SimpleChat.app/Zocial.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Assets.car ... 
+2020-05-05 05:56:30 +0000  78312 bytes for ./Payload/SimpleChat.app/Assets.car
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/EvilIcons.ttf ... 
+2020-05-05 05:56:30 +0000  13456 bytes for ./Payload/SimpleChat.app/EvilIcons.ttf
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/main.jsbundle ... 
+2020-05-05 05:56:30 +0000  1269468 bytes for ./Payload/SimpleChat.app/main.jsbundle
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib ... 
+2020-05-05 05:56:30 +0000  500096 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftObjectiveC.dylib
+2020-05-05 05:56:30 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftCore.dylib ... 
+2020-05-05 05:56:35 +0000  69852800 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftCore.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib ... 
+2020-05-05 05:56:35 +0000  1535344 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftCoreGraphics.dylib
+copying file ./Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib ... 
+2020-05-05 05:56:35 +0000  544928 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftMetal.dylib
+copying file ./Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib ... 
+2020-05-05 05:56:35 +0000  2993328 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftDispatch.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftos.dylib ... 
+2020-05-05 05:56:35 +0000  644960 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftos.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib ... 
+2020-05-05 05:56:35 +0000  335936 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftCoreFoundation.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib ... 
+2020-05-05 05:56:35 +0000  813984 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftDarwin.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib ... 
+2020-05-05 05:56:35 +0000  355600 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftQuartzCore.dylib
+2020-05-05 05:56:35 +0000  copying file ./Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib ... 
+2020-05-05 05:56:37 +0000  31957088 bytes for ./Payload/SimpleChat.app/Frameworks/libswiftFoundation.dylib
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/SimpleLineIcons.ttf ... 
+2020-05-05 05:56:37 +0000  54056 bytes for ./Payload/SimpleChat.app/SimpleLineIcons.ttf
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/embedded.mobileprovision ... 
+2020-05-05 05:56:37 +0000  7612 bytes for ./Payload/SimpleChat.app/embedded.mobileprovision
+copying file ./Payload/SimpleChat.app/assets/app.json ... 
+2020-05-05 05:56:37 +0000  63 bytes for ./Payload/SimpleChat.app/assets/app.json
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/node_modules/css-color-keywords/colors.json ... 
+2020-05-05 05:56:37 +0000  3796 bytes for ./Payload/SimpleChat.app/assets/node_modules/css-color-keywords/colors.json
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@3x.png ... 
+2020-05-05 05:56:37 +0000  761 bytes for ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@3x.png
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@2x.png ... 
+2020-05-05 05:56:37 +0000  405 bytes for ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon@2x.png
+copying file ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon.png ... 
+2020-05-05 05:56:37 +0000  290 bytes for ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon.png
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon-mask.png ... 
+2020-05-05 05:56:37 +0000  913 bytes for ./Payload/SimpleChat.app/assets/node_modules/@react-navigation/stack/src/views/assets/back-icon-mask.png
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json ... 
+2020-05-05 05:56:37 +0000  17166 bytes for ./Payload/SimpleChat.app/assets/node_modules/react-native-vector-icons/glyphmaps/Ionicons.json
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/assets/src/Assets/Animations/chat.json ... 
+2020-05-05 05:56:37 +0000  5205 bytes for ./Payload/SimpleChat.app/assets/src/Assets/Animations/chat.json
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/Info.plist ... 
+2020-05-05 05:56:37 +0000  1755 bytes for ./Payload/SimpleChat.app/Info.plist
+copying file ./Payload/SimpleChat.app/PkgInfo ... 
+2020-05-05 05:56:37 +0000  8 bytes for ./Payload/SimpleChat.app/PkgInfo
+copying file ./Payload/SimpleChat.app/MaterialIcons.ttf ... 
+2020-05-05 05:56:37 +0000  128180 bytes for ./Payload/SimpleChat.app/MaterialIcons.ttf
+2020-05-05 05:56:37 +0000  copying file ./Payload/SimpleChat.app/SimpleChat ... 
+2020-05-05 05:56:40 +0000  46880752 bytes for ./Payload/SimpleChat.app/SimpleChat
+2020-05-05 05:56:40 +0000  copying file ./SwiftSupport/iphoneos/libswiftObjectiveC.dylib ... 
+2020-05-05 05:56:40 +0000  679568 bytes for ./SwiftSupport/iphoneos/libswiftObjectiveC.dylib
+2020-05-05 05:56:40 +0000  copying file ./SwiftSupport/iphoneos/libswiftCore.dylib ... 
+2020-05-05 05:56:46 +0000  95497472 bytes for ./SwiftSupport/iphoneos/libswiftCore.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftCoreGraphics.dylib ... 
+2020-05-05 05:56:46 +0000  2040928 bytes for ./SwiftSupport/iphoneos/libswiftCoreGraphics.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftMetal.dylib ... 
+2020-05-05 05:56:46 +0000  724304 bytes for ./SwiftSupport/iphoneos/libswiftMetal.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftDispatch.dylib ... 
+2020-05-05 05:56:46 +0000  4056784 bytes for ./SwiftSupport/iphoneos/libswiftDispatch.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftos.dylib ... 
+2020-05-05 05:56:46 +0000  857072 bytes for ./SwiftSupport/iphoneos/libswiftos.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftCoreFoundation.dylib ... 
+2020-05-05 05:56:46 +0000  450272 bytes for ./SwiftSupport/iphoneos/libswiftCoreFoundation.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftDarwin.dylib ... 
+2020-05-05 05:56:46 +0000  1091328 bytes for ./SwiftSupport/iphoneos/libswiftDarwin.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftQuartzCore.dylib ... 
+2020-05-05 05:56:46 +0000  486224 bytes for ./SwiftSupport/iphoneos/libswiftQuartzCore.dylib
+2020-05-05 05:56:46 +0000  copying file ./SwiftSupport/iphoneos/libswiftFoundation.dylib ... 
+2020-05-05 05:56:49 +0000  43094208 bytes for ./SwiftSupport/iphoneos/libswiftFoundation.dylib
+2020-05-05 05:56:49 +0000  /usr/bin/ditto exited with 0
+2020-05-05 05:56:49 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2020-05-05 05:56:49 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2020-05-05 05:56:49 +0000  Processing step: IDEDistributionGenerateProcessedDistributionItems
+2020-05-05 05:56:50 +0000  Processing step: IDEDistributionCreateManifestStep
+2020-05-05 05:56:50 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
