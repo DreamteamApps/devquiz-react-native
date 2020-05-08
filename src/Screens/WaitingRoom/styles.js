@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const GameContainer = styled.View`
   width: 100%;
@@ -16,9 +17,9 @@ export const VSContainer = styled.View`
 
 export const VSImageContainer = styled.View`
   background: #fff;
-  width: ${(props) => props.theme.hpx(100)};
-  height: ${(props) => props.theme.hpx(100)};
-  border-radius: ${(props) => props.theme.hpx(50)};
+  width: ${hpx(100)};
+  height: ${hpx(100)};
+  border-radius: ${hpx(50)};
 
   align-items: center;
   justify-content: center;
@@ -30,7 +31,7 @@ export const VSImage = styled.Image``;
 export const VSLine = styled.View`
   background: #fff;
   width: 100%;
-  height: ${(props) => props.theme.hpx(5)};
+  height: ${hpx(5)};
   position: relative;
   flex: 1;
 `;
@@ -40,7 +41,7 @@ export const OpponentContainer = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin-bottom: ${(props) => props.theme.hpx(50)};
+  margin-bottom: ${hpx(50)};
 `;
 
 export const ShareContainer = styled.View`
@@ -50,7 +51,7 @@ export const ShareContainer = styled.View`
 export const Code = styled.Text`
   color: ${(props) => props.theme.colors.secondary};
   font-size: ${(props) => props.theme.fonts.xxlarge};
-  margin-bottom: ${(props) => props.theme.hpx(20)};
+  margin-bottom: ${hpx(20)};
   font-family: ${(props) => props.theme.fontName.bold};
 `;
 export const CodeExplainText = styled.Text`
@@ -65,14 +66,14 @@ export const ButtonsContainer = styled.View`
 
 export const CheckFirstPlayer = styled.View`
   position: absolute;
-  bottom: ${(props) => props.theme.hpx(10)};
-  right: ${(props) => props.theme.wpx(10)};
+  bottom: ${hpx(10)};
+  right: ${wpx(10)};
   opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;
 
 export const CheckOpponent = styled.View`
   position: absolute;
-  bottom: ${(props) => props.theme.wpx(-65)};
-  right: ${(props) => props.theme.wpx(10)};
+  bottom: ${wpx(-65)};
+  right: ${wpx(10)};
   opacity: ${(props) => (props.enabled ? '1' : '0.5')};
 `;

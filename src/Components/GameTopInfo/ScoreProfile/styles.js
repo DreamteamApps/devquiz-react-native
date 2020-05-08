@@ -1,20 +1,21 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const Container = styled.View`
   flex-direction: ${(props) => (props.alternative ? 'row-reverse' : 'row')};
-  padding: ${(props) => props.theme.hpx(25)};
+  padding: ${hpx(25)};
   align-items: center;
 `;
 
 export const Avatar = styled.Image`
-  width: ${(props) => props.theme.hpx(50)};
-  height: ${(props) => props.theme.hpx(50)};
-  border-radius: ${(props) => props.theme.hpx(25)};
+  width: ${hpx(50)};
+  height: ${hpx(50)};
+  border-radius: ${hpx(25)};
   border-width: 2px;
   border-color: #fff;
 `;
 export const ProfileInfo = styled.View`
-  margin-left: ${(props) => props.theme.wpx(10)};
+  margin-left: ${wpx(10)};
   margin-right: ${(props) => (props.alternative ? '10px' : '0')};
 `;
 export const Name = styled.Text.attrs((props) => ({

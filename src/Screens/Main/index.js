@@ -67,7 +67,7 @@ export default function Main({navigation}) {
         const dataReturn = await getData(username, pushToken);
         await saveUser(dataReturn.data);
         setUser(dataReturn.data);
-        navigation.replace('Home');
+        navigation.navigate('Home');
       } catch (error) {
         console.log(error);
         Snackbar.show({

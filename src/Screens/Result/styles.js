@@ -1,21 +1,22 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const Title = styled.Text`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fonts.xlarge};
-  margin: ${(props) => props.theme.hpx(20)};
+  margin: ${hpx(20)};
   text-align: center;
 `;
 
 export const ContentContainer = styled.View`
-  border-radius: ${(props) => props.theme.hpx(10)};
+  border-radius: ${hpx(10)};
   align-self: center;
 `;
 
 export const ButtonsContainer = styled.View`
-  bottom: ${(props) => props.theme.hpx(20)};
+  bottom: ${hpx(20)};
   width: 100%;
-  padding-horizontal: ${(props) => props.theme.hpx(20)};
+  padding-horizontal: ${hpx(20)};
 `;
 
 export const ScoreContainer = styled.View`
@@ -24,27 +25,27 @@ export const ScoreContainer = styled.View`
   align-items: center;
   align-content: center;
   justify-content: space-around;
-  margin-top: ${(props) => props.theme.hpx(20)};
+  margin-top: ${hpx(20)};
 `;
 export const WinsLoosesContainer = styled.View`
   align-items: center;
-  margin-horizontal: ${(props) => props.theme.wpx(10)};
+  margin-horizontal: ${wpx(10)};
 `;
 export const PlayerAvatar = styled.Image`
-  width: ${(props) => props.theme.hpx(100)};
-  height: ${(props) => props.theme.hpx(100)};
-  border-radius: ${(props) => props.theme.hpx(50)};
+  width: ${hpx(100)};
+  height: ${hpx(100)};
+  border-radius: ${hpx(50)};
 `;
 export const PlayerName = styled.Text.attrs((props) => ({
   ellipsizeMode: 'tail',
   numberOfLines: 1,
 }))`
-  width: ${(props) => props.theme.wpx(120)};
+  width: ${wpx(120)};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.small};
   color: ${(props) => props.theme.colors.gray};
   font-family: ${(props) => props.theme.fontName.regular};
-  margin-vertical: ${(props) => props.theme.hpx(10)};
+  margin-vertical: ${hpx(10)};
 `;
 export const ScoreLooseValue = styled.Text`
   font-size: ${(props) => props.theme.fonts.large};

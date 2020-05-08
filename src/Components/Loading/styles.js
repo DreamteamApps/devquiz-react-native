@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const Container = styled.View`
   align-items: center;

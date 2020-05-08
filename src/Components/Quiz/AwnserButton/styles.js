@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const ButtonContainer = styled.TouchableOpacity`
   flex-grow: 1;
@@ -6,9 +7,9 @@ export const ButtonContainer = styled.TouchableOpacity`
   flex-basis: ${(props) => (props.small ? '40%' : '100%')};
   justify-content: center;
   align-items: center;
-  height: ${(props) => props.theme.hpx(66)};
-  margin: ${(props) => props.theme.hpx(10)};
-  border-radius: ${(props) => props.theme.hpx(10)};
+  height: ${hpx(66)};
+  margin: ${hpx(10)};
+  border-radius: ${hpx(10)};
   background-color: ${(props) =>
     props.showCorrectAnwser && props.correct
       ? props.theme.colors.green
@@ -25,25 +26,25 @@ export const AwnserText = styled.Text`
       : props.theme.colors.btnText};
   text-align: center;
   font-size: ${(props) => props.theme.fonts.xxlarge};
-  padding: ${(props) => props.theme.hpx(10)};
+  padding: ${hpx(10)};
 `;
 
 export const AvatarLeft = styled.Image`
   position: absolute;
-  left: ${(props) => props.theme.wpx(-18)};
-  width: ${(props) => props.theme.hpx(36)};
-  height: ${(props) => props.theme.hpx(36)};
-  border-radius: ${(props) => props.theme.hpx(25)};
+  left: ${wpx(-18)};
+  width: ${hpx(36)};
+  height: ${hpx(36)};
+  border-radius: ${hpx(25)};
   border-width: 2px;
   border-color: #fff;
 `;
 
 export const AvatarRight = styled.Image`
   position: absolute;
-  right: ${(props) => props.theme.wpx(-18)};
-  width: ${(props) => props.theme.hpx(36)};
-  height: ${(props) => props.theme.hpx(36)};
-  border-radius: ${(props) => props.theme.hpx(25)};
+  right: ${wpx(-18)};
+  width: ${hpx(36)};
+  height: ${hpx(36)};
+  border-radius: ${hpx(25)};
   border-width: 2px;
   border-color: #fff;
 `;

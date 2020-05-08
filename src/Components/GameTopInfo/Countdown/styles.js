@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const Container = styled.View`
   background: ${(props) => props.theme.colors.secondary};
-  border-radius: ${(props) => props.theme.hpx(30)};
-  width: ${(props) => props.theme.hpx(60)};
-  height: ${(props) => props.theme.hpx(60)};
+  border-radius: ${hpx(30)};
+  width: ${hpx(60)};
+  height: ${hpx(60)};
   align-items: center;
   justify-content: center;
   border: 3px #a790f4;

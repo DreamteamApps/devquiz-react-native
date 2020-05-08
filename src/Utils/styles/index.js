@@ -5,10 +5,10 @@ const sizeMultiplier = {
   width: Dimensions.get('window').width / 375,
 };
 
-const hpx = (value) => {
+export const hpx = (value) => {
   return value * sizeMultiplier.height + 'px';
 };
-const wpx = (value) => {
+export const wpx = (value) => {
   return value * sizeMultiplier.width + 'px';
 };
 

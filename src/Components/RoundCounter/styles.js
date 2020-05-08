@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 import {Animated} from 'react-native';
 
 export const RoundConteiner = styled.View`
@@ -11,6 +12,6 @@ export const RoundTitle = styled.Text`
   color: #fff;
   font-size: ${(props) =>
     props.small ? props.theme.fonts.large : props.theme.fonts.xxlarge};
-  margin-bottom: ${(props) => props.theme.hpx(20)};
+  margin-bottom: ${hpx(20)};
   font-family: ${(props) => props.theme.fontName.bold};
 `;

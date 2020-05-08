@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
+import {hpx, wpx} from '~/Utils/styles';
 
 export const Container = styled.View`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: ${(props) => props.theme.hpx(5)};
+  margin-top: ${hpx(5)};
 `;
 
 export const ContainerScore = styled.View`
