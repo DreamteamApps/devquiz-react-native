@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Title, ButtonsContainer, Logo, UserContainer} from './styles';
 
 import {getData} from '~/Service/AuthApi';
@@ -25,6 +25,7 @@ export default function Main({navigation}) {
   const ref = React.useRef();
   const {setUser} = useAuth();
   const {setLoading} = useApp();
+  const [autoFocusLogin, setAutoFocusLogin] = useState(false);
   const {getInitialState} = useLinking(ref, {
     prefixes: [
       'http://devquiz.app/invite',
@@ -32,6 +33,7 @@ export default function Main({navigation}) {
       'https://devquiz.app/invite',
     ],
   });
+  const loginRef = useRef();
 
   const getLocalUserData = async () => {
     const user = await getUser();
@@ -46,13 +48,14 @@ export default function Main({navigation}) {
         getUserData(user.login);
       }
     } else {
+      loginRef.current.focus();
       setLoading(false);
     }
   };
   useEffect(() => {
     //check if we have this Local User
-    //setLoading(true);
-    //getLocalUserData();
+    setLoading(true);
+    getLocalUserData();
   }, []);
 
   const getDeepLink = async () => {
@@ -111,7 +114,7 @@ export default function Main({navigation}) {
             onChangeText={(text) => setUsername(text)}
             onSubmitEditing={() => getUserData(username)}
             autoCapitalize={'none'}
-            autoFocus={true}
+            ref={loginRef}
             style={{width: '90%'}}
           />
         </UserContainer>
