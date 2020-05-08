@@ -139,7 +139,6 @@ export default function WaitingRoom({navigation, route}) {
     BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
     return () => {
       AudioPlayer().stop();
-      console.log('unassign ');
       BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
       hubConnect.off('player-leaved');
       hubConnect.off('match-start-round');
@@ -166,7 +165,7 @@ export default function WaitingRoom({navigation, route}) {
     const shareOptions = {
       title: 'DevQuiz',
       message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
-      url: `http://devquiz.app/invite/${game.roomCode}`,
+      url: `https://devquiz.app/invite/${game.roomCode}`,
     };
     Share.open(shareOptions);
   };
@@ -212,16 +211,16 @@ export default function WaitingRoom({navigation, route}) {
               <>
                 <CheckFirstPlayer enabled={ready}>
                   <IconIonicons
-                    name="ios-checkmark-circle"
+                    name="ios-checkmark"
                     size={50}
-                    color="#2ECC71"
+                    color={ready ? '#2ECC71' : '#fff'}
                   />
                 </CheckFirstPlayer>
                 <CheckOpponent enabled={opponentReady}>
                   <IconIonicons
-                    name="ios-checkmark-circle"
+                    name="ios-checkmark"
                     size={50}
-                    color="#2ECC71"
+                    color={opponentReady ? '#2ECC71' : '#fff'}
                   />
                 </CheckOpponent>
               </>
