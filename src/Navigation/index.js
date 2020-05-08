@@ -14,7 +14,10 @@ const Stack = createStackNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main" headerMode="none">
+      <Stack.Navigator
+        initialRouteName="Main"
+        headerMode="none"
+        screenOptions={{gestureEnabled: false}}>
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
