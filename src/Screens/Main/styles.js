@@ -17,8 +17,7 @@ export const Logo = styled.Image`
   width: 100%;
   height: ${hpx(80)};
   resize-mode: contain;
-  margin-bottom: ${hpx(50)};
-  margin-top: ${hpx(150)};
+  margin-bottom: ${hpx(70)};
   display: ${(props) => (props.hide ? 'none' : 'flex')};
 `;
 

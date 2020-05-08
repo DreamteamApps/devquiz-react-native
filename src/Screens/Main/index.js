@@ -17,6 +17,7 @@ import {useAuth} from '~/Contexts/AuthContext';
 import {useApp} from '~/Contexts/AppContext';
 import {useKeyboard} from '@react-native-community/hooks';
 import OneSignalConfig from '~/Service/pushService';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export default function Main({navigation}) {
   const keyboard = useKeyboard();
@@ -50,8 +51,8 @@ export default function Main({navigation}) {
   };
   useEffect(() => {
     //check if we have this Local User
-    setLoading(true);
-    getLocalUserData();
+    //setLoading(true);
+    //getLocalUserData();
   }, []);
 
   const getDeepLink = async () => {
@@ -87,26 +88,39 @@ export default function Main({navigation}) {
   return (
     <PageContainer justifyContent="flex-start">
       <OneSignalConfig />
-      <Logo
-        source={require('~/Assets/Images/logo.png')}
-        hide={keyboard.keyboardShown}
-      />
-      <UserContainer>
-        <Title>Type your Github</Title>
+      <KeyboardAwareScrollView
+        keyboardOpeningTime={0}
+        scrollEnabled={false}
+        keyboardShouldPersistTaps={'handled'}
+        viewIsInsideTabBar={true}
+        style={{width: '100%'}}
+        contentContainerStyle={{
+          flex: 1,
+          justifyContent: 'flex-end',
+        }}
+        enableOnAndroid={false}>
+        <UserContainer>
+          <Logo
+            source={require('~/Assets/Images/logo.png')}
+            // hide={keyboard.keyboardShown}
+          />
+          <Title>Type your Github</Title>
 
-        <InputText
-          placeholder="type your github username"
-          onChangeText={(text) => setUsername(text)}
-          onSubmitEditing={() => getUserData(username)}
-          autoCapitalize={'none'}
-          autoFocus={true}
-          style={{width: '90%'}}
-        />
-      </UserContainer>
-
-      <ButtonsContainer>
-        <CustomButton onPress={() => getUserData(username)}>Enter</CustomButton>
-      </ButtonsContainer>
+          <InputText
+            placeholder="type your github username"
+            onChangeText={(text) => setUsername(text)}
+            onSubmitEditing={() => getUserData(username)}
+            autoCapitalize={'none'}
+            autoFocus={true}
+            style={{width: '90%'}}
+          />
+        </UserContainer>
+        <ButtonsContainer>
+          <CustomButton onPress={() => getUserData(username)}>
+            Enter
+          </CustomButton>
+        </ButtonsContainer>
+      </KeyboardAwareScrollView>
     </PageContainer>
   );
 }
