@@ -4,6 +4,8 @@ import {Title, ButtonsContainer, Logo, UserContainer} from './styles';
 import {getData} from '~/Service/AuthApi';
 import InputText from '~/Components/InputText';
 import CustomButton from '~/Components/CustomButton';
+import SplashScreen from 'react-native-splash-screen';
+
 import {
   saveUser,
   getUser,
@@ -53,6 +55,7 @@ export default function Main({navigation}) {
     }
   };
   useEffect(() => {
+    SplashScreen.hide();
     //check if we have this Local User
     setLoading(true);
     getLocalUserData();

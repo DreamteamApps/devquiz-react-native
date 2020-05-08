@@ -79,6 +79,8 @@ target 'DevQuiz' do
 
   pod 'react-native-onesignal', :path => '../node_modules/react-native-onesignal'
 
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
   target 'DevQuizTests' do
     inherit! :complete
     # Pods for testing

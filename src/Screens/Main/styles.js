@@ -17,7 +17,7 @@ export const Logo = styled.Image`
   width: 100%;
   height: ${hpx(80)};
   resize-mode: contain;
-  margin-bottom: ${hpx(70)};
+  margin-bottom: ${hpx(40)};
   display: ${(props) => (props.hide ? 'none' : 'flex')};
 `;
 
@@ -26,5 +26,4 @@ export const UserContainer = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-bottom: ${hpx(230)};
 `;
