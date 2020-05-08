@@ -13,7 +13,6 @@ export default function OneSignalConfig() {
 
   const startOnesignal = () => {
     OneSignal.init(ONESIGNAL_APP_KEY, {
-      kOSSettingsKeyAutoPrompt: false,
       kOSSettingsKeyInAppLaunchURL: false,
       kOSSettingsKeyInFocusDisplayOption: 2,
     });
