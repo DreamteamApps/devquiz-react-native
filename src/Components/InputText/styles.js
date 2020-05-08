@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
 import {hpx, wpx} from '~/Utils/styles';
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput.attrs((props) => ({
+  placeholderTextColor: '#999',
+}))`
   background: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.primary};
   border-radius: 10px;
