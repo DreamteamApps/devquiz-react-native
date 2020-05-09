@@ -1,12 +1,13 @@
 import Sound from 'react-native-sound';
+import {getMusicEnabled} from '~/Storage/AppStorage';
 
 const players = {};
 export const AudioPlayer = () => {
   Sound.setCategory('Playback');
 
-  const play = (audioFile, track = 'background') => {
-    console.log('audioLog', audioFile);
-
+  const play = async (audioFile, track = 'background') => {
+    let isMusicEnabled = await getMusicEnabled();
+    if (!isMusicEnabled) return;
     const player = new Sound(audioFile, Sound.MAIN_BUNDLE, (error) => {
       player.play();
       player.setVolume(0.5);
@@ -17,7 +18,9 @@ export const AudioPlayer = () => {
     players[track] = player;
   };
 
-  const stop = (track = 'background') => {
+  const stop = async (track = 'background') => {
+    let isMusicEnabled = await getMusicEnabled();
+    if (!isMusicEnabled) return;
     players[track].stop();
     players[track].release();
   };
@@ -27,6 +30,7 @@ export const AudioPlayer = () => {
     stop,
   };
 };
+
 export const AUDIOS = {
   LOBBY: 'lobby.mp3',
   READY: 'click.mp3',

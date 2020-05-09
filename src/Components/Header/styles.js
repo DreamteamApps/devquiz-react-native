@@ -11,4 +11,5 @@ export const ButtonArea = styled.View`
   padding: ${hpx(10)};
   justify-content: flex-end;
   align-items: flex-end;
+  width: 50px;
 `;
