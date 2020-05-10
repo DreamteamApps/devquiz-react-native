@@ -27,7 +27,7 @@ import swords from '~/Assets/Animations/swords.json';
 import countdown from '~/Assets/Animations/countdown.json';
 import {useGame} from '~/Contexts/GameContext';
 import Share from 'react-native-share';
-import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
+import AudioPlayer, {AUDIOS} from '~/Utils/AudioPlayer';
 import {useTheme} from 'styled-components';
 
 export default function WaitingRoom({navigation, route}) {
@@ -57,11 +57,11 @@ export default function WaitingRoom({navigation, route}) {
     if (user.id == data.opponent?.id) {
       setOpponent(data.owner);
       setPlayers({...players, player: data.opponent, opponent: data.owner});
-      AudioPlayer().play(AUDIOS.NEWUSER, 'ui');
+      AudioPlayer.play(AUDIOS.NEWUSER, 'ui');
     } else {
       if (data.opponent) {
         setOpponent(data.opponent);
-        AudioPlayer().play(AUDIOS.NEWUSER, 'ui');
+        AudioPlayer.play(AUDIOS.NEWUSER, 'ui');
       }
 
       setPlayers({...players, player: data.owner, opponent: data.opponent});
@@ -70,7 +70,7 @@ export default function WaitingRoom({navigation, route}) {
   useEffect(() => {
     AppState.addEventListener('change', handleChangeAppState);
 
-    AudioPlayer().play(AUDIOS.LOBBY);
+    AudioPlayer.play(AUDIOS.LOBBY);
 
     if (game.matchId) {
       console.log('joinmatch', {
@@ -89,10 +89,10 @@ export default function WaitingRoom({navigation, route}) {
       console.log('player-ready');
       if (data.userId != user.id) {
         setOpponentReady(true);
-        AudioPlayer().play(AUDIOS.READY, 'ui');
+        AudioPlayer.play(AUDIOS.READY, 'ui');
       } else {
         setReady(true);
-        AudioPlayer().play(AUDIOS.READY, 'ui');
+        AudioPlayer.play(AUDIOS.READY, 'ui');
       }
     });
 
@@ -138,7 +138,7 @@ export default function WaitingRoom({navigation, route}) {
     // });
     BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
     return () => {
-      AudioPlayer().stop();
+      AudioPlayer.stop();
       BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
       hubConnect.off('player-leaved');
       hubConnect.off('match-start-round');
@@ -156,9 +156,9 @@ export default function WaitingRoom({navigation, route}) {
   };
   const handleChangeAppState = (newState) => {
     if (newState === 'active') {
-      AudioPlayer().play(AUDIOS.LOBBY);
+      AudioPlayer.play(AUDIOS.LOBBY);
     } else {
-      AudioPlayer().stop();
+      AudioPlayer.stop();
     }
   };
   const handleFriendInvite = () => {
@@ -167,12 +167,14 @@ export default function WaitingRoom({navigation, route}) {
       message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
       url: `https://devquiz.app/invite/${game.roomCode}`,
     };
-    Share.open(shareOptions);
+    Share.open(shareOptions).catch((error) => {
+      console.log('Failed to share:', error);
+    });
   };
 
   return (
     <PageContainer justifyContent="flex-start">
-      <Header back exitRoom={() => emit('leave-match')} />
+      <Header back exitRoom={() => emit('leave-match')} music />
       <GameContainer>
         <ProfileDisplay data={user} />
         <VSContainer>

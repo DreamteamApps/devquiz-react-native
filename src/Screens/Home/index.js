@@ -60,7 +60,7 @@ export default function Home({navigation}) {
   };
   return (
     <PageContainer justifyContent="flex-start">
-      <Header back music />
+      <Header back/>
       <ProfileHomeDisplay />
       <UserList data={recentlyUsers} title={'Recently users'} />
       <ButtonsContainer>
