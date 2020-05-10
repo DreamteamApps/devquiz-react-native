@@ -167,12 +167,14 @@ export default function WaitingRoom({navigation, route}) {
       message: `I challenged you on DevQuiz! You can use this Room Code ${game.roomCode} or just click on the link below to enter.`,
       url: `https://devquiz.app/invite/${game.roomCode}`,
     };
-    Share.open(shareOptions);
+    Share.open(shareOptions).catch((error) => {
+      console.log('Failed to share:', error);
+    });
   };
 
   return (
     <PageContainer justifyContent="flex-start">
-      <Header back exitRoom={() => emit('leave-match')} music/>
+      <Header back exitRoom={() => emit('leave-match')} music />
       <GameContainer>
         <ProfileDisplay data={user} />
         <VSContainer>
