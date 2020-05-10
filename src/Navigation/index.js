@@ -8,6 +8,7 @@ import WaitingRoom from '../Screens/WaitingRoom';
 import JoinRoom from '../Screens/JoinRoom';
 import Game from '../Screens/Game';
 import Result from '../Screens/Result';
+import Profile from '~/Screens/Profile';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function Navigation() {
         screenOptions={{gestureEnabled: false}}>
         <Stack.Screen name="Main" component={Main} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="WaitingRoom" component={WaitingRoom} />
         <Stack.Screen name="JoinRoom" component={JoinRoom} />
         <Stack.Screen name="Game" component={Game} />

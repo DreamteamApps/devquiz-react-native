@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "release": "cd android/ && ./gradlew assembleRelease",
-    "install": "cd android/app/build/outputs/apk/release && adb install app-release.apk",
+    "androidinstall": "cd android/app/build/outputs/apk/release && adb install app-release.apk",
     "iosrelease": "react-native run-ios --configuration Release"
   },
   "rnpm": {

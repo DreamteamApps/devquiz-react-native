@@ -2,16 +2,16 @@ import React, {useState, useEffect} from 'react';
 import {Platform} from 'react-native';
 
 import {Container, ButtonsContainer} from './styles';
-import {PageContainer} from '~/Components/Layout';
-import Header from '~/Components/Header';
-import ProfileHomeDisplay from '~/Components/ProfileHomeDisplay';
-import CustomButton from '~/Components/CustomButton';
-import {createRoom} from '~/Service/MatchApi';
-import {getRecentlyUsers} from '~/Service/AuthApi';
-import {useAuth} from '~/Contexts/AuthContext';
-import {useGame} from '~/Contexts/GameContext';
-import {useApp} from '~/Contexts/AppContext';
-import UserList from '~/Components/UserList';
+import {PageContainer} from './node_modules/~/Components/Layout';
+import Header from './node_modules/~/Components/Header';
+import ProfileHomeDisplay from './node_modules/~/Components/ProfileHomeDisplay';
+import CustomButton from './node_modules/~/Components/CustomButton';
+import {createRoom} from './node_modules/~/Service/MatchApi';
+import {getRecentlyUsers} from './node_modules/~/Service/AuthApi';
+import {useAuth} from './node_modules/~/Contexts/AuthContext';
+import {useGame} from './node_modules/~/Contexts/GameContext';
+import {useApp} from './node_modules/~/Contexts/AppContext';
+import UserList from './node_modules/~/Components/UserList';
 
 export default function Home({navigation}) {
   const [recentlyUsers, setRecentlyUsers] = useState([]);
@@ -40,11 +40,10 @@ export default function Home({navigation}) {
   const filterMyselfFromRecentUsers = (data) => {
     return data.filter((item) => item.id != user.id);
   };
-
-  const handleCreateRoom = async () => {
+  const handleCreateRoom = async (opponentId = '') => {
     setLoading(true);
     try {
-      const dataReturn = await createRoom(user.id);
+      const dataReturn = await createRoom(user.id, opponentId);
       const {matchId, matchCode} = dataReturn.data;
       setGame({...game, matchId: matchId, roomCode: matchCode});
       navigation.navigate('WaitingRoom');
@@ -62,7 +61,11 @@ export default function Home({navigation}) {
     <PageContainer justifyContent="flex-start">
       <Header back music />
       <ProfileHomeDisplay />
-      <UserList data={recentlyUsers} title={'Recently users'} />
+      <UserList
+        data={recentlyUsers}
+        title={'Recently users'}
+        onPress={handleCreateRoom}
+      />
       <ButtonsContainer>
         <CustomButton onPress={() => handleCreateRoom()}>
           Create Room

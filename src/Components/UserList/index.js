@@ -5,7 +5,7 @@ import {FlatList, ActivityIndicator} from 'react-native';
 import UserListItem from './UserListItem';
 
 export default function UserList({data, title, onPress}) {
-  console.log(data);
+  console.log('dataUsers', data);
   return (
     <Container>
       <Title>{title}</Title>
@@ -15,9 +15,7 @@ export default function UserList({data, title, onPress}) {
           horizontal
           keyExtractor={(item) => item.id.toString()}
           showsHorizontalScrollIndicator={false}
-          renderItem={({item}) => (
-            <UserListItem data={item} onPress={onPress} />
-          )}
+          renderItem={({item}) => <UserListItem data={item} />}
         />
       ) : (
         <LoadingContainer>

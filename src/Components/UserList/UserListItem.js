@@ -2,13 +2,17 @@ import React from 'react';
 
 import {ContainerUserList, Image, Name} from './styles';
 import {TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-export default function UserListItem({data: {key, id, name, avatar}, onPress}) {
+export default function UserListItem({data, onPress}) {
+  const navigation = useNavigation();
+  const {id, login, avatar} = data;
+
   return (
-    <TouchableOpacity onPress={() => onPress(id)}>
+    <TouchableOpacity onPress={() => navigation.navigate('Profile', {data})}>
       <ContainerUserList>
         <Image source={{uri: avatar}} />
-        <Name>@{name}</Name>
+        <Name>@{login}</Name>
       </ContainerUserList>
     </TouchableOpacity>
   );

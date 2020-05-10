@@ -11,40 +11,21 @@ import {getRecentlyUsers} from '~/Service/AuthApi';
 import {useAuth} from '~/Contexts/AuthContext';
 import {useGame} from '~/Contexts/GameContext';
 import {useApp} from '~/Contexts/AppContext';
-import UserList from '~/Components/UserList';
 
-export default function Home({navigation}) {
-  const [recentlyUsers, setRecentlyUsers] = useState([]);
+export default function Profile({navigation, route}) {
   const {user} = useAuth();
   const {game, setGame, hubConnect, emit} = useGame();
+  const {
+    params: {data},
+  } = route;
   const {setLoading} = useApp();
 
-  useEffect(() => {
-    getRecentlyUsersData();
-    hubConnect.on('recent-played', onRecentPlayed);
-    emit('client-connect');
+  useEffect(() => {}, []);
 
-    return () => {
-      hubConnect.off('recent-played', onRecentPlayed);
-    };
-  }, []);
-
-  const getRecentlyUsersData = async () => {
-    const userList = await getRecentlyUsers();
-    setRecentlyUsers(filterMyselfFromRecentUsers(userList.data));
-  };
-  const onRecentPlayed = (data) => {
-    console.log(`onRecentPlayed ${Platform.OS}`, data);
-    setRecentlyUsers(filterMyselfFromRecentUsers(data));
-  };
-  const filterMyselfFromRecentUsers = (data) => {
-    return data.filter((item) => item.id != user.id);
-  };
-
-  const handleCreateRoom = async () => {
+  const handleCreateRoom = async (opponentId = '') => {
     setLoading(true);
     try {
-      const dataReturn = await createRoom(user.id);
+      const dataReturn = await createRoom(user.id, opponentId);
       const {matchId, matchCode} = dataReturn.data;
       setGame({...game, matchId: matchId, roomCode: matchCode});
       navigation.navigate('WaitingRoom');
@@ -60,15 +41,12 @@ export default function Home({navigation}) {
   };
   return (
     <PageContainer justifyContent="flex-start">
-      <Header back music />
-      <ProfileHomeDisplay />
-      <UserList data={recentlyUsers} title={'Recently users'} />
+      <Header back />
+      <ProfileHomeDisplay data={data} />
+
       <ButtonsContainer>
-        <CustomButton onPress={() => handleCreateRoom()}>
-          Create Room
-        </CustomButton>
-        <CustomButton onPress={() => navigation.navigate('JoinRoom')}>
-          Join Room
+        <CustomButton onPress={() => handleCreateRoom(data.id)}>
+          Challenge {data.name}
         </CustomButton>
       </ButtonsContainer>
     </PageContainer>
