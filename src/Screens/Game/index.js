@@ -4,7 +4,7 @@ import RoundCounter from '~/Components/RoundCounter';
 import Question from '~/Components/Quiz';
 import GameTopInfo from '../../Components/GameTopInfo';
 import {useGame} from '~/Contexts/GameContext';
-import {AudioPlayer, AUDIOS} from '~/Utils/AudioPlayer';
+import AudioPlayer, { AUDIOS } from '~/Utils/AudioPlayer';
 
 function Game({navigation}) {
   const {
@@ -41,27 +41,25 @@ function Game({navigation}) {
   //TESTAR
   const onRoundEnd = useCallback(
     (data) => {
-      AudioPlayer().stop('countdown');
+      AudioPlayer.stop('countdown');
       console.log('onRoundEnd');
       let newAnwsers = quiz.answers;
       let newPlayers = players;
-      
       const isOwner = isPlayer(data?.owner?.id);
       const myData = isOwner ? data.owner : data.opponent;
       const myOpponentData = !isOwner ? data.owner : data.opponent;
-      
       newPlayers.player.score = myData.score;
       newPlayers.opponent.score = myOpponentData.score;
-      
+
       newAnwsers[data.correctAnswer - 1].correct = true;
-      
+
       if (myOpponentData.answer > 0) {
         newAnwsers[myOpponentData.answer - 1].opponentSelected = true;
       }
       if (myData.answer == data.correctAnswer) {
-        AudioPlayer().play(AUDIOS.SUCCESS, 'ui');
+        AudioPlayer.play(AUDIOS.SUCCESS, 'ui');
       } else {
-        AudioPlayer().play(AUDIOS.ERROR, 'ui');
+        AudioPlayer.play(AUDIOS.ERROR, 'ui');
       }
 
       setPlayers(newPlayers);
@@ -114,7 +112,7 @@ function Game({navigation}) {
       console.log('match-start-question');
       setRoundTime('');
       setShowQuestionScreen(true);
-      AudioPlayer().play(AUDIOS.COUNTDOWN, 'countdown');
+      AudioPlayer.play(AUDIOS.COUNTDOWN, 'countdown');
       setGame({
         ...game,
         showRoundScreen: false,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {TouchableOpacity} from 'react-native';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,10 +8,20 @@ import {Container, ButtonArea} from './styles';
 import {useNavigation} from '@react-navigation/native';
 import {useApp} from '~/Contexts/AppContext';
 
+import AudioPlayer from '~/Utils/AudioPlayer';
+
 export default function Header({exitRoom, back, music}) {
   const navigation = useNavigation();
   const theme = useTheme();
   const {musicStatus, changeMusicStatus} = useApp();
+
+  useEffect(() => {
+    if (musicStatus) {
+      AudioPlayer.resume();
+    } else {
+      AudioPlayer.mute();
+    }
+  }, [musicStatus]);
 
   const handleBack = () => {
     exitRoom && exitRoom();
