@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="DevQuiz" title="#delicinha" src="githubFiles/logo.svg" width="250px" />
+    <img alt="DevQuiz" title="DevQuiz" src=".github/logo.svg" width="250px" />
 </h1>
 
 <h4 align="center">
