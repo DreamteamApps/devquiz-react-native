@@ -18,7 +18,6 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/dreamteamapps/devquiz-react-native">
   </a>
 
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
 
 <br>
@@ -41,9 +40,44 @@ This project was built using:
 - [React Navigation](https://reactnavigation.org/)
 - and more...
 
+<br>
+
 ## Project
 
 DevQuiz is a question and answer game for developers, where only using the Github user you can enter and invite your friends to play and have fun.
+
+<br>
+
+## How to make it work
+
+To make this project alive, you will need to run the [Backend](https://github.com/DreamteamApps/devquiz-backend-nodejs) project (NodeJS + AdonisJS) and to manage the questions and game configurations, you will need to run the [Admin Dashboard](https://github.com/DreamteamApps/devquiz-admin-react):
+
+- [Backend](https://github.com/DreamteamApps/devquiz-backend-nodejs)
+- [Admin](https://github.com/DreamteamApps/devquiz-admin-react)
+
+<br>
+
+## Install
+
+### `yarn install`
+
+or
+
+### `npm install`
+
+You need to change the SERVER_API url to your server in the configuration file.
+
+<br>
+
+## Running
+
+Then run the project to Android or IOS
+
+### `yarn ios`
+
+### `react native run-android`
+
+<br>
 
 ## Contributors
 
