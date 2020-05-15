@@ -75,7 +75,7 @@ Then run the project to Android or IOS
 
 ### `yarn ios`
 
-### `react native run-android`
+### `yarn android`
 
 <br>
 
