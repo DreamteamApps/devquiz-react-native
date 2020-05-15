@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import OneSignal from 'react-native-onesignal';
 import {savePushToken} from '~/Storage/UserStorage';
 import {useNavigation} from '@react-navigation/native';
-import {ONESIGNAL_APP_KEY} from '~/Utils/constants';
+import {ONESIGNAL_APP_KEY} from '~/config';
 
 export default function OneSignalConfig() {
   const navigation = useNavigation();

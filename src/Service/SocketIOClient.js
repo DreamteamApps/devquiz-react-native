@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import io from 'socket.io-client';
-import {SERVER_URL} from '~/Utils/constants';
+import {SERVER_URL} from '~/config';
 
 export const connect = () => {
   try {
